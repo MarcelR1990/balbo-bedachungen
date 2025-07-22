@@ -42,6 +42,39 @@
       margin-top: 2rem;
     }
   </style>
+  <style>
+  .slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .slides {
+    display: flex;
+    width: 400%;
+    animation: slide 16s infinite;
+  }
+
+  .slides img {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  @keyframes slide {
+    0%    { transform: translateX(0%); }
+    20%   { transform: translateX(0%); }
+    25%   { transform: translateX(-100%); }
+    45%   { transform: translateX(-100%); }
+    50%   { transform: translateX(-200%); }
+    70%   { transform: translateX(-200%); }
+    75%   { transform: translateX(-300%); }
+    95%   { transform: translateX(-300%); }
+    100%  { transform: translateX(0%); }
+  }
+</style>
+
 </head>
 <body>
 
@@ -80,11 +113,17 @@
   </section>
 
   <section id="galerie">
-    <h2>Galerie</h2>
-    <p>Bilder unserer bisherigen Projekte folgen bald hier.</p>
-    <!-- Du kannst hier Bilder mit <img src="bilder/dach1.jpg" alt="Projekt 1"> einfügen -->
-    <img src="Ref001.jpg" alt="Referenz 1" style="height: 80px;">
-  </section>
+  <h2>Galerie</h2>
+  <div class="slideshow-container">
+    <div class="slides">
+      <img src="Ref001.jpg" alt="Dachprojekt 1">
+      <img src="Ref002.jpg" alt="Dachprojekt 2">
+      <img src="Ref003.jpg" alt="Dachprojekt 3">
+      <img src="Ref004.jpg" alt="Dachprojekt 4">
+    </div>
+  </div>
+</section>
+
 
   <section id="kontakt">
     <h2>Kontakt</h2>
