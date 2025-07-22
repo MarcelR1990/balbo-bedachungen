@@ -246,7 +246,18 @@
     <p>📧 E-Mail: <a href="mailto:info@bedachungen-balbo.de">info@bedachungen-balbo.de</a></p>
 
     <p>Gerne erstellen wir Ihnen ein unverbindliches Angebot!</p>
-  </section>
+    <form action="#" method="POST" class="my-form">
+      <label for="name">Ihr Name</label>
+      <input type="text" name="Name" id="name" required>
+      <label for="email">Ihre E-Mail-Adresse</label>
+      <input type="email" name="Email" id="email" required>
+      <label for="message">Was möchten Sie uns mitteilen?</label>
+      <textarea name="Nachricht" id="message" cols="30" rows="6"></textarea>
+        <div class="btns-row">
+          <button type="submit">Formular absenden</button>
+        </div>
+      </form>
+    </section>
 
   <footer>
   <p>
