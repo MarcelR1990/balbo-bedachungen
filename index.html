@@ -46,51 +46,113 @@
 <style>
   .slideshow-container {
     position: relative;
-    width: 100%;
     max-width: 800px;
-    aspect-ratio: 16 / 9;
     margin: 2rem auto;
     overflow: hidden;
     border-radius: 10px;
+    aspect-ratio: 16/9;
+    background: #000;
   }
 
   .slides {
     display: flex;
-    width: 400%;
-    height: 100%;
-    animation: slide 16s infinite;
+    transition: transform 0.5s ease;
   }
 
   .slides img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     flex-shrink: 0;
+    cursor: pointer;
+    object-fit: contain; /* zeigt 100% ohne Zuschnitt */
+    background: #000;
   }
 
-  @keyframes slide {
-    0%    { transform: translateX(0%); }
-    20%   { transform: translateX(0%); }
-    25%   { transform: translateX(-100%); }
-    45%   { transform: translateX(-100%); }
-    50%   { transform: translateX(-200%); }
-    70%   { transform: translateX(-200%); }
-    75%   { transform: translateX(-300%); }
-    95%   { transform: translateX(-300%); }
-    100%  { transform: translateX(0%); }
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 2;
   }
 
-  /* Responsive: kleinere Höhe auf Smartphones */
+  .prev { left: 10px; }
+  .next { right: 10px; }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+
+  .lightbox:target {
+    display: flex;
+  }
+
   @media (max-width: 600px) {
     .slideshow-container {
       aspect-ratio: 4 / 3;
+    }
+    .prev, .next {
+      padding: 0.5rem;
+      font-size: 1.5rem;
     }
   }
 </style>
 
 
-
 </head>
+  
+  
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelector('.slides');
+  const images = document.querySelectorAll('.slides img');
+  const totalSlides = images.length;
+
+  function showSlide(index) {
+    currentSlide = (index + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  function changeSlide(direction) {
+    showSlide(currentSlide + direction);
+  }
+
+  // Lightbox
+  function openLightbox(img) {
+    const lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+    lightbox.onclick = () => document.body.removeChild(lightbox);
+    const image = document.createElement("img");
+    image.src = img.src;
+    lightbox.appendChild(image);
+    document.body.appendChild(lightbox);
+  }
+
+  // Autoplay
+  setInterval(() => changeSlide(1), 6000); // alle 6 Sekunden wechseln
+</script>
+
+  
 <body>
 
  <header style="display: flex; align-items: center; gap: 1rem; background-color: #2e3b4e; color: white; padding: 2rem;">
@@ -127,17 +189,24 @@
     <p>Unsere Philosophie: Zuverlässigkeit, Sauberkeit und echte Handwerksarbeit.</p>
   </section>
 
+  
   <section id="galerie">
   <h2>Galerie</h2>
+
   <div class="slideshow-container">
     <div class="slides">
-      <img src="Ref001.jpg" alt="Dachprojekt 1">
-      <img src="Ref002.jpg" alt="Dachprojekt 2">
-      <img src="Ref003.jpg" alt="Dachprojekt 3">
-      <img src="Ref004.jpg" alt="Dachprojekt 4">
+      <img src="Ref001.jpg" alt="Projekt 1" onclick="openLightbox(this)">
+      <img src="Ref002.jpg" alt="Projekt 2" onclick="openLightbox(this)">
+      <img src="Ref003.jpg" alt="Projekt 3" onclick="openLightbox(this)">
+      <img src="Ref004.jpg" alt="Projekt 4" onclick="openLightbox(this)">
     </div>
+
+    <!-- Buttons -->
+    <button class="prev" onclick="changeSlide(-1)">❮</button>
+    <button class="next" onclick="changeSlide(1)">❯</button>
   </div>
 </section>
+
 
 
   <section id="kontakt">
