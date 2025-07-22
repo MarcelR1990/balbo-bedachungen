@@ -6,56 +6,6 @@
   <title>Balbo Bedachungen</title>
   <link rel="icon" type="image/png" href="favicon2.png">
   <style>
-    <script>
-  let currentSlide = 0;
-  let autoSlideInterval;
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const slides = document.querySelector(".slides");
-    const images = document.querySelectorAll(".slides img");
-    const totalSlides = images.length;
-
-    function showSlide(index) {
-      currentSlide = (index + totalSlides) % totalSlides;
-      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-
-    function changeSlide(direction) {
-      showSlide(currentSlide + direction);
-      resetAutoplay();
-    }
-
-    function startAutoplay() {
-      autoSlideInterval = setInterval(() => {
-        showSlide(currentSlide + 1);
-      }, 5000);
-    }
-
-    function resetAutoplay() {
-      clearInterval(autoSlideInterval);
-      startAutoplay();
-    }
-
-    // Lightbox
-    window.openLightbox = function (img) {
-      const lightbox = document.createElement("div");
-      lightbox.className = "lightbox";
-      lightbox.onclick = () => document.body.removeChild(lightbox);
-      const image = document.createElement("img");
-      image.src = img.src;
-      lightbox.appendChild(image);
-      document.body.appendChild(lightbox);
-    };
-
-    // Button-Events global machen
-    window.changeSlide = changeSlide;
-
-    // Start
-    showSlide(currentSlide);
-    startAutoplay();
-  });
-</script>
-
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -92,9 +42,8 @@
       padding: 1rem;
       margin-top: 2rem;
     }
-  </style>
-  
-<style>
+  </style>  
+  <style>
   .slideshow-container {
     position: relative;
     max-width: 800px;
@@ -165,10 +114,59 @@
     }
   }
 </style>
-
-
-
 </head>
+
+<script>
+  let currentSlide = 0;
+  let autoSlideInterval;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelector(".slides");
+    const images = document.querySelectorAll(".slides img");
+    const totalSlides = images.length;
+
+    function showSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+      resetAutoplay();
+    }
+
+    function startAutoplay() {
+      autoSlideInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoSlideInterval);
+      startAutoplay();
+    }
+
+    // Lightbox
+    window.openLightbox = function (img) {
+      const lightbox = document.createElement("div");
+      lightbox.className = "lightbox";
+      lightbox.onclick = () => document.body.removeChild(lightbox);
+      const image = document.createElement("img");
+      image.src = img.src;
+      lightbox.appendChild(image);
+      document.body.appendChild(lightbox);
+    };
+
+    // Button-Events global machen
+    window.changeSlide = changeSlide;
+
+    // Start
+    showSlide(currentSlide);
+    startAutoplay();
+  });
+</script>
+
+
   
 <body>
 
