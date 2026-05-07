@@ -62,13 +62,23 @@
       display: inline-block;
     }
 
-    section {
+    main {
       padding: 2rem 1rem;
-      max-width: 900px;
+    }
+
+    .content {
+      max-width: 1100px;
       margin: auto;
     }
 
     .hero {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+    }
+
+    .hero-top {
       text-align: center;
     }
 
@@ -81,17 +91,71 @@
     }
 
     .hero h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
+      margin: 0 0 1rem;
+      font-size: 1.9rem;
+      color: #2e3b4e;
     }
 
-    .bild {
+    .hero p {
+      margin: 0 auto 1rem;
+      max-width: 850px;
+      line-height: 1.6;
+    }
+
+    .hero-image {
       width: 100%;
-      max-width: 900px;
+      max-width: 1000px;
       height: auto;
       display: block;
       margin: 1.5rem auto 0;
-      border-radius: 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    .section-title {
+      margin: 2rem 0 1rem;
+      font-size: 1.4rem;
+      color: #2e3b4e;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid #44566c;
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #2e3b4e;
+    }
+
+    .info-card p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .cta {
+      margin-top: 1.5rem;
+      background: #2e3b4e;
+      color: white;
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .cta a {
+      color: white;
+      font-weight: bold;
+      text-decoration: underline;
     }
 
     footer {
@@ -106,6 +170,12 @@
       color: #ccc;
     }
 
+    .instagram-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
     @media (max-width: 600px) {
       header {
         padding: 1rem;
@@ -115,16 +185,20 @@
         font-size: 1.5rem;
       }
 
-      section {
+      main {
         padding: 1.25rem 1rem;
+      }
+
+      .hero {
+        padding: 1.25rem;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
       }
 
       nav a {
         margin: 0.4rem 0.6rem;
-      }
-
-      .hero h2 {
-        font-size: 1.4rem;
       }
     }
   </style>
@@ -136,6 +210,7 @@
     <a href="index.html">
       <img src="logo_weiss.png" alt="Balbo Bedachungen Logo" class="logo">
     </a>
+
     <div class="header-text">
       <h1>Balbo Bedachungen</h1>
       <p>Wir steigen Ihnen aufs Dach</p>
@@ -149,13 +224,50 @@
     <a href="contact.html">Kontakt</a>
   </nav>
 
-  <section class="hero" id="baustelle">
-    <img src="logo.png" alt="Balbo Bedachungen Logo" class="hero-logo">
+  <main>
+    <div class="content">
+      <section class="hero" id="startseite">
+        <div class="hero-top">
+          <img src="logo.png" alt="Balbo Bedachungen Logo" class="hero-logo">
 
-    <h2>Unsere Webseite entsteht – wie Ihr neues Dach: Stück für Stück mit Qualität.</h2>
+          <h2>Unsere Webseite entsteht – wie Ihr neues Dach: Stück für Stück mit Qualität.</h2>
 
-    <img src="Ref005.jpeg" alt="Baustellenbild von Balbo Bedachungen" class="bild" loading="lazy">
-  </section>
+          <p>
+            Balbo Bedachungen steht für saubere Arbeit, zuverlässige Ausführung und persönliche Beratung.
+            Wir begleiten private und gewerbliche Kunden bei Dacharbeiten, Sanierungen und Reparaturen mit handwerklicher Erfahrung und einem klaren Anspruch an Qualität.
+          </p>
+        </div>
+
+        <img src="Ref005.jpeg" alt="Baustellenbild von Balbo Bedachungen" class="hero-image" loading="lazy">
+      </section>
+
+      <h2 class="section-title">Was Sie von uns erwarten dürfen</h2>
+
+      <section class="info-grid">
+        <div class="info-card">
+          <h3>Dachsanierung</h3>
+          <p>Wir modernisieren und erneuern Dächer fachgerecht, damit Ihr Gebäude langfristig geschützt bleibt.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Reparaturen</h3>
+          <p>Ob einzelne Schäden oder kleinere Undichtigkeiten: Wir kümmern uns schnell und zuverlässig um die Instandsetzung.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Beratung</h3>
+          <p>Wir nehmen uns Zeit für Ihr Projekt und finden gemeinsam die passende Lösung für Ihr Dach.</p>
+        </div>
+      </section>
+
+      <section class="cta">
+        <p>
+          Sie planen ein Projekt oder benötigen Unterstützung rund ums Dach?
+          Dann schauen Sie sich unsere <a href="leistungen.html">Leistungen</a> an oder nehmen Sie direkt über die <a href="contact.html">Kontaktseite</a> Kontakt mit uns auf.
+        </p>
+      </section>
+    </div>
+  </main>
 
   <footer>
     <p>
@@ -164,8 +276,7 @@
       <a href="datenschutz.html">Datenschutz</a>
     </p>
     <p>
-      <a href="https://www.instagram.com/balbo_bedachungen" target="_blank" rel="noopener"
-         style="color: white; text-decoration: none; font-size: 1.5rem;">
+      <a href="https://www.instagram.com/balbo_bedachungen" target="_blank" rel="noopener" class="instagram-link">
         &#x1F4F7; Folge uns auf Instagram
       </a>
     </p>
