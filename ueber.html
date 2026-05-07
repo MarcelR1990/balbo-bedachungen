@@ -23,13 +23,13 @@
     header {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+      text-align: center;
       background-color: #2e3b4e;
       color: white;
       padding: 1.5rem;
-      justify-content: center;
-      text-align: center;
     }
 
     .logo {
@@ -62,18 +62,92 @@
       display: inline-block;
     }
 
-    section {
+    main {
       padding: 2rem 1rem;
-      max-width: 800px;
+    }
+
+    .content {
+      max-width: 1100px;
       margin: auto;
     }
 
-    .responsive-image {
+    .hero,
+    .about-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2e3b4e;
+      font-size: 1.9rem;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 850px;
+      line-height: 1.6;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .about-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      color: #2e3b4e;
+    }
+
+    .about-card p {
+      line-height: 1.6;
+      margin-top: 0;
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+
+    .about-list li {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid #e8e8e8;
+      line-height: 1.5;
+    }
+
+    .about-list li:last-child {
+      border-bottom: none;
+    }
+
+    .about-image {
+      width: 100%;
       max-width: 100%;
       height: auto;
       display: block;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
       margin-top: 1rem;
-      border-radius: 6px;
+    }
+
+    .highlight-box {
+      margin-top: 1rem;
+      background: #2e3b4e;
+      color: white;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      line-height: 1.6;
     }
 
     footer {
@@ -94,6 +168,12 @@
       font-size: 1.5rem;
     }
 
+    @media (max-width: 800px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 600px) {
       header {
         padding: 1rem;
@@ -103,12 +183,21 @@
         font-size: 1.5rem;
       }
 
-      nav a {
-        margin: 0.4rem 0.6rem;
+      main {
+        padding: 1.25rem 1rem;
       }
 
-      section {
-        padding: 1.25rem 1rem;
+      .hero,
+      .about-card {
+        padding: 1.25rem;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        margin: 0.4rem 0.6rem;
       }
     }
   </style>
@@ -133,17 +222,51 @@
     <a href="contact.html">Kontakt</a>
   </nav>
 
-  <section id="ueber-uns">
-    <h2>Über uns</h2>
-    <p>Balbo Bedachungen ist ein inhabergeführter Dachdeckerbetrieb mit Sitz in 53819 Neunkirchen-Seelscheid.</p>
-    <p>Wir sind eine kleine Dachdeckerei und kümmern uns liebend gern um die Anliegen und Wünsche unserer Kunden. In Sachen Planung und Beratung stehen wir Ihnen gerne zur Seite. Jede Art von Dacharbeiten oder Dachsanierungen erledigen wir im Handumdrehen und sorgen für Langlebigkeit Ihres Daches.</p>
-    <p>Seit über 20 Jahren stehen wir privaten und gewerblichen Kunden mit Kompetenz und handwerklicher Qualität zur Seite.</p>
-    <p>Unsere Philosophie: Zuverlässigkeit, Sauberkeit und echte Handwerksarbeit.</p>
+  <main>
+    <div class="content">
+      <section class="hero">
+        <h2>Über uns</h2>
+        <p>
+          Balbo Bedachungen steht für handwerkliche Qualität, persönliche Beratung und zuverlässige Arbeit rund ums Dach.
+          Lernen Sie unser Unternehmen und unsere Philosophie etwas besser kennen.
+        </p>
+      </section>
 
-    <a href="SommerNeunkirchen005.jpeg" target="_blank" rel="noopener">
-      <img src="SommerNeunkirchen005.jpeg" alt="Dachansicht von Balbo Bedachungen" class="responsive-image">
-    </a>
-  </section>
+      <section class="about-layout">
+        <div class="about-card">
+          <h3>Unser Betrieb</h3>
+          <p>
+            Balbo Bedachungen ist ein inhabergeführter Dachdeckerbetrieb mit Sitz in 53819 Neunkirchen-Seelscheid.
+            Wir sind eine kleine Dachdeckerei und kümmern uns mit viel Engagement um die Anliegen und Wünsche unserer Kunden.
+          </p>
+          <p>
+            In Sachen Planung und Beratung stehen wir Ihnen gerne zur Seite. Jede Art von Dacharbeiten oder Dachsanierungen
+            erledigen wir mit Sorgfalt und dem Anspruch, langlebige und saubere Ergebnisse zu schaffen.
+          </p>
+
+          <ul class="about-list">
+            <li>Seit über 20 Jahren im Einsatz für private und gewerbliche Kunden</li>
+            <li>Kompetente Beratung und zuverlässige Ausführung</li>
+            <li>Saubere Arbeit und echte Handwerksqualität</li>
+          </ul>
+
+          <div class="highlight-box">
+            Unsere Philosophie: Zuverlässigkeit, Sauberkeit und echte Handwerksarbeit.
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>Einblick in unsere Arbeit</h3>
+          <a href="SommerNeunkirchen005.jpeg" target="_blank" rel="noopener">
+            <img src="SommerNeunkirchen005.jpeg" alt="Dachansicht von Balbo Bedachungen" class="about-image" loading="lazy">
+          </a>
+          <p style="margin-top: 1rem;">
+            Ein Blick auf eines unserer Projekte. So arbeiten wir: sauber, fachgerecht und mit Liebe zum Detail.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
 
   <footer>
     <p>
