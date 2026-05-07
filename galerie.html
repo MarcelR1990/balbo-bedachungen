@@ -64,19 +64,32 @@
 
     section {
       padding: 2rem 1rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
 
     h2 {
       margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-category {
+      margin-top: 3rem;
+    }
+
+    .gallery-category h3 {
+      background-color: #2e3b4e;
+      color: white;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
-      margin-top: 1rem;
     }
 
     .gallery-grid a {
@@ -93,6 +106,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor: zoom-in;
+      background: white;
     }
 
     .gallery-grid img:hover {
@@ -228,25 +242,56 @@
   <section id="galerie">
     <h2>Galerie</h2>
 
-    <div class="gallery-grid">
-      <a href="Ref001.jpg" class="gallery-item">
-        <img src="Ref001.jpg" alt="Projektfoto 1">
-      </a>
-      <a href="Ref002.jpg" class="gallery-item">
-        <img src="Ref002.jpg" alt="Projektfoto 2">
-      </a>
-      <a href="Ref003.jpg" class="gallery-item">
-        <img src="Ref003.jpg" alt="Projektfoto 3">
-      </a>
-      <a href="Ref004.jpg" class="gallery-item">
-        <img src="Ref004.jpg" alt="Projektfoto 4">
-      </a>
-      <a href="Ref006.jpg" class="gallery-item">
-        <img src="Ref006.jpg" alt="Projektfoto 6">
-      </a>
-      <a href="Visitenkarte.jpg" class="gallery-item">
-        <img src="Visitenkarte.jpg" alt="Visitenkarte Balbo Bedachungen">
-      </a>
+    <!-- Allgemeine Galerie -->
+    <div class="gallery-category">
+      <h3>Unsere Projekte</h3>
+
+      <div class="gallery-grid">
+        <a href="Ref001.jpg" class="gallery-item">
+          <img src="Ref001.jpg" alt="Projektfoto 1">
+        </a>
+
+        <a href="Ref002.jpg" class="gallery-item">
+          <img src="Ref002.jpg" alt="Projektfoto 2">
+        </a>
+
+        <a href="Ref003.jpg" class="gallery-item">
+          <img src="Ref003.jpg" alt="Projektfoto 3">
+        </a>
+
+        <a href="Ref004.jpg" class="gallery-item">
+          <img src="Ref004.jpg" alt="Projektfoto 4">
+        </a>
+
+        <a href="Visitenkarte.jpg" class="gallery-item">
+          <img src="Visitenkarte.jpg" alt="Visitenkarte Balbo Bedachungen">
+        </a>
+      </div>
+    </div>
+
+    <!-- Neue Unterrubrik -->
+    <div class="gallery-category">
+      <h3>Neunkirchener Frühling 2026</h3>
+
+      <div class="gallery-grid">
+        <a href="SommerNeunkirchen001.jpeg" class="gallery-item">
+          <img src="SommerNeunkirchen001.jpeg" alt="Neunkirchener Frühling 2026 Bild 1">
+        </a>
+
+        <a href="SommerNeunkirchen002.jpeg" class="gallery-item">
+          <img src="SommerNeunkirchen002.jpeg" alt="Neunkirchener Frühling 2026 Bild 2">
+        </a>
+
+        <a href="SommerNeunkirchen003.jpeg" class="gallery-item">
+          <img src="SommerNeunkirchen003.jpeg" alt="Neunkirchener Frühling 2026 Bild 3">
+        </a>
+
+        <a href="SommerNeunkirchen004.jpeg" class="gallery-item">
+          <img src="SommerNeunkirchen004.jpeg" alt="Neunkirchener Frühling 2026 Bild 4">
+        </a>
+        <a href="SommerNeunkirchen005.jpeg" class="gallery-item">
+          <img src="SommerNeunkirchen005.jpeg" alt="Neunkirchener Frühling 2026 Bild 5">
+      </div>
     </div>
   </section>
 
@@ -267,16 +312,26 @@
       <a href="impressum.html">Impressum</a> ·
       <a href="datenschutz.html">Datenschutz</a>
     </p>
+
     <p>
-      <a href="https://www.instagram.com/balbo_bedachungen" target="_blank" rel="noopener" class="instagram-link">
+      <a href="https://www.instagram.com/balbo_bedachungen"
+         target="_blank"
+         rel="noopener"
+         class="instagram-link">
         &#x1F4F7; Folge uns auf Instagram
       </a>
     </p>
   </footer>
 
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-content">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Bild schließen">×</button>
+      <button class="lightbox-close"
+              id="lightboxClose"
+              aria-label="Bild schließen">
+        ×
+      </button>
+
       <img src="" alt="" id="lightboxImage">
     </div>
   </div>
@@ -290,9 +345,12 @@
     galleryItems.forEach(item => {
       item.addEventListener('click', function (e) {
         e.preventDefault();
+
         const img = this.querySelector('img');
+
         lightboxImage.src = this.href;
         lightboxImage.alt = img.alt || 'Vergrößertes Bild';
+
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
       });
@@ -301,6 +359,7 @@
     function closeLightbox() {
       lightbox.classList.remove('active');
       lightbox.setAttribute('aria-hidden', 'true');
+
       lightboxImage.src = '';
       lightboxImage.alt = '';
     }
