@@ -1,4 +1,4 @@
-<!--Ersteller der Webseite: Marcel Redmer-->
+<!-- Ersteller der Webseite: Marcel Redmer -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,7 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Impressum – Balbo Bedachungen</title>
   <link rel="icon" type="image/png" href="favicon2.png">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -14,33 +19,119 @@
       background-color: #f4f4f4;
       color: #333;
     }
+
     header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      text-align: center;
       background-color: #2e3b4e;
       color: white;
-      padding: 2rem;
-      text-align: center;
+      padding: 1.5rem;
     }
+
     .logo {
       height: 60px;
+      width: auto;
       object-fit: contain;
-      vertical-align: middle;
+      display: block;
     }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .header-text p {
+      margin: 0.25rem 0 0;
+    }
+
     nav {
       background: #44566c;
-      padding: 0.5rem;
+      padding: 0.75rem;
       text-align: center;
     }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 1rem;
+      margin: 0.25rem 0.75rem;
       font-weight: bold;
+      display: inline-block;
     }
-    section {
-      padding: 2rem;
-      max-width: 800px;
+
+    main {
+      padding: 2rem 1rem;
+    }
+
+    .content {
+      max-width: 1000px;
       margin: auto;
     }
+
+    .hero {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2e3b4e;
+      font-size: 1.9rem;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 850px;
+      line-height: 1.6;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .legal-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+    }
+
+    .legal-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      color: #2e3b4e;
+    }
+
+    .legal-card p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .legal-card a {
+      color: #2e3b4e;
+      font-weight: bold;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .legal-card a:hover {
+      text-decoration: underline;
+    }
+
+    .muted {
+      color: #666;
+    }
+
     footer {
       background-color: #2e3b4e;
       color: white;
@@ -48,19 +139,57 @@
       padding: 1rem;
       margin-top: 2rem;
     }
+
+    footer a {
+      color: #ccc;
+    }
+
+    .instagram-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 1rem;
+      }
+
+      .header-text h1 {
+        font-size: 1.5rem;
+      }
+
+      main {
+        padding: 1.25rem 1rem;
+      }
+
+      .hero,
+      .legal-card {
+        padding: 1.25rem;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        margin: 0.4rem 0.6rem;
+      }
+    }
   </style>
 </head>
 <body>
 
- <header style="display: flex; align-items: center; gap: 1rem; background-color: #2e3b4e; color: white; padding: 2rem;">
-<a href="index.html">
-  <img src="logo_weiss.png" alt="Balbo Bedachungen Logo" class="logo">
-</a>
-  <div>
-    <h1 style="margin: 0;">Balbo Bedachungen</h1>
-    <p style="margin: 0;">Wir steigen Ihnen aufs Dach</p>
-  </div>
-</header>
+  <header>
+    <a href="index.html">
+      <img src="logo_weiss.png" alt="Balbo Bedachungen Logo" class="logo">
+    </a>
+
+    <div class="header-text">
+      <h1>Balbo Bedachungen</h1>
+      <p>Wir steigen Ihnen aufs Dach</p>
+    </div>
+  </header>
 
   <nav>
     <a href="index.html">Startseite</a>
@@ -70,66 +199,97 @@
     <a href="contact.html">Kontakt</a>
   </nav>
 
-  <section>
-    <h2>Angaben gemäß § 5 TMG</h2>
-    <p>
-      Balbo Bedachungen<br>
-      Inhaber: Angelo Balbo<br>
-      Eisenerzstr. 20<br>
-      53819 Neunkirchen-Seelscheid<br>
-      Deutschland
-    </p>
+  <main>
+    <div class="content">
+      <section class="hero">
+        <h2>Impressum</h2>
+        <p>
+          Hier finden Sie die gesetzlich vorgeschriebenen Angaben zu unserem Unternehmen.
+        </p>
+      </section>
 
-    <h3>Kontakt</h3>
-        <p>📞 Telefon: <a href="tel: 49151 5042 9486">+49 151 5042 9486</a></p>
-        <p>📞 Telefon: <a href="tel: 4922479685960">+49 2247 9685960</a></p>
-        <p>📧 E-Mail: <a href="mailto:info@bedachungen-balbo.de">info@bedachungen-balbo.de</a></p>
-    
+      <section class="legal-grid">
+        <div class="legal-card">
+          <h3>Angaben gemäß § 5 TMG</h3>
+          <p>
+            Balbo Bedachungen<br>
+            Inhaber: Angelo Balbo<br>
+            Eisenerzstr. 20<br>
+            53819 Neunkirchen-Seelscheid<br>
+            Deutschland
+          </p>
+        </div>
 
-    <h3>Umsatzsteuer-ID</h3>
-    <p>DE123456789</p>
+        <div class="legal-card">
+          <h3>Kontakt</h3>
+          <p>
+            📞 Mobil: <a href="tel:+4915150429486">+49 151 50429486</a><br>
+            📞 Telefon: <a href="tel:+4922479685960">+49 2247 9685960</a><br>
+            📧 E-Mail: <a href="mailto:info@bedachungen-balbo.de">info@bedachungen-balbo.de</a>
+          </p>
+        </div>
 
-    <h3>Berufshaftpflichtversicherung</h3>
-    <p>
-      Muster-Versicherung AG<br>
-      Versicherungsnummer: 123456789<br>
-      Geltungsraum: Deutschland
-    </p>
+        <div class="legal-card">
+          <h3>Umsatzsteuer-ID</h3>
+          <p>DE123456789</p>
+          <p class="muted" style="margin-top: 0.75rem;">
+            Bitte prüfen und ersetzen, falls die tatsächliche Umsatzsteuer-ID abweicht.
+          </p>
+        </div>
 
-    <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
-    <p>
-      Balbo Bedachungen<br>
-      Inhaber: Angelo Balbo<br>
-      Eisenerzstr. 20<br>
-      53819 Neunkirchen-Seelscheid<br>
-      Deutschland
-    </p>
+        <div class="legal-card">
+          <h3>Berufshaftpflichtversicherung</h3>
+          <p>
+            Muster-Versicherung AG<br>
+            Versicherungsnummer: 123456789<br>
+            Geltungsraum: Deutschland
+          </p>
+          <p class="muted" style="margin-top: 0.75rem;">
+            Bitte mit den echten Versicherungsdaten ersetzen.
+          </p>
+        </div>
 
-    <h3>EU-Streitschlichtung</h3>
-    <p>
-      Plattform der EU-Kommission zur Online-Streitbeilegung:  
-      <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>
-    </p>
+        <div class="legal-card">
+          <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+          <p>
+            Balbo Bedachungen<br>
+            Inhaber: Angelo Balbo<br>
+            Eisenerzstr. 20<br>
+            53819 Neunkirchen-Seelscheid<br>
+            Deutschland
+          </p>
+        </div>
 
-    <h3>Verbraucherstreitbeilegung</h3>
-    <p>
-      Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-    </p>
-  </section>
+        <div class="legal-card">
+          <h3>EU-Streitschlichtung</h3>
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit.
+            Diese ist über die EU-Website erreichbar.
+          </p>
+        </div>
+
+        <div class="legal-card">
+          <h3>Verbraucherstreitbeilegung</h3>
+          <p>
+            Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
 
   <footer>
-  <p>
-    &copy; 2026 Balbo Bedachungen · 
-    <a href="impressum.html" style="color: #ccc;">Impressum</a> · 
-    <a href="datenschutz.html" style="color: #ccc;">Datenschutz</a>
-  </p>
-  <p>
-    <a href="https://www.instagram.com/balbo_bedachungen" target="_blank" 
-       style="color: white; text-decoration: none; font-size: 1.5rem;">
-      &#x1F4F7; Folge uns auf Instagram
-    </a>
-  </p>
-</footer>
+    <p>
+      &copy; 2026 Balbo Bedachungen ·
+      <a href="impressum.html">Impressum</a> ·
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
+    <p>
+      <a href="https://www.instagram.com/balbo_bedachungen" target="_blank" rel="noopener" class="instagram-link">
+        &#x1F4F7; Folge uns auf Instagram
+      </a>
+    </p>
+  </footer>
 
 </body>
 </html>
