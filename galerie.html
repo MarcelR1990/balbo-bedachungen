@@ -74,7 +74,7 @@
     }
 
     .gallery-category {
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
 
     .gallery-category h3 {
@@ -82,52 +82,67 @@
       color: white;
       padding: 0.75rem 1rem;
       border-radius: 8px;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem 0;
       font-size: 1.2rem;
     }
 
-    .gallery-grid {
+    .media-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
     }
 
-    .gallery-grid a {
+    .media-card {
       display: block;
       text-decoration: none;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
+      color: inherit;
       border-radius: 8px;
+      overflow: hidden;
+      background: white;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: zoom-in;
-      background: white;
     }
 
-    .gallery-grid img:hover {
+    .media-card:hover {
       transform: scale(1.02);
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     }
 
-    .video-wrapper {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
+    .media-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #000;
+      display: block;
+      object-fit: cover;
     }
 
-    .video-wrapper video {
+    .media-label {
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: bold;
+      background: #fff;
+    }
+
+    .media-card img.media-thumb {
+      cursor: zoom-in;
+    }
+
+    .video-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-card video {
       width: 100%;
-      max-width: 900px;
-      height: auto;
+      aspect-ratio: 1 / 1;
       display: block;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      background: black;
+      background: #000;
+      object-fit: cover;
+    }
+
+    .video-card .media-label {
+      border-top: 1px solid #eee;
     }
 
     footer {
@@ -212,7 +227,7 @@
         margin: 0.4rem 0.6rem;
       }
 
-      .gallery-grid {
+      .media-grid {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 0.75rem;
       }
@@ -242,67 +257,93 @@
   <section id="galerie">
     <h2>Galerie</h2>
 
-    <!-- Allgemeine Galerie -->
     <div class="gallery-category">
       <h3>Unsere Projekte</h3>
 
-      <div class="gallery-grid">
-        <a href="Ref001.jpg" class="gallery-item">
-          <img src="Ref001.jpg" alt="Projektfoto 1">
+      <div class="media-grid">
+        <a href="Ref001.jpg" class="media-card gallery-item">
+          <img src="Ref001.jpg" alt="Projektfoto 1" class="media-thumb">
+          <div class="media-label">Projektfoto 1</div>
         </a>
 
-        <a href="Ref002.jpg" class="gallery-item">
-          <img src="Ref002.jpg" alt="Projektfoto 2">
+        <a href="Ref002.jpg" class="media-card gallery-item">
+          <img src="Ref002.jpg" alt="Projektfoto 2" class="media-thumb">
+          <div class="media-label">Projektfoto 2</div>
         </a>
 
-        <a href="Ref003.jpg" class="gallery-item">
-          <img src="Ref003.jpg" alt="Projektfoto 3">
+        <a href="Ref003.jpg" class="media-card gallery-item">
+          <img src="Ref003.jpg" alt="Projektfoto 3" class="media-thumb">
+          <div class="media-label">Projektfoto 3</div>
         </a>
 
-        <a href="Ref004.jpg" class="gallery-item">
-          <img src="Ref004.jpg" alt="Projektfoto 4">
+        <a href="Ref004.jpg" class="media-card gallery-item">
+          <img src="Ref004.jpg" alt="Projektfoto 4" class="media-thumb">
+          <div class="media-label">Projektfoto 4</div>
         </a>
 
-        <a href="Visitenkarte.jpg" class="gallery-item">
-          <img src="Visitenkarte.jpg" alt="Visitenkarte Balbo Bedachungen">
+        <a href="Visitenkarte.jpg" class="media-card gallery-item">
+          <img src="Visitenkarte.jpg" alt="Visitenkarte Balbo Bedachungen" class="media-thumb">
+          <div class="media-label">Visitenkarte</div>
         </a>
       </div>
     </div>
 
-    <!-- Neue Unterrubrik -->
     <div class="gallery-category">
       <h3>Neunkirchener Frühling 2026</h3>
 
-      <div class="gallery-grid">
-        <a href="SommerNeunkirchen001.jpeg" class="gallery-item">
-          <img src="SommerNeunkirchen001.jpeg" alt="Neunkirchener Frühling 2026 Bild 1">
+      <div class="media-grid">
+        <a href="SommerNeunkirchen001.jpeg" class="media-card gallery-item">
+          <img src="S.jpg" alt="Neunkirchener Frühling 2026 Bild 1" class="media-thumb">
+          <div class="media-label">Bild 1</div>
         </a>
 
-        <a href="SommerNeunkirchen002.jpeg" class="gallery-item">
-          <img src="SommerNeunkirchen002.jpeg" alt="Neunkirchener Frühling 2026 Bild 2">
+        <a href="SommerNeunkirchen002.jpeg" class="media-card gallery-item">
+          <img src="SommerNeunkirchen002.jpeg" alt="Neunkirchener Frühling 2026 Bild 2" class="media-thumb">
+          <div class="media-label">Bild 2</div>
         </a>
 
-        <a href="SommerNeunkirchen003.jpeg" class="gallery-item">
-          <img src="SommerNeunkirchen003.jpeg" alt="Neunkirchener Frühling 2026 Bild 3">
+        <a href="SommerNeunkirchen003.jpeg" class="media-card gallery-item">
+          <img src="SommerNeunkirchen003.jpeg" alt="Neunkirchener Frühling 2026 Bild 3" class="media-thumb">
+          <div class="media-label">Bild 3</div>
         </a>
 
-        <a href="SommerNeunkirchen004.jpeg" class="gallery-item">
-          <img src="SommerNeunkirchen004.jpeg" alt="Neunkirchener Frühling 2026 Bild 4">
+        <a href="SommerNeunkirchen004.jpeg" class="media-card gallery-item">
+          <img src="SommerNeunkirchen004.jpeg" alt="Neunkirchener Frühling 2026 Bild 4" class="media-thumb">
+          <div class="media-label">Bild 4</div>
         </a>
-        <a href="SommerNeunkirchen005.jpeg" class="gallery-item">
-          <img src="SommerNeunkirchen005.jpeg" alt="Neunkirchener Frühling 2026 Bild 5">
+
+        <a href="SommerNeunkirchen005.jpeg" class="media-card gallery-item">
+          <img src="SommerNeunkirchen005.jpeg" alt="Neunkirchener Frühling 2026 Bild 4" class="media-thumb">
+          <div class="media-label">Bild 5</div>
+        </a>
+
       </div>
     </div>
   </section>
 
   <section id="videos">
-    <h2>Video</h2>
+    <h2>Videos</h2>
 
-    <div class="video-wrapper">
-      <video controls playsinline>
-        <source src="VideoDach01.mp4" type="video/mp4">
-        Ihr Browser kann dieses Video nicht wiedergeben.
-      </video>
+    <div class="gallery-category">
+      <h3>Videogalerie</h3>
+
+      <div class="media-grid">
+        <div class="media-card video-card">
+          <video controls playsinline preload="metadata">
+            <source src="VideoDach01.mp4" type="video/mp4">
+            Ihr Browser kann dieses Video nicht wiedergeben.
+          </video>
+          <div class="media-label">Video 1</div>
+        </div>
+
+        <div class="media-card video-card">
+          <video controls playsinline preload="metadata">
+            <source src="VideoDach02.mp4" type="video/mp4">
+            Ihr Browser kann dieses Video nicht wiedergeben.
+          </video>
+          <div class="media-label">Video 2</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -312,26 +353,16 @@
       <a href="impressum.html">Impressum</a> ·
       <a href="datenschutz.html">Datenschutz</a>
     </p>
-
     <p>
-      <a href="https://www.instagram.com/balbo_bedachungen"
-         target="_blank"
-         rel="noopener"
-         class="instagram-link">
+      <a href="https://www.instagram.com/balbo_bedachungen" target="_blank" rel="noopener" class="instagram-link">
         &#x1F4F7; Folge uns auf Instagram
       </a>
     </p>
   </footer>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-content">
-      <button class="lightbox-close"
-              id="lightboxClose"
-              aria-label="Bild schließen">
-        ×
-      </button>
-
+      <button class="lightbox-close" id="lightboxClose" aria-label="Bild schließen">×</button>
       <img src="" alt="" id="lightboxImage">
     </div>
   </div>
@@ -345,12 +376,9 @@
     galleryItems.forEach(item => {
       item.addEventListener('click', function (e) {
         e.preventDefault();
-
         const img = this.querySelector('img');
-
         lightboxImage.src = this.href;
         lightboxImage.alt = img.alt || 'Vergrößertes Bild';
-
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
       });
@@ -359,7 +387,6 @@
     function closeLightbox() {
       lightbox.classList.remove('active');
       lightbox.setAttribute('aria-hidden', 'true');
-
       lightboxImage.src = '';
       lightboxImage.alt = '';
     }
