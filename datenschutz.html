@@ -1,4 +1,4 @@
-<!--Ersteller der Webseite: Marcel Redmer-->
+<!-- Ersteller der Webseite: Marcel Redmer -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,7 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Datenschutz – Balbo Bedachungen</title>
   <link rel="icon" type="image/png" href="favicon2.png">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -14,33 +19,124 @@
       background-color: #f4f4f4;
       color: #333;
     }
+
     header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      text-align: center;
       background-color: #2e3b4e;
       color: white;
-      padding: 2rem;
-      text-align: center;
+      padding: 1.5rem;
     }
+
     .logo {
       height: 60px;
+      width: auto;
       object-fit: contain;
-      vertical-align: middle;
+      display: block;
     }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .header-text p {
+      margin: 0.25rem 0 0;
+    }
+
     nav {
       background: #44566c;
-      padding: 0.5rem;
+      padding: 0.75rem;
       text-align: center;
     }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 1rem;
+      margin: 0.25rem 0.75rem;
       font-weight: bold;
+      display: inline-block;
     }
-    section {
-      padding: 2rem;
-      max-width: 800px;
+
+    main {
+      padding: 2rem 1rem;
+    }
+
+    .content {
+      max-width: 1000px;
       margin: auto;
     }
+
+    .hero {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2e3b4e;
+      font-size: 1.9rem;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 850px;
+      line-height: 1.6;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .legal-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+    }
+
+    .legal-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      color: #2e3b4e;
+    }
+
+    .legal-card p,
+    .legal-card li {
+      line-height: 1.6;
+    }
+
+    .legal-card a {
+      color: #2e3b4e;
+      font-weight: bold;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .legal-card a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-list {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .muted {
+      color: #666;
+    }
+
     footer {
       background-color: #2e3b4e;
       color: white;
@@ -48,19 +144,57 @@
       padding: 1rem;
       margin-top: 2rem;
     }
+
+    footer a {
+      color: #ccc;
+    }
+
+    .instagram-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 1rem;
+      }
+
+      .header-text h1 {
+        font-size: 1.5rem;
+      }
+
+      main {
+        padding: 1.25rem 1rem;
+      }
+
+      .hero,
+      .legal-card {
+        padding: 1.25rem;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        margin: 0.4rem 0.6rem;
+      }
+    }
   </style>
 </head>
 <body>
 
- <header style="display: flex; align-items: center; gap: 1rem; background-color: #2e3b4e; color: white; padding: 2rem;">
-<a href="index.html">
-  <img src="logo_weiss.png" alt="Balbo Bedachungen Logo" class="logo">
-</a>
-  <div>
-    <h1 style="margin: 0;">Balbo Bedachungen</h1>
-    <p style="margin: 0;">Wir steigen Ihnen aufs Dach</p>
-  </div>
-</header>
+  <header>
+    <a href="index.html">
+      <img src="logo_weiss.png" alt="Balbo Bedachungen Logo" class="logo">
+    </a>
+
+    <div class="header-text">
+      <h1>Balbo Bedachungen</h1>
+      <p>Wir steigen Ihnen aufs Dach</p>
+    </div>
+  </header>
 
   <nav>
     <a href="index.html">Startseite</a>
@@ -70,49 +204,122 @@
     <a href="contact.html">Kontakt</a>
   </nav>
 
-  <section>
-    <h2>1. Allgemeine Hinweise</h2>
-    <p>Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Website erhebt keine personenbezogenen Daten ohne Ihre Zustimmung.</p>
+  <main>
+    <div class="content">
+      <section class="hero">
+        <h2>Datenschutzerklärung</h2>
+        <p>
+          Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir Sie darüber,
+          welche Daten wir auf dieser Website verarbeiten und welche Rechte Ihnen zustehen.
+        </p>
+      </section>
 
-    <h2>2. Verantwortlicher</h2>
-   <p>
-      Balbo Bedachungen<br>
-      Inhaber: Angelo Balbo<br>
-      Eisenerzstr. 20<br>
-      53819 Neunkirchen-Seelscheid<br>
-      Deutschland
-    </p>
+      <section class="legal-grid">
+        <div class="legal-card">
+          <h3>1. Verantwortlicher</h3>
+          <p>
+            Balbo Bedachungen<br>
+            Inhaber: Angelo Balbo<br>
+            Eisenerzstr. 20<br>
+            53819 Neunkirchen-Seelscheid<br>
+            Deutschland
+          </p>
+          <p>
+            Telefon: <a href="tel:+4922479685960">+49 2247 9685960</a><br>
+            E-Mail: <a href="mailto:info@bedachungen-balbo.de">info@bedachungen-balbo.de</a>
+          </p>
+        </div>
 
-    <h3>Kontakt</h3>
-        <p>📞 Telefon: <a href="tel: 4922479685960">+49 2247 9685960</a></p>
-        <p>📧 E-Mail: <a href="mailto:info@bedachungen-balbo.de">info@bedachungen-balbo.de</a></p>
+        <div class="legal-card">
+          <h3>2. Allgemeine Hinweise</h3>
+          <p>
+            Wir verarbeiten personenbezogene Daten nur, soweit dies für den Betrieb dieser Website,
+            die Bearbeitung Ihrer Anfragen oder zur Erfüllung gesetzlicher Pflichten erforderlich ist.
+          </p>
+          <p>
+            Diese Website verwendet derzeit keine Cookies zu Analyse-, Marketing- oder Tracking-Zwecken.
+          </p>
+        </div>
 
-    <h2>3. Zugriffsdaten</h2>
-    <p>Beim Besuch unserer Website speichert unser Webhoster automatisch Informationen wie IP-Adresse, Uhrzeit des Zugriffs, Browsertyp etc. Diese Daten werden nicht personenbezogen verwendet.</p>
+        <div class="legal-card">
+          <h3>3. Hosting und Server-Logfiles</h3>
+          <p>
+            Beim Aufruf dieser Website verarbeitet der Webserver automatisch technische Zugriffsdaten
+            in sogenannten Server-Logfiles. Dazu können unter anderem die aufgerufene Seite,
+            Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem und die IP-Adresse gehören.
+          </p>
+          <p>
+            Die Verarbeitung dieser Daten ist zur technischen Bereitstellung und Sicherheit der Website erforderlich.
+          </p>
+          <p class="muted">
+            Optionaler Hinweis: Falls Sie den Hosting-Anbieter nennen möchten, können Sie hier den Namen Ihres Hosting-Dienstleisters ergänzen.
+          </p>
+        </div>
 
-    <h2>4. Kontaktaufnahme per E-Mail</h2>
-    <p>Wenn Sie uns per E-Mail kontaktieren, speichern wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+        <div class="legal-card">
+          <h3>4. Kontaktaufnahme per E-Mail</h3>
+          <p>
+            Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage
+            und für den Fall von Anschlussfragen gespeichert.
+          </p>
+          <p>
+            Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+          </p>
+        </div>
 
-    <h2>5. Ihre Rechte</h2>
-    <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung Ihrer personenbezogenen Daten. Schreiben Sie dazu an: info@balbo-bedachungen.de</p>
+        <div class="legal-card">
+          <h3>5. Externe Links</h3>
+          <p>
+            Auf unserer Website befindet sich ein Link zu unserem Instagram-Auftritt.
+            Erst beim Anklicken dieses Links verlassen Sie unsere Website und wechseln zur Plattform von Instagram.
+          </p>
+        </div>
 
-    <h2>6. Änderungen dieser Erklärung</h2>
-    <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren.</p>
-  </section>
+        <div class="legal-card">
+          <h3>6. Ihre Rechte</h3>
+          <ul class="legal-list">
+            <li>Auskunft über die bei uns gespeicherten Daten</li>
+            <li>Berichtigung unrichtiger Daten</li>
+            <li>Löschung Ihrer Daten</li>
+            <li>Einschränkung der Verarbeitung</li>
+            <li>Widerspruch gegen die Verarbeitung</li>
+          </ul>
+          <p style="margin-top: 0.75rem;">
+            Zudem haben Sie das Recht, sich bei einer zuständigen Datenschutzaufsichtsbehörde zu beschweren.
+          </p>
+        </div>
+
+        <div class="legal-card">
+          <h3>7. Beschwerderecht bei der Aufsichtsbehörde</h3>
+          <p>
+            Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen Datenschutzrecht verstößt,
+            können Sie sich an die zuständige Datenschutzaufsichtsbehörde wenden.
+          </p>
+        </div>
+
+        <div class="legal-card">
+          <h3>8. Aktualisierung dieser Erklärung</h3>
+          <p>
+            Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren, damit sie stets den
+            tatsächlichen rechtlichen und technischen Gegebenheiten entspricht.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
 
   <footer>
-  <p>
-    &copy; 2026 Balbo Bedachungen · 
-    <a href="impressum.html" style="color: #ccc;">Impressum</a> · 
-    <a href="datenschutz.html" style="color: #ccc;">Datenschutz</a>
-  </p>
-  <p>
-    <a href="https://www.instagram.com/balbo_bedachungen" target="_blank" 
-       style="color: white; text-decoration: none; font-size: 1.5rem;">
-      &#x1F4F7; Folge uns auf Instagram
-    </a>
-  </p>
-</footer>
+    <p>
+      &copy; 2026 Balbo Bedachungen ·
+      <a href="impressum.html">Impressum</a> ·
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
+    <p>
+      <a href="https://www.instagram.com/balbo_bedachungen" target="_blank" rel="noopener" class="instagram-link">
+        &#x1F4F7; Folge uns auf Instagram
+      </a>
+    </p>
+  </footer>
 
 </body>
 </html>
