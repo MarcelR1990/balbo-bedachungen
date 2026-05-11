@@ -20,6 +20,10 @@
       color: #333;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     header {
       display: flex;
       align-items: center;
@@ -175,6 +179,120 @@
       font-size: 1.5rem;
     }
 
+    /* Popup */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+
+    .popup-overlay.is-visible {
+      display: flex;
+    }
+
+    .popup {
+      width: min(920px, 100%);
+      max-height: min(92vh, 1100px);
+      background: #111111;
+      color: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .popup-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(90deg, rgba(227,6,19,.18), rgba(255,255,255,0));
+    }
+
+    .popup-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    .popup-close {
+      appearance: none;
+      border: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .popup-close:hover {
+      background: rgba(255,255,255,.14);
+    }
+
+    .popup-media {
+      background: #000;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+    }
+
+    .popup-media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 72vh;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+
+    .popup-footer {
+      padding: 14px 18px 18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .popup-copy {
+      margin: 0;
+      color: #cfcfcf;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .popup-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: #e30613;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .popup-action:hover {
+      filter: brightness(1.05);
+    }
+
     @media (max-width: 768px) {
       .hero-banner-section {
         margin: 1rem auto;
@@ -205,6 +323,23 @@
 
       nav a {
         margin: 0.4rem 0.6rem;
+      }
+
+      .popup {
+        max-height: 94vh;
+      }
+
+      .popup-title {
+        font-size: 16px;
+      }
+
+      .popup-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .popup-action {
+        width: 100%;
       }
     }
   </style>
@@ -303,8 +438,6 @@
       &copy; 2026 Balbo Bedachungen ·
       <a href="impressum.html">Impressum</a> ·
       <a href="datenschutz.html">Datenschutz</a> ·
-      <a href="Test.html">Test</a>
-
     </p>
 
     <p>
@@ -316,6 +449,64 @@
       </a>
     </p>
   </footer>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="adPopup" aria-hidden="true">
+    <section class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+      <div class="popup-header">
+        <h2 class="popup-title" id="popupTitle">BALBO Bedachungen – Lehrlinge gesucht</h2>
+        <button class="popup-close" type="button" aria-label="Popup schließen" id="closePopup">×</button>
+      </div>
+
+      <div class="popup-media">
+        <img
+          src="Lehrlinge3.png"
+          alt="Recruiting-Anzeige für BALBO Bedachungen"
+        />
+      </div>
+
+      <div class="popup-footer">
+        <p class="popup-copy">Jetzt bewerben oder direkt über den Button zur Kontaktseite wechseln.</p>
+        <a class="popup-action" href="https://www.balbo-bedachungen.de/contact.html" rel="noopener">Zur Kontaktseite</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      const overlay = document.getElementById('adPopup');
+      const closeBtn = document.getElementById('closePopup');
+      let hasShown = false;
+
+      function openPopup() {
+        if (hasShown) return;
+        hasShown = true;
+        overlay.classList.add('is-visible');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+      }
+
+      function closePopup() {
+        overlay.classList.remove('is-visible');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+
+      window.addEventListener('load', function () {
+        setTimeout(openPopup, 400);
+      });
+
+      closeBtn.addEventListener('click', closePopup);
+
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closePopup();
+      });
+
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closePopup();
+      });
+    })();
+  </script>
 
 </body>
 </html>
