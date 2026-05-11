@@ -1,177 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BALBO Angelo Bedachungen – Website Sections</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Angelo Balbo Bedachungen – seit über 20 Jahren Qualität über dem Dach. Steildach, Flachdach, Sanierung und Reparatur im Rhein-Sieg-Kreis." />
+  <title>Angelo Balbo Bedachungen | Seit über 20 Jahren Qualität über dem Dach</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #07090c;
-      --bg-2: #0d1117;
-      --card: rgba(14, 18, 24, 0.78);
-      --card-2: rgba(255,255,255,0.04);
-      --line: rgba(255,255,255,0.08);
-      --text: #f2f4f7;
-      --muted: #a8b0bb;
-      --muted-2: #76808e;
-      --red: #e11d1d;
-      --red-2: #ff3333;
-      --gold: #e2b24c;
-      --shadow: 0 24px 80px rgba(0,0,0,0.55);
+    :root{
+      --bg: #0b0b0d;
+      --bg-2: #121214;
+      --surface: rgba(255,255,255,0.06);
+      --surface-strong: rgba(255,255,255,0.1);
+      --text: #f5f5f5;
+      --muted: rgba(255,255,255,0.72);
+      --muted-2: rgba(255,255,255,0.56);
+      --line: rgba(255,255,255,0.12);
+      --red: #e30613;
+      --red-2: #ff1f2d;
+      --gray: #b9b9bb;
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
       --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 16px;
-      --max: 1440px;
-      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --max: 1240px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: var(--font);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(225,29,29,.14), transparent 24%),
-        radial-gradient(circle at 85% 15%, rgba(226,178,76,.12), transparent 22%),
-        linear-gradient(180deg, #050607 0%, #0a0d12 48%, #07090c 100%);
+        radial-gradient(circle at 20% 10%, rgba(227,6,19,0.15), transparent 28%),
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.07), transparent 18%),
+        linear-gradient(180deg, #0b0b0d 0%, #101012 40%, #0b0b0d 100%);
       color: var(--text);
       overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
 
-    .page {
-      width: 100%;
-      padding: 0 24px 56px;
-    }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    /* NAV */
-    .nav-wrap {
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 50;
       backdrop-filter: blur(18px);
-      background: linear-gradient(180deg, rgba(5,7,10,.92), rgba(5,7,10,.75));
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(10,10,12,0.68);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav {
+      height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      min-height: 92px;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
-      min-width: 190px;
+      min-width: 0;
     }
 
-    .brand-mark {
-      position: relative;
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      background:
-        linear-gradient(135deg, rgba(225,29,29,.95), rgba(255,55,55,.55)),
-        #111;
-      box-shadow: 0 10px 30px rgba(225,29,29,.22);
-      overflow: hidden;
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
     }
 
-    .brand-mark:before {
-      content: "A";
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: white;
-      transform: translateY(-1px);
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+      min-width: 0;
     }
 
-    .brand-copy { line-height: 1; }
-    .brand-copy strong {
-      display: block;
-      font-size: 21px;
-      letter-spacing: .14em;
+    .brand-text strong {
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-weight: 800;
+      white-space: nowrap;
     }
-    .brand-copy span {
-      display: block;
-      margin-top: 4px;
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: .28em;
-      text-transform: uppercase;
+
+    .brand-text span {
+      font-size: 0.82rem;
+      color: var(--muted-2);
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 28px;
-      color: rgba(255,255,255,.86);
-      font-weight: 600;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      font-size: 13px;
+      color: rgba(255,255,255,0.84);
+      font-size: 0.95rem;
     }
 
     .nav-links a {
       position: relative;
       padding: 8px 0;
-      opacity: .9;
+      transition: color .2s ease;
     }
 
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
+    .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
-      right: 0;
-      bottom: -8px;
+      bottom: 0;
+      width: 0;
       height: 2px;
       background: var(--red);
-      border-radius: 999px;
+      transition: width .25s ease;
     }
+
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
       display: flex;
       align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .phone {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255,255,255,.84);
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: .02em;
-    }
-
-    .phone .dot {
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 0 6px rgba(225,29,29,.12);
+      gap: 12px;
     }
 
     .btn {
@@ -179,1005 +138,1000 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      border-radius: 999px;
       padding: 14px 20px;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.95rem;
       border: 1px solid transparent;
-      transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
-      will-change: transform;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
       cursor: pointer;
-      user-select: none;
+      white-space: nowrap;
     }
 
     .btn:hover { transform: translateY(-1px); }
+
     .btn-primary {
-      background: linear-gradient(180deg, var(--red-2), #cc1616);
+      background: linear-gradient(180deg, var(--red-2), var(--red));
       color: white;
-      box-shadow: 0 18px 35px rgba(225,29,29,.24);
+      box-shadow: 0 16px 34px rgba(227,6,19,0.32);
     }
-    .btn-primary:hover { box-shadow: 0 24px 48px rgba(225,29,29,.30); }
+
+    .btn-primary:hover { box-shadow: 0 20px 40px rgba(227,6,19,0.42); }
+
     .btn-secondary {
-      background: rgba(255,255,255,.02);
-      color: var(--text);
-      border-color: rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.10);
+      color: white;
     }
 
-    /* HERO */
-    .hero {
-      max-width: var(--max);
-      margin: 22px auto 18px;
+    .btn-secondary:hover { background: rgba(255,255,255,0.09); }
+
+    .menu-btn {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: white;
+      font-size: 18px;
+    }
+
+    .mobile-panel {
+      display: none;
+      padding: 0 0 18px;
+    }
+
+    .mobile-panel.open { display: block; }
+
+    .mobile-links {
       display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 18px;
-      min-height: 760px;
+      gap: 12px;
+      padding: 16px 0 0;
     }
 
-    .hero-left,
-    .hero-right {
+    .mobile-links a {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+
+    .hero {
       position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(17,21,27,.92), rgba(8,11,16,.96));
-    }
-
-    .hero-left {
-      padding: 42px 42px 36px;
+      min-height: calc(100vh - 82px);
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 24px;
+      align-items: center;
+      overflow: hidden;
       isolation: isolate;
     }
 
-    .hero-left::before {
+    .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.25) 48%, rgba(0,0,0,.0) 100%),
-        radial-gradient(circle at 80% 15%, rgba(225,29,29,.22), transparent 24%),
-        url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80') center/cover;
-      opacity: .78;
+        linear-gradient(90deg, rgba(6,6,7,0.94) 0%, rgba(6,6,7,0.74) 38%, rgba(6,6,7,0.34) 60%, rgba(6,6,7,0.90) 100%),
+        url("hero-roof.jpg");
+      background-size: cover;
+      background-position: center center;
       z-index: -2;
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
 
-    .hero-left::after {
+    .hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(5,7,10,.2), rgba(5,7,10,.70) 70%, rgba(5,7,10,.92));
+      background:
+        radial-gradient(circle at 20% 20%, rgba(227,6,19,0.12), transparent 28%),
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.26) 100%);
       z-index: -1;
     }
 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      padding: 48px 0 56px;
+    }
+
     .eyebrow {
-      color: var(--red-2);
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: .14em;
-      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+      width: fit-content;
     }
 
-    .hero-title {
-      margin: 12px 0 16px;
-      font-size: clamp(3rem, 6vw, 5.3rem);
-      line-height: .92;
-      letter-spacing: -.04em;
-      text-transform: uppercase;
-      font-weight: 900;
-      max-width: 12ch;
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 6px rgba(227,6,19,0.16);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 6vw, 6.1rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
       text-wrap: balance;
+      max-width: 11ch;
     }
 
-    .hero-title .red { color: var(--red-2); }
+    h1 .accent {
+      color: var(--red-2);
+      text-shadow: 0 12px 40px rgba(227,6,19,0.22);
+    }
 
-    .hero-copy {
-      max-width: 640px;
-      font-size: 18px;
-      line-height: 1.65;
-      color: rgba(243,246,250,.86);
+    .lead {
+      margin: 22px 0 0;
+      max-width: 36rem;
+      font-size: clamp(1.05rem, 1.25vw, 1.28rem);
+      line-height: 1.75;
+      color: rgba(255,255,255,0.8);
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
-      margin-top: 12px;
+      gap: 14px;
+      margin-top: 30px;
     }
 
-    .feature-strip {
+    .hero-points {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 14px;
-      margin-top: 12px;
+      margin-top: 34px;
+      max-width: 900px;
+    }
+
+    .point {
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      min-height: 112px;
+    }
+
+    .point strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .point span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.96rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -60px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(227,6,19,0.22), transparent 65%);
+      filter: blur(6px);
+      pointer-events: none;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .rating .score {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rating .score strong {
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+    }
+
+    .rating .score span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .stars {
+      color: #ffb84d;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .feature {
-      padding: 16px 18px;
-      border-radius: 16px;
-      background: rgba(8,11,16,.50);
-      border: 1px solid rgba(255,255,255,.07);
-      backdrop-filter: blur(12px);
-      min-height: 92px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature .icon {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(227,6,19,0.14);
+      color: white;
+      font-weight: 900;
+      border: 1px solid rgba(227,6,19,0.25);
     }
 
     .feature strong {
       display: block;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 8px;
+      font-size: 1rem;
+      margin-bottom: 4px;
     }
-    .feature span {
-      display: block;
+
+    .feature p {
+      margin: 0;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
+      line-height: 1.55;
+      font-size: 0.95rem;
     }
 
-    .hero-right {
-      display: grid;
-      grid-template-rows: 1fr 280px;
-      gap: 16px;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
-
-    .hero-panel,
-    .stats-panel {
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow);
-      position: relative;
-    }
-
-    .hero-panel {
-      min-height: 468px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.36)),
-        url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80') center/cover;
-    }
-
-    .hero-panel .overlay-a {
-      position: absolute;
-      right: -40px;
-      bottom: -25px;
-      font-size: 280px;
-      font-weight: 900;
-      color: rgba(225,29,29,.82);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      transform: skewX(-7deg);
-      text-shadow: 0 24px 50px rgba(0,0,0,.24);
-    }
-
-    .hero-panel .badge {
-      position: absolute;
-      left: 24px;
-      top: 24px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(7,9,12,.62);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,.1);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .hero-panel .badge i {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 0 6px rgba(225,29,29,.16);
-      display: inline-block;
-    }
-
-    .stats-panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: linear-gradient(180deg, rgba(11,14,18,.88), rgba(8,11,16,.96));
-      padding: 18px;
-      gap: 16px;
-    }
-
-    .stats {
-      border-radius: 20px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.07);
-      padding: 20px;
-    }
-
-    .rating-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .rating-head .left {
-      display: flex; align-items: center; gap: 12px;
-    }
-
-    .google-g {
-      width: 44px; height: 44px; border-radius: 14px;
-      display: grid; place-items: center;
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      font-size: 27px;
-    }
-
-    .rating-score {
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -.05em;
-      line-height: 1;
-    }
-
-    .stars {
-      color: #f7c948;
-      letter-spacing: .12em;
-      font-size: 17px;
-      margin: 6px 0 10px;
-    }
-
-    .rating-meta,
-    .muted {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    /* TESTIMONIALS */
     .section {
-      max-width: var(--max);
-      margin: 18px auto 0;
-      padding: 28px 0 0;
+      padding: 92px 0;
     }
 
     .section-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
-      gap: 22px;
-      margin-bottom: 18px;
+      gap: 24px;
+      margin-bottom: 28px;
     }
 
     .section-head h2 {
       margin: 0;
-      font-size: clamp(28px, 3.2vw, 52px);
-      letter-spacing: -.04em;
-      line-height: .98;
-      text-transform: uppercase;
-      max-width: 14ch;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      text-wrap: balance;
+      max-width: 12ch;
     }
 
     .section-head p {
       margin: 0;
-      max-width: 620px;
+      max-width: 42rem;
       color: var(--muted);
       line-height: 1.7;
-      font-size: 16px;
+      font-size: 1rem;
     }
 
-    .testimonial-shell {
-      position: relative;
-      border-radius: var(--radius-xl);
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .trust {
+      padding: 18px 18px 17px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .trust strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .trust span {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 24px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.08);
       box-shadow: var(--shadow);
+      min-height: 100%;
+    }
+
+    .card-media {
+      height: 220px;
       background:
-        linear-gradient(180deg, rgba(11,14,18,.92), rgba(7,9,12,.98));
-      padding: 20px;
+        linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.44)),
+        url("service-1.jpg");
+      background-size: cover;
+      background-position: center;
     }
 
-    .slider {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 16px;
-      align-items: stretch;
+    .card:nth-child(2) .card-media { background-image: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.44)), url("service-2.jpg"); }
+    .card:nth-child(3) .card-media { background-image: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.44)), url("service-3.jpg"); }
+
+    .card-body {
+      padding: 22px;
     }
 
-    .summary-card,
-    .review-card {
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      backdrop-filter: blur(14px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+    .card-body h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
     }
 
-    .summary-card {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 330px;
-    }
-
-    .summary-card .big {
-      font-size: 72px;
-      font-weight: 900;
-      letter-spacing: -.08em;
-      line-height: .9;
-      margin: 14px 0 0;
-    }
-
-    .summary-card .label {
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: var(--muted-2);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .summary-card .summary-stars {
-      color: #f7c948;
-      font-size: 22px;
-      letter-spacing: .18em;
-      margin: 8px 0 14px;
-    }
-
-    .reviews-track {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(280px, 1fr);
-      gap: 14px;
-      overflow: hidden;
-      min-height: 330px;
-    }
-
-    .review-card {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      min-height: 330px;
-    }
-
-    .review-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      display: grid; place-items: center;
-      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.05));
-      border: 1px solid rgba(255,255,255,.10);
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .review-name {
-      font-weight: 800;
+    .card-body p {
       margin: 0;
-      line-height: 1.2;
-    }
-
-    .review-date {
-      color: var(--muted-2);
-      font-size: 12px;
-      margin-top: 3px;
-    }
-
-    .google-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       color: var(--muted);
-      font-size: 12px;
+      line-height: 1.65;
     }
 
-    .review-stars { color: #f7c948; letter-spacing: .1em; font-size: 16px; }
-
-    .review-text {
-      color: rgba(240,244,248,.88);
-      line-height: 1.7;
-      font-size: 14px;
-      flex: 1;
-    }
-
-    .review-footer {
+    .pill-row {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(225,29,29,.12);
-      border: 1px solid rgba(225,29,29,.22);
-      color: #ffd8d8;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .04em;
-    }
-
-    .arrows {
-      position: absolute;
-      inset: auto 18px 18px auto;
-      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
-      z-index: 2;
-    }
-
-    .arrow-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(8,10,14,.68);
-      color: white;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      font-size: 20px;
-      transition: .2s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .arrow-btn:hover { transform: translateY(-1px); background: rgba(225,29,29,.18); }
-
-    .dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.22);
-    }
-
-    .dot.active { background: var(--red); box-shadow: 0 0 0 6px rgba(225,29,29,.15); }
-
-    /* BENEFITS */
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
       margin-top: 16px;
     }
 
-    .benefit {
-      padding: 20px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      background: rgba(227,6,19,0.11);
+      color: #ffd9dc;
+      border: 1px solid rgba(227,6,19,0.18);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .about-visual,
+    .about-content {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       box-shadow: var(--shadow);
     }
 
-    .benefit .icon {
-      width: 52px; height: 52px;
-      border-radius: 16px;
-      display: grid; place-items: center;
-      background: rgba(225,29,29,.14);
-      border: 1px solid rgba(225,29,29,.18);
-      color: var(--red-2);
-      margin-bottom: 14px;
-      font-size: 24px;
-    }
-
-    .benefit strong {
-      display: block;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-size: 13px;
-    }
-
-    .benefit span {
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
-    }
-
-    /* CONTACT STRIP */
-    .contact-strip {
-      margin-top: 18px;
-      border-radius: 26px;
-      padding: 26px;
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items: center;
-      overflow: hidden;
+    .about-visual {
+      min-height: 460px;
       background:
-        linear-gradient(135deg, rgba(225,29,29,.96), rgba(178,20,20,.88));
-      box-shadow: 0 26px 80px rgba(225,29,29,.22);
+        linear-gradient(180deg, rgba(0,0,0,0.20), rgba(0,0,0,0.72)),
+        url("about-roof.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
 
-    .contact-strip h3 {
-      margin: 0 0 10px;
-      font-size: clamp(26px, 3vw, 46px);
-      line-height: .98;
-      letter-spacing: -.04em;
-      text-transform: uppercase;
-    }
-
-    .contact-strip p { margin: 0; color: rgba(255,255,255,.88); line-height: 1.6; max-width: 60ch; }
-
-    .contact-items {
-      display: grid;
-      gap: 10px;
-      justify-items: end;
-      text-align: right;
-      font-weight: 700;
-    }
-
-    .contact-items a {
+    .about-visual .badge {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      background: rgba(0,0,0,.10);
-      border: 1px solid rgba(255,255,255,.12);
-      width: fit-content;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(10,10,12,0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
-    /* FOOTER */
-    .footer {
-      max-width: var(--max);
-      margin: 16px auto 0;
-      padding: 18px 0 0;
-      color: var(--muted-2);
-      font-size: 13px;
+    .about-visual .badge .num {
+      font-size: 1.7rem;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      color: white;
+      line-height: 1;
+    }
+
+    .about-visual .badge .txt {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.92rem;
+      line-height: 1.3;
+    }
+
+    .about-content {
+      padding: 28px;
+    }
+
+    .about-content h3 {
+      margin: 0 0 12px;
+      font-size: 1.8rem;
+      letter-spacing: -0.04em;
+    }
+
+    .about-content p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.86);
+      line-height: 1.55;
+    }
+
+    .check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex: 0 0 24px;
+      display: grid;
+      place-items: center;
+      background: rgba(227,6,19,0.18);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat {
       text-align: center;
+      padding: 22px 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 1180px) {
+    .stat strong {
+      display: block;
+      font-size: clamp(1.7rem, 2.6vw, 2.5rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .cta {
+      padding: 0 0 96px;
+    }
+
+    .cta-box {
+      border-radius: 34px;
+      padding: 34px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(227,6,19,0.18), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.11);
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .cta-box p {
+      margin: 0;
+      max-width: 52rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 28px 0 40px;
+      color: rgba(255,255,255,0.62);
+      font-size: 0.92rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-mini {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .contact-mini a {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .floating-contact {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    .float-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(10,10,12,0.82);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      color: white;
+      font-size: 1.15rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .cta-box {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .hero-grid {
+        gap: 24px;
+      }
+
+      .hero-points,
+      .trust-strip,
+      .cards,
+      .stats {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
+      }
+
       .hero {
-        grid-template-columns: 1fr;
-      }
-      .hero-right {
-        grid-template-rows: 460px 260px;
-      }
-      .feature-strip, .benefits {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .slider {
-        grid-template-columns: 1fr;
-      }
-      .summary-card {
         min-height: auto;
       }
-    }
 
-    @media (max-width: 900px) {
-      .nav {
-        flex-wrap: wrap;
-        padding: 14px 18px;
+      .hero-grid {
+        padding: 30px 0 36px;
       }
-      .nav-links {
-        width: 100%;
-        justify-content: space-between;
-        gap: 10px;
-        overflow-x: auto;
-        padding-bottom: 4px;
-      }
-      .hero-left {
-        padding: 28px 22px 22px;
-      }
-      .hero-title { max-width: 100%; }
-      .hero-copy { font-size: 16px; }
-      .hero-right { grid-template-rows: 380px auto; }
-      .stats-panel { grid-template-columns: 1fr; }
-      .contact-strip { grid-template-columns: 1fr; }
-      .contact-items { justify-items: start; text-align: left; }
-    }
 
-    @media (max-width: 700px) {
-      .page { padding-inline: 14px; }
-      .nav { min-height: auto; }
-      .brand { min-width: auto; }
-      .brand-copy strong { font-size: 18px; }
-      .nav-cta { width: 100%; justify-content: space-between; }
-      .hero { margin-top: 14px; }
-      .hero-left { min-height: 700px; }
-      .hero-right { grid-template-rows: 320px auto; }
-      .feature-strip, .benefits { grid-template-columns: 1fr; }
-      .section-head { flex-direction: column; align-items: flex-start; }
-      .reviews-track { overflow-x: auto; scroll-snap-type: x mandatory; }
-      .review-card, .summary-card { min-width: 300px; scroll-snap-align: start; }
-      .arrows { display: none; }
+      h1 {
+        max-width: 9.5ch;
+      }
+
+      .hero-points,
+      .trust-strip,
+      .cards,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .cta-box {
+        padding: 24px;
+      }
+
+      .about-content,
+      .hero-card {
+        padding: 20px;
+      }
+
+      .about-visual {
+        min-height: 340px;
+      }
+
+      .floating-contact {
+        right: 12px;
+        bottom: 12px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="nav-wrap">
-    <header class="nav container">
-      <div class="brand" aria-label="BALBO Angelo Bedachungen">
-        <img src="images/logo-balbo.png" alt="BALBO Angelo Bedachungen Logo" style="height:72px;width:auto;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(0,0,0,.22));" />
-      </div>
 
-      <nav class="nav-links" aria-label="Hauptnavigation">
-        <a href="index.html" class="active">Startseite</a>
-        <a href="referenzen.html">Referenzen</a>
-        <a href="ueber-uns.html">Über uns</a>
-        <a href="kontakt.html">Kontakt</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-      </nav>
-
-      <div class="nav-cta">
-        <div class="phone"><span class="dot"></span> +49 151 50429486</div>
-        <a class="btn btn-primary" href="#kontakt">Jetzt anfragen</a>
-      </div>
-    </header>
-  </div>
-
-  <main class="page">
-    <!--
-  WEBSITE-STRUKTUR
-
-  index.html          = LandingPage / Startseite
-  referenzen.html     = Referenzen / Projekte
-  ueber-uns.html      = Team / Unternehmen
-  kontakt.html        = Kontaktseite
-  impressum.html      = Impressum
-  datenschutz.html    = Datenschutz
-
-  LOGO-INTEGRATION:
-  Lege das echte Logo unter folgendem Pfad ab:
-
-  /images/logo-balbo.png
-
-  EMPFOHLENE ORDNERSTRUKTUR:
-
-  /images
-  /css
-  /js
-  /fonts
-
-  Die aktuelle Datei dient als Premium-Startseiten-Template.
--->
-
-    <!-- HERO -->
-    <section class="hero container" id="start">
-      <div class="hero-left">
-        <div>
-          <div class="eyebrow">Modernes Dachdecker-Handwerk</div>
-          <h1 class="hero-title">Ihr Dach.<br><span class="red">Unsere Verantwortung.</span></h1>
-          <p class="hero-copy">
-            BALBO Angelo Bedachungen steht für meisterhafte Dachlösungen – präzise, langlebig und zuverlässig.
-            Für Ihr Zuhause, Ihr Projekt und Ihr gutes Gefühl.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#kontakt">Jetzt Beratung anfordern</a>
-            <a class="btn btn-secondary" href="#referenzen">Referenzen ansehen</a>
+  <header class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Angelo Balbo Bedachungen Startseite">
+          <img src="logo-balbo.png" alt="Angelo Balbo Bedachungen Logo" />
+          <div class="brand-text">
+            <strong>Angelo Balbo</strong>
+            <span>Bedachungen · seit über 20 Jahren</span>
           </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Hauptnavigation">
+          <a href="#leistungen">Leistungen</a>
+          <a href="#ueber-uns">Über uns</a>
+          <a href="#referenzen">Referenzen</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn btn-secondary" href="tel:+4922471234567">Anrufen</a>
+          <a class="btn btn-primary" href="#kontakt">Angebot anfordern</a>
         </div>
 
-        <div class="feature-strip">
-          <div class="feature">
-            <strong>Meisterhaft</strong>
-            <span>Ausgezeichnete Qualität vom Fachbetrieb</span>
-          </div>
-          <div class="feature">
-            <strong>Zuverlässig</strong>
-            <span>Pünktlich, sauber und transparent</span>
-          </div>
-          <div class="feature">
-            <strong>Persönlich</strong>
-            <span>Individuelle Beratung und Betreuung</span>
-          </div>
-          <div class="feature">
-            <strong>Regional</strong>
-            <span>Ihr Partner vor Ort</span>
-          </div>
-        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen">☰</button>
       </div>
 
-      <div class="hero-right">
-        <div class="hero-panel">
-          <div class="badge"><i></i> Premium Dachtechnik seit Jahren</div>
-          <div class="overlay-a">A</div>
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-links">
+          <a href="#leistungen">Leistungen</a>
+          <a href="#ueber-uns">Über uns</a>
+          <a href="#referenzen">Referenzen</a>
+          <a href="#kontakt">Kontakt</a>
+          <a href="tel:+4922471234567">Jetzt anrufen</a>
         </div>
+      </div>
+    </div>
+  </header>
 
-        <div class="stats-panel">
-          <div class="stats">
-            <div class="rating-head">
-              <div class="left">
-                <div class="google-g" aria-hidden="true">G</div>
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Premium-Dachdeckerbetrieb aus Ihrer Region</div>
+            <h1>Seit über <span class="accent">20 Jahren</span> Qualität über dem Dach.</h1>
+            <p class="lead">
+              Angelo Balbo Bedachungen steht für präzises Handwerk, saubere Ausführung und langlebige Lösungen rund um Steildach, Flachdach, Sanierung und Reparatur.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#kontakt">Kostenlose Beratung</a>
+              <a class="btn btn-secondary" href="#leistungen">Leistungen ansehen</a>
+            </div>
+
+            <div class="hero-points">
+              <div class="point">
+                <strong>Meisterhaftes Handwerk</strong>
+                <span>Saubere Ausführung mit einem hohen Anspruch an Details, Präzision und Langlebigkeit.</span>
+              </div>
+              <div class="point">
+                <strong>Vertrauen durch Erfahrung</strong>
+                <span>Über zwei Jahrzehnte Praxis auf Baustellen, bei Sanierungen und anspruchsvollen Projekten.</span>
+              </div>
+              <div class="point">
+                <strong>Regional und zuverlässig</strong>
+                <span>Pünktlich, erreichbar und nah am Kunden – vom ersten Gespräch bis zur Abnahme.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Vertrauensmodule">
+            <div class="rating">
+              <div class="score">
+                <strong>20+ Jahre</strong>
+                <span>Erfahrung im Dachdeckerhandwerk</span>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+
+            <div class="feature-list">
+              <div class="feature">
+                <div class="icon">1</div>
                 <div>
-                  <div class="label">Google-Bewertungen</div>
-                  <div class="rating-score">5,0</div>
+                  <strong>Steildach</strong>
+                  <p>Neubau, Sanierung und Modernisierung mit hochwertiger Materialauswahl und sauberer Verarbeitung.</p>
                 </div>
               </div>
-              <div class="pill">Echte Rezensionen</div>
-            </div>
-            <div class="summary-stars">★★★★★</div>
-            <div class="rating-meta">Basierend auf echten Kundenbewertungen und Projektfeedback.</div>
-            <div class="rating-meta" style="margin-top:10px;">Vertrauen, das man sieht – Qualität, die bleibt.</div>
-          </div>
 
-          <div class="stats">
-            <div class="label">Schnelle Kontaktaufnahme</div>
-            <div style="margin-top:10px; font-size:24px; font-weight:900; letter-spacing:-.04em;">Anfrage in 60 Sekunden</div>
-            <p class="muted" style="margin-top:10px;">Perfekt für moderne Landingpages, Social Ads und den schnellen Einstieg in die Kontaktaufnahme.</p>
-            <div class="hero-actions" style="margin-top:18px;">
-              <a class="btn btn-primary" href="#kontakt">Kontakt</a>
-              <a class="btn btn-secondary" href="#kunden">Bewertungen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              <div class="feature">
+                <div class="icon">2</div>
+                <div>
+                  <strong>Flachdach</strong>
+                  <p>Dauerhaft dichte und funktionale Lösungen für anspruchsvolle Baukörper und moderne Architektur.</p>
+                </div>
+              </div>
 
-    <!-- TESTIMONIALS -->
-    <section class="section container" id="kunden">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Kundenstimmen</div>
-          <h2>Das sagen unsere Kunden</h2>
-        </div>
-        <p>
-          Echte Google-Bewertungen in einer eleganten, dunklen Premium-UI – ideal für einen modernen Webauftritt mit hoher Vertrauenswirkung.
-        </p>
-      </div>
-
-      <div class="testimonial-shell">
-        <div class="slider">
-          <aside class="summary-card">
-            <div>
-              <div class="label">Durchschnitt</div>
-              <div class="big">5,0</div>
-              <div class="summary-stars">★★★★★</div>
-              <div class="muted">Basierend auf 6 Google-Bewertungen</div>
-            </div>
-            <div class="muted">
-              Echte Rezensionen, visuell hochwertig aufbereitet für maximale Glaubwürdigkeit und eine starke Conversion-Wirkung.
+              <div class="feature">
+                <div class="icon">3</div>
+                <div>
+                  <strong>Reparatur & Wartung</strong>
+                  <p>Schnelle Hilfe bei Schäden, Undichtigkeiten und der regelmäßigen Pflege Ihres Dachs.</p>
+                </div>
+              </div>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
 
-          <div class="reviews-track" id="reviewsTrack">
-            <article class="review-card">
-              <div class="review-top">
-                <div style="display:flex; gap:12px; align-items:center;">
-                  <div class="avatar">CR</div>
-                  <div>
-                    <p class="review-name">Christian Radmann-Bender</p>
-                    <div class="review-date">vor 10 Monaten</div>
-                  </div>
-                </div>
-                <div class="google-badge">G</div>
-              </div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Das nette Team um Angelo Balbo hat uns super schnell bei unserem defekten und undichten alten Dachfenster geholfen und alles fachgerecht und perfekt ausgeführt. Der nächste Auftrag ist schon eingeplant. Besser geht es nicht. Danke!</div>
-              <div class="review-footer"><span class="pill">Google Review</span></div>
-            </article>
+    <section class="section" id="leistungen">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Leistungen mit klarer Struktur und hochwertiger Wirkung.</h2>
+          </div>
+          <p>
+            Die Startseite sollte nicht nur informieren, sondern auf den ersten Blick Vertrauen aufbauen. Genau dafür sind die Leistungsbereiche klar, präzise und visuell stark inszeniert.
+          </p>
+        </div>
 
-            <article class="review-card">
-              <div class="review-top">
-                <div style="display:flex; gap:12px; align-items:center;">
-                  <div class="avatar">RM</div>
-                  <div>
-                    <p class="review-name">René Marx</p>
-                    <div class="review-date">vor 7 Jahren</div>
-                  </div>
-                </div>
-                <div class="google-badge">G</div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-media"></div>
+            <div class="card-body">
+              <h3>Steildächer</h3>
+              <p>Von der Neueindeckung bis zur Sanierung: langlebig, sauber ausgeführt und perfekt auf Ihr Objekt abgestimmt.</p>
+              <div class="pill-row">
+                <span class="pill">Neubau</span>
+                <span class="pill">Sanierung</span>
+                <span class="pill">Modernisierung</span>
               </div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Herr Angelo Balbo hat an unserem Bauträgerprojekt in Neunkirchen die Ausführung der Dachdeckerarbeiten übernommen. Sehr zuverlässige und professionelle Umsetzung mit überzeugender Qualität.</div>
-              <div class="review-footer"><span class="pill">Bauträgerprojekt</span></div>
-            </article>
+            </div>
+          </article>
 
-            <article class="review-card">
-              <div class="review-top">
-                <div style="display:flex; gap:12px; align-items:center;">
-                  <div class="avatar">OK</div>
-                  <div>
-                    <p class="review-name">Olaf von Koelln</p>
-                    <div class="review-date">vor 2 Jahren</div>
-                  </div>
-                </div>
-                <div class="google-badge">G</div>
+          <article class="card">
+            <div class="card-media"></div>
+            <div class="card-body">
+              <h3>Flachdächer</h3>
+              <p>Technisch präzise Lösungen für Abdichtung, Wartung und nachhaltigen Schutz moderner Dachflächen.</p>
+              <div class="pill-row">
+                <span class="pill">Abdichtung</span>
+                <span class="pill">Wartung</span>
+                <span class="pill">Schutz</span>
               </div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Die Jungs sind einfach nur klasse. Eine nette Truppe, die schnell und sehr sauber arbeitet. Das ist Handwerk, wie es sein sollte – einfach top und zuverlässig.</div>
-              <div class="review-footer"><span class="pill">Saubere Arbeit</span></div>
-            </article>
+            </div>
+          </article>
 
-            <article class="review-card">
-              <div class="review-top">
-                <div style="display:flex; gap:12px; align-items:center;">
-                  <div class="avatar">AJ</div>
-                  <div>
-                    <p class="review-name">Agnes Jojko</p>
-                    <div class="review-date">vor 2 Jahren</div>
-                  </div>
-                </div>
-                <div class="google-badge">G</div>
+          <article class="card">
+            <div class="card-media"></div>
+            <div class="card-body">
+              <h3>Reparatur & Service</h3>
+              <p>Wenn es schnell gehen muss: professioneller Service bei Schäden, Sturmschäden und kleineren wie großen Problemen.</p>
+              <div class="pill-row">
+                <span class="pill">Schnell</span>
+                <span class="pill">Zuverlässig</span>
+                <span class="pill">Vor Ort</span>
               </div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Sehr gute Arbeit, immer zuverlässig gewesen und sehr freundlich. Per E-Mail schwer zu erreichen, jedoch am besten per WhatsApp kontaktieren. Dann kommt die Antwort umgehend.</div>
-              <div class="review-footer"><span class="pill">Zuverlässig</span></div>
-            </article>
+            </div>
+          </article>
+        </div>
 
-            <article class="review-card">
-              <div class="review-top">
-                <div style="display:flex; gap:12px; align-items:center;">
-                  <div class="avatar">TE</div>
-                  <div>
-                    <p class="review-name">Thomas Engels</p>
-                    <div class="review-date">vor 5 Jahren</div>
-                  </div>
-                </div>
-                <div class="google-badge">G</div>
-              </div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Freundlich, erfahrener Dachdeckermeister, flexibel und zuverlässig.</div>
-              <div class="review-footer"><span class="pill">Meisterbetrieb</span></div>
-            </article>
+        <div class="trust-strip">
+          <div class="trust">
+            <strong>Meisterqualität</strong>
+            <span>Anspruchsvolle Ausführung und hohe Standards im Handwerk.</span>
+          </div>
+          <div class="trust">
+            <strong>Saubere Baustellen</strong>
+            <span>Struktur, Ordnung und ein professioneller Umgang mit jedem Projekt.</span>
+          </div>
+          <div class="trust">
+            <strong>Termintreue</strong>
+            <span>Verbindliche Planung und klare Kommunikation vom Start bis zur Fertigstellung.</span>
+          </div>
+          <div class="trust">
+            <strong>Persönliche Betreuung</strong>
+            <span>Direkte Ansprechpartner und individuelle Lösungen statt Standardabwicklung.</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <article class="review-card">
-              <div class="review-top">
-                <div style="display:flex; gap:12px; align-items:center;">
-                  <div class="avatar">OH</div>
-                  <div>
-                    <p class="review-name">Oli H.</p>
-                    <div class="review-date">vor einem Jahr</div>
-                  </div>
-                </div>
-                <div class="google-badge">G</div>
+    <section class="section" id="ueber-uns">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Tradition, Erfahrung und ein Auftritt mit Premium-Charakter.</h2>
+          </div>
+          <p>
+            Die beste Webseite für einen etablierten Handwerksbetrieb erzählt nicht nur, was gemacht wird, sondern warum man vertrauen kann. Genau diese Geschichte sollte stärker sichtbar werden.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-visual">
+            <div class="badge">
+              <div class="num">20+</div>
+              <div class="txt">
+                Jahre Erfahrung<br>
+                im Dachdeckerhandwerk
               </div>
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Die Rezension ist im Screenshot nicht ausgeschrieben sichtbar, daher kann hier auf Wunsch der exakte Text nachgetragen werden.</div>
-              <div class="review-footer"><span class="pill">Platzhalter</span></div>
-            </article>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <h3>Warum Angelo Balbo die richtige Wahl ist</h3>
+            <p>
+              Ein moderner Premium-Auftritt funktioniert besonders gut, wenn er echte Substanz transportiert. Bei Angelo Balbo trifft genau das zu: langjährige Erfahrung, handwerkliche Verlässlichkeit und eine klare regionale Verankerung.
+            </p>
+            <p>
+              Die Website sollte diese Stärken sofort sichtbar machen – mit starken Bildern, ruhiger Typografie, klaren Aussagen und einer hochwertigen Gestaltung, die Vertrauen und Qualität bereits vor dem ersten Telefonat vermittelt.
+            </p>
+
+            <ul class="checklist">
+              <li><span class="check">✓</span><span>Klare Positionierung als moderner Premium-Handwerksbetrieb mit echter Erfahrung.</span></li>
+              <li><span class="check">✓</span><span>Vertrauensaufbau durch Zahlen, Referenzen, echte Projekte und präzise Leistungsdarstellung.</span></li>
+              <li><span class="check">✓</span><span>Starke Conversion-Elemente für Anfragen, Rückrufe und direkte Kontaktaufnahme.</span></li>
+            </ul>
           </div>
         </div>
 
-        <div class="arrows" aria-hidden="false">
-          <button class="arrow-btn" id="prevBtn" aria-label="Vorherige Bewertung">‹</button>
-          <button class="arrow-btn" id="nextBtn" aria-label="Nächste Bewertung">›</button>
-        </div>
-
-        <div class="dots" aria-label="Slider-Pagination">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES/BENEFITS -->
-    <section class="section container" id="leistungen">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Leistungen & Vertrauen</div>
-          <h2>Architekturästhetik trifft Dachdecker-Kompetenz</h2>
-        </div>
-        <p>
-          Diese Sektion ist bewusst so aufgebaut, dass sie sich nahtlos in einen modernen Webauftritt einfügt und gleichzeitig die wichtigsten Vertrauenssignale sichtbar macht.
-        </p>
-      </div>
-
-      <div class="benefits">
-        <div class="benefit">
-          <div class="icon">✦</div>
-          <strong>Meisterbetrieb</strong>
-          <span>Ausgezeichnete Qualität vom Fachbetrieb – für langlebige und präzise Dachlösungen.</span>
-        </div>
-        <div class="benefit">
-          <div class="icon">✓</div>
-          <strong>Faire Preise</strong>
-          <span>Transparente Angebote ohne versteckte Kosten und mit klarer Kommunikation.</span>
-        </div>
-        <div class="benefit">
-          <div class="icon">⌛</div>
-          <strong>Feste Termine</strong>
-          <span>Pünktlich, planbar und zuverlässig – ideal für anspruchsvolle Bauherren.</span>
-        </div>
-        <div class="benefit">
-          <div class="icon">⌂</div>
-          <strong>Regionaler Partner</strong>
-          <span>Ihr Team vor Ort – schnell erreichbar und mit echter Nähe zum Projekt.</span>
+        <div class="stats">
+          <div class="stat">
+            <strong>20+</strong>
+            <span>Jahre Erfahrung</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Fokus auf Qualität</span>
+          </div>
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Bereit für schnelle Anfragen</span>
+          </div>
+          <div class="stat">
+            <strong>1 Ziel</strong>
+            <span>Ihr Dach in besten Händen</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section container" id="kontakt">
-      <div class="contact-strip">
-        <div>
-          <div class="eyebrow" style="color: rgba(255,255,255,.82);">Kontakt</div>
-          <h3>Qualität, die man sieht.<br />Schutz, den man spürt.</h3>
-          <p>
-            Für Anfragen, Sanierungen, Neubauten oder Wartung: BALBO Angelo Bedachungen steht für einen modernen, vertrauensvollen Webauftritt mit einer klaren Conversion-Struktur.
-          </p>
-        </div>
-        <div class="contact-items">
-          <a href="tel:+4915150429486">☎ +49 151 50429486</a>
-          <a href="mailto:info@bedachungen-balbo.de">✉ info@bedachungen-balbo.de</a>
-          <a href="https://www.bedachungen-balbo.de" target="_blank" rel="noreferrer">↗ www.bedachungen-balbo.de</a>
+    <section class="cta" id="kontakt">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Bereit für eine Website, die Vertrauen verkauft?</h2>
+            <p>
+              Mit dieser Startseite wirkt Angelo Balbo hochwertiger, moderner und deutlich markenstärker. Gleichzeitig bleibt der Auftritt authentisch, handwerklich und regional glaubwürdig.
+            </p>
+          </div>
+          <div class="hero-actions" style="margin-top:0">
+            <a class="btn btn-primary" href="mailto:info@bedachungen-balbo.de">E-Mail senden</a>
+            <a class="btn btn-secondary" href="tel:+4922471234567">Direkt anrufen</a>
+          </div>
         </div>
       </div>
     </section>
-
-    <div class="footer container">
-      © BALBO Angelo Bedachungen · Premium Website System
-      <br /><br />
-      <a href="impressum.html">Impressum</a> ·
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
   </main>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="brand" style="gap:12px">
+          <img src="logo-balbo.png" alt="Angelo Balbo Bedachungen Logo" style="width:42px;height:42px" />
+          <div class="brand-text">
+            <strong>Angelo Balbo Bedachungen</strong>
+            <span>Seit über 20 Jahren Qualität über dem Dach.</span>
+          </div>
+        </div>
+
+        <div class="contact-mini">
+          <a href="tel:+4922471234567">+49 2247 1234567</a>
+          <a href="mailto:info@bedachungen-balbo.de">info@bedachungen-balbo.de</a>
+          <span>Rhein-Sieg-Kreis</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-contact" aria-label="Schnellkontakt">
+    <a class="float-btn" href="tel:+4922471234567" title="Anrufen">☎</a>
+    <a class="float-btn" href="mailto:info@bedachungen-balbo.de" title="E-Mail">✉</a>
+  </div>
+
   <script>
-    // Lightweight slider behavior for the testimonial row.
-    const track = document.getElementById('reviewsTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const dots = Array.from(document.querySelectorAll('.dot'));
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
 
-    let index = 0;
-    const cardWidth = 294; // approx card width incl. gap
-
-    function updateSlider() {
-      if (!track) return;
-      const maxIndex = Math.max(0, track.children.length - 1);
-      const safeIndex = Math.min(index, maxIndex);
-      const offset = safeIndex * cardWidth;
-      track.style.transform = `translateX(${-offset}px)`;
-      track.style.transition = 'transform 420ms ease';
-      dots.forEach((d, i) => d.classList.toggle('active', i === safeIndex));
-    }
-
-    prevBtn?.addEventListener('click', () => {
-      index = Math.max(0, index - 1);
-      updateSlider();
+    menuBtn?.addEventListener('click', () => {
+      mobilePanel.classList.toggle('open');
+      menuBtn.textContent = mobilePanel.classList.contains('open') ? '✕' : '☰';
     });
 
-    nextBtn?.addEventListener('click', () => {
-      index = Math.min(track.children.length - 1, index + 1);
-      updateSlider();
+    mobilePanel?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobilePanel.classList.remove('open');
+        menuBtn.textContent = '☰';
+      });
     });
-
-    // Auto-advance on desktop for the animated slider feel.
-    let auto = setInterval(() => {
-      if (window.innerWidth < 700) return;
-      index = (index + 1) % track.children.length;
-      updateSlider();
-    }, 4200);
-
-    window.addEventListener('resize', () => {
-      // keep it simple; reset the transform on smaller screens where horizontal scroll is used.
-      if (window.innerWidth < 700) {
-        track.style.transform = 'none';
-      } else {
-        updateSlider();
-      }
-    });
-
-    updateSlider();
   </script>
 </body>
 </html>
