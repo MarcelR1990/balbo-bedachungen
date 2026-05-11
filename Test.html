@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BALBO Angelo Bedachungen – Website Sections</title>
+  <style>
+    :root {
+      --bg: #07090c;
+      --bg-2: #0d1117;
+      --card: rgba(14, 18, 24, 0.78);
+      --card-2: rgba(255,255,255,0.04);
+      --line: rgba(255,255,255,0.08);
+      --text: #f2f4f7;
+      --muted: #a8b0bb;
+      --muted-2: #76808e;
+      --red: #e11d1d;
+      --red-2: #ff3333;
+      --gold: #e2b24c;
+      --shadow: 0 24px 80px rgba(0,0,0,0.55);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1440px;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(225,29,29,.14), transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(226,178,76,.12), transparent 22%),
+        linear-gradient(180deg, #050607 0%, #0a0d12 48%, #07090c 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      width: 100%;
+      padding: 0 24px 56px;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(5,7,10,.92), rgba(5,7,10,.75));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 92px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 190px;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(225,29,29,.95), rgba(255,55,55,.55)),
+        #111;
+      box-shadow: 0 10px 30px rgba(225,29,29,.22);
+      overflow: hidden;
+    }
+
+    .brand-mark:before {
+      content: "A";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .brand-copy { line-height: 1; }
+    .brand-copy strong {
+      display: block;
+      font-size: 21px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .brand-copy span {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: rgba(255,255,255,.86);
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+      opacity: .9;
+    }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 2px;
+      background: var(--red);
+      border-radius: 999px;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .phone {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,.84);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .02em;
+    }
+
+    .phone .dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 6px rgba(225,29,29,.12);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+      will-change: transform;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--red-2), #cc1616);
+      color: white;
+      box-shadow: 0 18px 35px rgba(225,29,29,.24);
+    }
+    .btn-primary:hover { box-shadow: 0 24px 48px rgba(225,29,29,.30); }
+    .btn-secondary {
+      background: rgba(255,255,255,.02);
+      color: var(--text);
+      border-color: rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+
+    /* HERO */
+    .hero {
+      max-width: var(--max);
+      margin: 22px auto 18px;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 18px;
+      min-height: 760px;
+    }
+
+    .hero-left,
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(17,21,27,.92), rgba(8,11,16,.96));
+    }
+
+    .hero-left {
+      padding: 42px 42px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      isolation: isolate;
+    }
+
+    .hero-left::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.25) 48%, rgba(0,0,0,.0) 100%),
+        radial-gradient(circle at 80% 15%, rgba(225,29,29,.22), transparent 24%),
+        url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80') center/cover;
+      opacity: .78;
+      z-index: -2;
+      transform: scale(1.04);
+    }
+
+    .hero-left::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5,7,10,.2), rgba(5,7,10,.70) 70%, rgba(5,7,10,.92));
+      z-index: -1;
+    }
+
+    .eyebrow {
+      color: var(--red-2);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: .14em;
+      font-size: 14px;
+    }
+
+    .hero-title {
+      margin: 12px 0 16px;
+      font-size: clamp(3rem, 6vw, 5.3rem);
+      line-height: .92;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      font-weight: 900;
+      max-width: 12ch;
+      text-wrap: balance;
+    }
+
+    .hero-title .red { color: var(--red-2); }
+
+    .hero-copy {
+      max-width: 640px;
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(243,246,250,.86);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .feature {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(8,11,16,.50);
+      border: 1px solid rgba(255,255,255,.07);
+      backdrop-filter: blur(12px);
+      min-height: 92px;
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+    .feature span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .hero-right {
+      display: grid;
+      grid-template-rows: 1fr 280px;
+      gap: 16px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .hero-panel,
+    .stats-panel {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .hero-panel {
+      min-height: 468px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.36)),
+        url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80') center/cover;
+    }
+
+    .hero-panel .overlay-a {
+      position: absolute;
+      right: -40px;
+      bottom: -25px;
+      font-size: 280px;
+      font-weight: 900;
+      color: rgba(225,29,29,.82);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      transform: skewX(-7deg);
+      text-shadow: 0 24px 50px rgba(0,0,0,.24);
+    }
+
+    .hero-panel .badge {
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(7,9,12,.62);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.1);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .hero-panel .badge i {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 6px rgba(225,29,29,.16);
+      display: inline-block;
+    }
+
+    .stats-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: linear-gradient(180deg, rgba(11,14,18,.88), rgba(8,11,16,.96));
+      padding: 18px;
+      gap: 16px;
+    }
+
+    .stats {
+      border-radius: 20px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 20px;
+    }
+
+    .rating-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .rating-head .left {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .google-g {
+      width: 44px; height: 44px; border-radius: 14px;
+      display: grid; place-items: center;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      font-size: 27px;
+    }
+
+    .rating-score {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+
+    .stars {
+      color: #f7c948;
+      letter-spacing: .12em;
+      font-size: 17px;
+      margin: 6px 0 10px;
+    }
+
+    .rating-meta,
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* TESTIMONIALS */
+    .section {
+      max-width: var(--max);
+      margin: 18px auto 0;
+      padding: 28px 0 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 3.2vw, 52px);
+      letter-spacing: -.04em;
+      line-height: .98;
+      text-transform: uppercase;
+      max-width: 14ch;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 620px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .testimonial-shell {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(11,14,18,.92), rgba(7,9,12,.98));
+      padding: 20px;
+    }
+
+    .slider {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .summary-card,
+    .review-card {
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      backdrop-filter: blur(14px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+    }
+
+    .summary-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 330px;
+    }
+
+    .summary-card .big {
+      font-size: 72px;
+      font-weight: 900;
+      letter-spacing: -.08em;
+      line-height: .9;
+      margin: 14px 0 0;
+    }
+
+    .summary-card .label {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--muted-2);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .summary-card .summary-stars {
+      color: #f7c948;
+      font-size: 22px;
+      letter-spacing: .18em;
+      margin: 8px 0 14px;
+    }
+
+    .reviews-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(280px, 1fr);
+      gap: 14px;
+      overflow: hidden;
+      min-height: 330px;
+    }
+
+    .review-card {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 330px;
+    }
+
+    .review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.05));
+      border: 1px solid rgba(255,255,255,.10);
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .review-name {
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .review-date {
+      color: var(--muted-2);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .review-stars { color: #f7c948; letter-spacing: .1em; font-size: 16px; }
+
+    .review-text {
+      color: rgba(240,244,248,.88);
+      line-height: 1.7;
+      font-size: 14px;
+      flex: 1;
+    }
+
+    .review-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(225,29,29,.12);
+      border: 1px solid rgba(225,29,29,.22);
+      color: #ffd8d8;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .arrows {
+      position: absolute;
+      inset: auto 18px 18px auto;
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .arrow-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(8,10,14,.68);
+      color: white;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 20px;
+      transition: .2s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .arrow-btn:hover { transform: translateY(-1px); background: rgba(225,29,29,.18); }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.22);
+    }
+
+    .dot.active { background: var(--red); box-shadow: 0 0 0 6px rgba(225,29,29,.15); }
+
+    /* BENEFITS */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .benefit {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit .icon {
+      width: 52px; height: 52px;
+      border-radius: 16px;
+      display: grid; place-items: center;
+      background: rgba(225,29,29,.14);
+      border: 1px solid rgba(225,29,29,.18);
+      color: var(--red-2);
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
+
+    .benefit strong {
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+    }
+
+    .benefit span {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    /* CONTACT STRIP */
+    .contact-strip {
+      margin-top: 18px;
+      border-radius: 26px;
+      padding: 26px;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(225,29,29,.96), rgba(178,20,20,.88));
+      box-shadow: 0 26px 80px rgba(225,29,29,.22);
+    }
+
+    .contact-strip h3 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3vw, 46px);
+      line-height: .98;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+    }
+
+    .contact-strip p { margin: 0; color: rgba(255,255,255,.88); line-height: 1.6; max-width: 60ch; }
+
+    .contact-items {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    .contact-items a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.10);
+      border: 1px solid rgba(255,255,255,.12);
+      width: fit-content;
+    }
+
+    /* FOOTER */
+    .footer {
+      max-width: var(--max);
+      margin: 16px auto 0;
+      padding: 18px 0 0;
+      color: var(--muted-2);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1180px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-right {
+        grid-template-rows: 460px 260px;
+      }
+      .feature-strip, .benefits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .slider {
+        grid-template-columns: 1fr;
+      }
+      .summary-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        flex-wrap: wrap;
+        padding: 14px 18px;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+      .hero-left {
+        padding: 28px 22px 22px;
+      }
+      .hero-title { max-width: 100%; }
+      .hero-copy { font-size: 16px; }
+      .hero-right { grid-template-rows: 380px auto; }
+      .stats-panel { grid-template-columns: 1fr; }
+      .contact-strip { grid-template-columns: 1fr; }
+      .contact-items { justify-items: start; text-align: left; }
+    }
+
+    @media (max-width: 700px) {
+      .page { padding-inline: 14px; }
+      .nav { min-height: auto; }
+      .brand { min-width: auto; }
+      .brand-copy strong { font-size: 18px; }
+      .nav-cta { width: 100%; justify-content: space-between; }
+      .hero { margin-top: 14px; }
+      .hero-left { min-height: 700px; }
+      .hero-right { grid-template-rows: 320px auto; }
+      .feature-strip, .benefits { grid-template-columns: 1fr; }
+      .section-head { flex-direction: column; align-items: flex-start; }
+      .reviews-track { overflow-x: auto; scroll-snap-type: x mandatory; }
+      .review-card, .summary-card { min-width: 300px; scroll-snap-align: start; }
+      .arrows { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <header class="nav container">
+      <div class="brand" aria-label="BALBO Angelo Bedachungen">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <strong>BALBO</strong>
+          <span>Angelo Bedachungen</span>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#start" class="active">Startseite</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#referenzen">Referenzen</a>
+        <a href="#kunden">Kundenstimmen</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="nav-cta">
+        <div class="phone"><span class="dot"></span> +49 151 50429486</div>
+        <a class="btn btn-primary" href="#kontakt">Jetzt anfragen</a>
+      </div>
+    </header>
+  </div>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero container" id="start">
+      <div class="hero-left">
+        <div>
+          <div class="eyebrow">Modernes Dachdecker-Handwerk</div>
+          <h1 class="hero-title">Ihr Dach.<br><span class="red">Unsere Verantwortung.</span></h1>
+          <p class="hero-copy">
+            BALBO Angelo Bedachungen steht für meisterhafte Dachlösungen – präzise, langlebig und zuverlässig.
+            Für Ihr Zuhause, Ihr Projekt und Ihr gutes Gefühl.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#kontakt">Jetzt Beratung anfordern</a>
+            <a class="btn btn-secondary" href="#referenzen">Referenzen ansehen</a>
+          </div>
+        </div>
+
+        <div class="feature-strip">
+          <div class="feature">
+            <strong>Meisterhaft</strong>
+            <span>Ausgezeichnete Qualität vom Fachbetrieb</span>
+          </div>
+          <div class="feature">
+            <strong>Zuverlässig</strong>
+            <span>Pünktlich, sauber und transparent</span>
+          </div>
+          <div class="feature">
+            <strong>Persönlich</strong>
+            <span>Individuelle Beratung und Betreuung</span>
+          </div>
+          <div class="feature">
+            <strong>Regional</strong>
+            <span>Ihr Partner vor Ort</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-panel">
+          <div class="badge"><i></i> Premium Dachtechnik seit Jahren</div>
+          <div class="overlay-a">A</div>
+        </div>
+
+        <div class="stats-panel">
+          <div class="stats">
+            <div class="rating-head">
+              <div class="left">
+                <div class="google-g" aria-hidden="true">G</div>
+                <div>
+                  <div class="label">Google-Bewertungen</div>
+                  <div class="rating-score">5,0</div>
+                </div>
+              </div>
+              <div class="pill">Echte Rezensionen</div>
+            </div>
+            <div class="summary-stars">★★★★★</div>
+            <div class="rating-meta">Basierend auf echten Kundenbewertungen und Projektfeedback.</div>
+            <div class="rating-meta" style="margin-top:10px;">Vertrauen, das man sieht – Qualität, die bleibt.</div>
+          </div>
+
+          <div class="stats">
+            <div class="label">Schnelle Kontaktaufnahme</div>
+            <div style="margin-top:10px; font-size:24px; font-weight:900; letter-spacing:-.04em;">Anfrage in 60 Sekunden</div>
+            <p class="muted" style="margin-top:10px;">Perfekt für moderne Landingpages, Social Ads und den schnellen Einstieg in die Kontaktaufnahme.</p>
+            <div class="hero-actions" style="margin-top:18px;">
+              <a class="btn btn-primary" href="#kontakt">Kontakt</a>
+              <a class="btn btn-secondary" href="#kunden">Bewertungen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section container" id="kunden">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Kundenstimmen</div>
+          <h2>Das sagen unsere Kunden</h2>
+        </div>
+        <p>
+          Echte Google-Bewertungen in einer eleganten, dunklen Premium-UI – ideal für einen modernen Webauftritt mit hoher Vertrauenswirkung.
+        </p>
+      </div>
+
+      <div class="testimonial-shell">
+        <div class="slider">
+          <aside class="summary-card">
+            <div>
+              <div class="label">Durchschnitt</div>
+              <div class="big">5,0</div>
+              <div class="summary-stars">★★★★★</div>
+              <div class="muted">Basierend auf 6 Google-Bewertungen</div>
+            </div>
+            <div class="muted">
+              Echte Rezensionen, visuell hochwertig aufbereitet für maximale Glaubwürdigkeit und eine starke Conversion-Wirkung.
+            </div>
+          </aside>
+
+          <div class="reviews-track" id="reviewsTrack">
+            <article class="review-card">
+              <div class="review-top">
+                <div style="display:flex; gap:12px; align-items:center;">
+                  <div class="avatar">CR</div>
+                  <div>
+                    <p class="review-name">Christian Radmann-Bender</p>
+                    <div class="review-date">vor 10 Monaten</div>
+                  </div>
+                </div>
+                <div class="google-badge">G</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-text">Das nette Team um Angelo Balbo hat uns super schnell bei unserem defekten und undichten alten Dachfenster geholfen und alles fachgerecht und perfekt ausgeführt. Der nächste Auftrag ist schon eingeplant. Besser geht es nicht. Danke!</div>
+              <div class="review-footer"><span class="pill">Google Review</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div style="display:flex; gap:12px; align-items:center;">
+                  <div class="avatar">RM</div>
+                  <div>
+                    <p class="review-name">René Marx</p>
+                    <div class="review-date">vor 7 Jahren</div>
+                  </div>
+                </div>
+                <div class="google-badge">G</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-text">Herr Angelo Balbo hat an unserem Bauträgerprojekt in Neunkirchen die Ausführung der Dachdeckerarbeiten übernommen. Sehr zuverlässige und professionelle Umsetzung mit überzeugender Qualität.</div>
+              <div class="review-footer"><span class="pill">Bauträgerprojekt</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div style="display:flex; gap:12px; align-items:center;">
+                  <div class="avatar">OK</div>
+                  <div>
+                    <p class="review-name">Olaf von Koelln</p>
+                    <div class="review-date">vor 2 Jahren</div>
+                  </div>
+                </div>
+                <div class="google-badge">G</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-text">Die Jungs sind einfach nur klasse. Eine nette Truppe, die schnell und sehr sauber arbeitet. Das ist Handwerk, wie es sein sollte – einfach top und zuverlässig.</div>
+              <div class="review-footer"><span class="pill">Saubere Arbeit</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div style="display:flex; gap:12px; align-items:center;">
+                  <div class="avatar">AJ</div>
+                  <div>
+                    <p class="review-name">Agnes Jojko</p>
+                    <div class="review-date">vor 2 Jahren</div>
+                  </div>
+                </div>
+                <div class="google-badge">G</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-text">Sehr gute Arbeit, immer zuverlässig gewesen und sehr freundlich. Per E-Mail schwer zu erreichen, jedoch am besten per WhatsApp kontaktieren. Dann kommt die Antwort umgehend.</div>
+              <div class="review-footer"><span class="pill">Zuverlässig</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div style="display:flex; gap:12px; align-items:center;">
+                  <div class="avatar">TE</div>
+                  <div>
+                    <p class="review-name">Thomas Engels</p>
+                    <div class="review-date">vor 5 Jahren</div>
+                  </div>
+                </div>
+                <div class="google-badge">G</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-text">Freundlich, erfahrener Dachdeckermeister, flexibel und zuverlässig.</div>
+              <div class="review-footer"><span class="pill">Meisterbetrieb</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div style="display:flex; gap:12px; align-items:center;">
+                  <div class="avatar">OH</div>
+                  <div>
+                    <p class="review-name">Oli H.</p>
+                    <div class="review-date">vor einem Jahr</div>
+                  </div>
+                </div>
+                <div class="google-badge">G</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-text">Die Rezension ist im Screenshot nicht ausgeschrieben sichtbar, daher kann hier auf Wunsch der exakte Text nachgetragen werden.</div>
+              <div class="review-footer"><span class="pill">Platzhalter</span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="arrows" aria-hidden="false">
+          <button class="arrow-btn" id="prevBtn" aria-label="Vorherige Bewertung">‹</button>
+          <button class="arrow-btn" id="nextBtn" aria-label="Nächste Bewertung">›</button>
+        </div>
+
+        <div class="dots" aria-label="Slider-Pagination">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES/BENEFITS -->
+    <section class="section container" id="leistungen">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Leistungen & Vertrauen</div>
+          <h2>Architekturästhetik trifft Dachdecker-Kompetenz</h2>
+        </div>
+        <p>
+          Diese Sektion ist bewusst so aufgebaut, dass sie sich nahtlos in einen modernen Webauftritt einfügt und gleichzeitig die wichtigsten Vertrauenssignale sichtbar macht.
+        </p>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="icon">✦</div>
+          <strong>Meisterbetrieb</strong>
+          <span>Ausgezeichnete Qualität vom Fachbetrieb – für langlebige und präzise Dachlösungen.</span>
+        </div>
+        <div class="benefit">
+          <div class="icon">✓</div>
+          <strong>Faire Preise</strong>
+          <span>Transparente Angebote ohne versteckte Kosten und mit klarer Kommunikation.</span>
+        </div>
+        <div class="benefit">
+          <div class="icon">⌛</div>
+          <strong>Feste Termine</strong>
+          <span>Pünktlich, planbar und zuverlässig – ideal für anspruchsvolle Bauherren.</span>
+        </div>
+        <div class="benefit">
+          <div class="icon">⌂</div>
+          <strong>Regionaler Partner</strong>
+          <span>Ihr Team vor Ort – schnell erreichbar und mit echter Nähe zum Projekt.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section container" id="kontakt">
+      <div class="contact-strip">
+        <div>
+          <div class="eyebrow" style="color: rgba(255,255,255,.82);">Kontakt</div>
+          <h3>Qualität, die man sieht.<br />Schutz, den man spürt.</h3>
+          <p>
+            Für Anfragen, Sanierungen, Neubauten oder Wartung: BALBO Angelo Bedachungen steht für einen modernen, vertrauensvollen Webauftritt mit einer klaren Conversion-Struktur.
+          </p>
+        </div>
+        <div class="contact-items">
+          <a href="tel:+4915150429486">☎ +49 151 50429486</a>
+          <a href="mailto:info@bedachungen-balbo.de">✉ info@bedachungen-balbo.de</a>
+          <a href="https://www.bedachungen-balbo.de" target="_blank" rel="noreferrer">↗ www.bedachungen-balbo.de</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer container">
+      © BALBO Angelo Bedachungen · Dark Premium UI / Website Sections Mockup
+    </div>
+  </main>
+
+  <script>
+    // Lightweight slider behavior for the testimonial row.
+    const track = document.getElementById('reviewsTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+
+    let index = 0;
+    const cardWidth = 294; // approx card width incl. gap
+
+    function updateSlider() {
+      if (!track) return;
+      const maxIndex = Math.max(0, track.children.length - 1);
+      const safeIndex = Math.min(index, maxIndex);
+      const offset = safeIndex * cardWidth;
+      track.style.transform = `translateX(${-offset}px)`;
+      track.style.transition = 'transform 420ms ease';
+      dots.forEach((d, i) => d.classList.toggle('active', i === safeIndex));
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      index = Math.max(0, index - 1);
+      updateSlider();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      index = Math.min(track.children.length - 1, index + 1);
+      updateSlider();
+    });
+
+    // Auto-advance on desktop for the animated slider feel.
+    let auto = setInterval(() => {
+      if (window.innerWidth < 700) return;
+      index = (index + 1) % track.children.length;
+      updateSlider();
+    }, 4200);
+
+    window.addEventListener('resize', () => {
+      // keep it simple; reset the transform on smaller screens where horizontal scroll is used.
+      if (window.innerWidth < 700) {
+        track.style.transform = 'none';
+      } else {
+        updateSlider();
+      }
+    });
+
+    updateSlider();
+  </script>
+</body>
+</html>
