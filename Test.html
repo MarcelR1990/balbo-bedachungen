@@ -132,23 +132,43 @@
     .hero {
       position: relative; min-height: calc(100svh - var(--header-h)); display: grid; align-items: center; color: var(--text-inverse); overflow: clip;
       background:
-        linear-gradient(90deg, rgba(10, 10, 11, 0.94) 0%, rgba(18, 18, 20, 0.84) 42%, rgba(18, 18, 20, 0.40) 100%),
-        url("/img/bau_traeger.jpg") center/cover no-repeat;
+        linear-gradient(120deg, rgba(8, 8, 9, 0.96) 0%, rgba(18, 18, 20, 0.88) 38%, rgba(18, 18, 20, 0.35) 100%),
+        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
     }
     .hero::before {
       content: ""; position: absolute; inset: 0;
       background:
-        radial-gradient(circle at 18% 18%, rgba(214, 31, 38, 0.22), transparent 26%),
-        radial-gradient(circle at 85% 32%, rgba(255,255,255,.10), transparent 18%);
+        radial-gradient(circle at 18% 18%, rgba(214, 31, 38, 0.24), transparent 26%),
+        radial-gradient(circle at 82% 30%, rgba(255,255,255,.10), transparent 18%);
       pointer-events: none;
+    }
+    .hero-shape {
+      position: absolute;
+      background: linear-gradient(145deg, rgba(214,31,38,.95), rgba(168,22,27,.92));
+      opacity: .92;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,.28));
+      pointer-events: none;
+    }
+    .hero-shape-a {
+      top: 8%; left: -3%; width: 220px; height: 22px;
+    }
+    .hero-shape-b {
+      top: 16%; left: 13%; width: 120px; height: 120px; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      opacity: .20;
     }
     .hero-inner {
       position: relative; display: grid; gap: 2rem; padding: 5.5rem 0 4.25rem;
       grid-template-columns: 1fr;
     }
     .hero-copy { max-width: 780px; }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1rem;
+      padding: .55rem .85rem; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.92); font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 800;
+    }
     .hero h1 {
-      margin: 0 0 1rem; font-size: clamp(2.6rem, 6vw, 5.9rem); line-height: .94; letter-spacing: -0.06em; text-wrap: balance;
+      margin: 0 0 1rem; font-size: clamp(2.8rem, 6vw, 6.2rem); line-height: .92; letter-spacing: -0.07em; text-wrap: balance;
+      max-width: 10ch;
     }
     .hero p { margin: 0 0 1.8rem; max-width: 58ch; color: rgba(247,248,250,.84); font-size: clamp(1rem, 1.8vw, 1.18rem); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; align-items: center; margin-bottom: 2rem; }
@@ -162,19 +182,26 @@
     .metric strong { display: block; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.05; margin-bottom: .35rem; }
     .metric span { color: rgba(247,248,250,.78); font-size: .94rem; }
 
-    .hero-card {
-      justify-self: end; width: min(100%, 460px); background: rgba(21, 25, 34, 0.82);
+    .hero-panel {
+      justify-self: end; width: min(100%, 480px); display: grid; gap: 0; background: rgba(17, 18, 21, 0.88);
       border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(18px); border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-lg);
     }
-    .hero-card-media {
-      aspect-ratio: 4 / 3;
-      background:
-        linear-gradient(180deg, transparent 0%, rgba(15,17,21,.72) 100%),
-        url("/img/helm_auf_boden.jpg") center/cover no-repeat;
+    .hero-panel-top {
+      display: grid; grid-template-columns: 1.35fr .85fr; gap: .85rem; padding: .9rem; background: rgba(255,255,255,.03);
     }
-    .hero-card-body { padding: 1.2rem 1.2rem 1.35rem; }
-    .hero-card-body h2 { margin: 0 0 .45rem; font-size: 1.18rem; letter-spacing: -0.03em; }
-    .hero-card-body p { margin: 0; color: rgba(247,248,250,.76); font-size: .95rem; }
+    .hero-panel-image {
+      border-radius: 22px; min-height: 220px; background-size: cover; background-position: center; overflow: hidden;
+    }
+    .hero-panel-image-main {
+      background-image: linear-gradient(180deg, transparent 0%, rgba(15,17,21,.32) 100%), url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80");
+    }
+    .hero-panel-image-small {
+      min-height: 220px;
+      background-image: linear-gradient(180deg, transparent 0%, rgba(15,17,21,.42) 100%), url("https://images.unsplash.com/photo-1590725121839-892b458a74f7?auto=format&fit=crop&w=900&q=80");
+    }
+    .hero-panel-body { padding: 1.2rem 1.2rem 1.35rem; }
+    .hero-panel-body h2 { margin: 0 0 .45rem; font-size: 1.18rem; letter-spacing: -0.03em; }
+    .hero-panel-body p { margin: 0; color: rgba(247,248,250,.76); font-size: .95rem; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1rem; padding: .5rem .8rem; border-radius: 999px;
       background: rgba(214, 31, 38, 0.14); color: #ffd4d6; border: 1px solid rgba(214,31,38,.22); font-size: .85rem; font-weight: 800;
@@ -400,13 +427,16 @@
 
   <main id="main">
     <section id="top" class="hero">
+      <div class="hero-shape hero-shape-a" aria-hidden="true"></div>
+      <div class="hero-shape hero-shape-b" aria-hidden="true"></div>
+
       <div class="container hero-inner">
         <div class="hero-copy reveal">
-          <div class="hero-badge">Wir beraten Sie gerne und übernehmen die Umsetzung Ihres Bauvorhabens</div>
-          <h1>Bauprojekte mit Qualität, Präzision und Erfahrung.</h1>
+          <div class="hero-kicker">M&S Bau&Dach GmbH · Meisterbetrieb</div>
+          <h1>Starkes Handwerk. Klare Linien. Ein Auftritt, der Vertrauen schafft.</h1>
           <p>
-            M&amp;S Bau&amp;Dach GmbH realisiert hochwertige Arbeiten mit spezialisierten Fachkräften und Fachfirmen –
-            von der Sanierung bis zum Neubau, sauber geplant und zuverlässig umgesetzt.
+            Von Dacharbeiten bis Sanierung: Wir setzen Bauvorhaben mit sauberer Organisation, hochwertiger Ausführung
+            und einem kompromisslos professionellen Anspruch um.
           </p>
 
           <div class="hero-actions">
@@ -434,14 +464,17 @@
           </div>
         </div>
 
-        <aside class="hero-card reveal" aria-label="Highlight-Bereich">
-          <div class="hero-card-media" role="img" aria-label="Rote Schutzhelm-Inszenierung auf der Baustelle"></div>
-          <div class="hero-card-body">
-            <div class="hero-badge">Aktuelles Projekt</div>
-            <h2>Verlässliche Umsetzung für anspruchsvolle Bauvorhaben</h2>
+        <aside class="hero-panel reveal" aria-label="Highlight-Bereich">
+          <div class="hero-panel-top">
+            <div class="hero-panel-image hero-panel-image-main" role="img" aria-label="Modernes Bauprojekt mit professioneller Architektur"></div>
+            <div class="hero-panel-image hero-panel-image-small" role="img" aria-label="Bauhelm und Baustellen-Detail"></div>
+          </div>
+          <div class="hero-panel-body">
+            <div class="hero-badge">Qualität · Präzision · Termintreue</div>
+            <h2>Ein Auftritt mit mehr Charakter – direkt, markant und modern.</h2>
             <p>
-              Fachlich koordinierte Abläufe, hochwertige Materialien und ein klarer Fokus auf Qualität, Sicherheit und
-              Termintreue.
+              Die Startsektion setzt die Marke sofort in Szene: klarer Kontrast, starke Bildsprache und eine prägnante
+              Botschaft für Bauherren, Partner und Neukunden.
             </p>
           </div>
         </aside>
@@ -620,14 +653,13 @@
           <div class="eyebrow">Referenzen</div>
           <h2 class="section-title">Projektbeispiele mit starkem visuellen Auftritt</h2>
           <p class="section-subtitle">
-            Hier wird die Seite für den Relaunch deutlich aufgewertet: große Bilder, klare Karten und ein hochwertiger
-            Eindruck für neue Anfragen.
+            Kostenfreie Bildmotive mit modernem Bau- und Architekturbezug geben dem Relaunch mehr Tiefe und Wirkung.
           </p>
         </div>
 
         <div class="grid project-grid" style="margin-top: 2rem;">
           <article class="card project-card reveal">
-            <div class="project-media" style="background-image:url('/img/bau_traeger.jpg');"></div>
+            <div class="project-media" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80');"></div>
             <div class="project-body">
               <div class="project-meta"><span class="tag">Rohbau</span><span class="tag">Neubau</span></div>
               <h3>Tragende Konstruktionen im Neubau</h3>
@@ -636,7 +668,7 @@
           </article>
 
           <article class="card project-card reveal">
-            <div class="project-media" style="background-image:url('/img/helm_auf_boden.jpg');"></div>
+            <div class="project-media" style="background-image:url('https://images.unsplash.com/photo-1590725121839-892b458a74f7?auto=format&fit=crop&w=1200&q=80');"></div>
             <div class="project-body">
               <div class="project-meta"><span class="tag">Bauleitung</span><span class="tag">Sicherheit</span></div>
               <h3>Strukturierte Projektkoordination</h3>
@@ -645,7 +677,7 @@
           </article>
 
           <article class="card project-card reveal">
-            <div class="project-media" style="background-image:url('/img/brick-wall.jpg');"></div>
+            <div class="project-media" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80');"></div>
             <div class="project-body">
               <div class="project-meta"><span class="tag">Mauerwerk</span><span class="tag">Fassade</span></div>
               <h3>Sauber ausgeführte Außenflächen</h3>
