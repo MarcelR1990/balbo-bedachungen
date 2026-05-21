@@ -3,1034 +3,380 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Premium Bauunternehmen OnePager – moderne Bauprojekte, Sanierung, Neubau und Innenausbau mit professioneller Präsentation." />
+  <meta name="description" content="M&S Bau&Dach GmbH – Bau-, Dach- und Sanierungsleistungen mit Qualität, Präzision und persönlicher Betreuung." />
   <meta name="theme-color" content="#111318" />
+  <meta name="robots" content="index,follow" />
 
-  <title>NovaBau | Bauunternehmen für Neubau, Sanierung & Innenausbau</title>
+  <title>M&S Bau&Dach GmbH | Bau-, Dach- und Sanierungsleistungen</title>
 
   <style>
-    /* =========================
-       Base / Reset
-    ========================== */
     :root {
       --bg: #0f1115;
-      --bg-elevated: #151922;
-      --bg-card: #171c26;
+      --bg-2: #151922;
       --surface: #ffffff;
       --surface-2: #f5f6f8;
       --text: #111318;
-      --text-soft: #5a6270;
+      --text-soft: #5b6472;
       --text-inverse: #f7f8fa;
-      --border: rgba(255, 255, 255, 0.09);
-      --border-dark: rgba(17, 19, 24, 0.09);
+      --border: rgba(17, 19, 24, 0.10);
+      --border-inverse: rgba(255, 255, 255, 0.10);
       --accent: #d98f3a;
-      --accent-2: #c7791b;
-      --success: #2bb673;
-      --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.20);
-      --shadow-md: 0 16px 36px rgba(0, 0, 0, 0.14);
+      --accent-2: #c9791b;
       --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.10);
-      --radius-xl: 28px;
+      --shadow-md: 0 18px 42px rgba(0, 0, 0, 0.14);
+      --shadow-lg: 0 26px 60px rgba(0, 0, 0, 0.20);
+      --radius-xl: 30px;
       --radius-lg: 22px;
       --radius-md: 16px;
       --radius-sm: 12px;
       --container: 1200px;
+      --header-h: 86px;
       --transition: 220ms ease;
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 92px;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); }
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
       background: linear-gradient(180deg, #ffffff 0%, #f7f7f9 100%);
       line-height: 1.6;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    :focus-visible {
-      outline: 3px solid rgba(217, 143, 58, 0.55);
-      outline-offset: 3px;
-    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    :focus-visible { outline: 3px solid rgba(217, 143, 58, 0.55); outline-offset: 3px; }
 
     .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 10px;
-      z-index: 10000;
-      background: #fff;
-      color: #000;
-      padding: 0.9rem 1.1rem;
-      border-radius: 999px;
-      box-shadow: var(--shadow-sm);
+      position: absolute; left: -9999px; top: 10px; z-index: 10000;
+      background: #fff; color: #000; padding: .9rem 1.1rem; border-radius: 999px; box-shadow: var(--shadow-sm);
     }
+    .skip-link:focus { left: 14px; }
 
-    .skip-link:focus {
-      left: 14px;
-    }
-
-    .container {
-      width: min(100% - 2rem, var(--container));
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 5rem 0;
-    }
-
+    .container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
+    .section { padding: 5rem 0; }
     .section-title {
-      margin: 0 0 1rem;
-      font-size: clamp(1.8rem, 3vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      color: var(--text);
+      margin: 0 0 1rem; font-size: clamp(1.8rem, 3vw, 3.1rem); line-height: 1.08; letter-spacing: -0.04em;
     }
-
-    .section-subtitle {
-      margin: 0;
-      max-width: 68ch;
-      color: var(--text-soft);
-      font-size: 1.03rem;
-    }
-
+    .section-subtitle { margin: 0; max-width: 68ch; color: var(--text-soft); font-size: 1.03rem; }
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      display: inline-flex; align-items: center; gap: .55rem; margin-bottom: 1rem;
+      text-transform: uppercase; letter-spacing: .16em; font-size: .78rem; font-weight: 800; color: var(--accent);
     }
-
     .eyebrow::before {
-      content: "";
-      width: 42px;
-      height: 1px;
+      content: ""; width: 42px; height: 1px;
       background: linear-gradient(90deg, var(--accent), rgba(217, 143, 58, 0.15));
     }
 
-    /* =========================
-       Header / Navigation
-    ========================== */
     .header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
       background: rgba(15, 17, 21, 0.72);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-
     .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 78px;
-      gap: 1rem;
+      min-height: var(--header-h);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      color: var(--text-inverse);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      font-size: 1.06rem;
-      white-space: nowrap;
+    .brand {
+      display: inline-flex; align-items: center; gap: .85rem;
+      color: var(--text-inverse); font-weight: 900; letter-spacing: -0.03em; white-space: nowrap;
     }
-
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background:
-        linear-gradient(145deg, rgba(217, 143, 58, 1), rgba(199, 121, 27, 1));
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(217, 143, 58, 0.28);
-      font-weight: 900;
+    .brand-mark {
+      width: 46px; height: 46px; border-radius: 14px; overflow: hidden;
+      display: grid; place-items: center; background: #fff; box-shadow: 0 14px 30px rgba(255,255,255,.08);
+      flex: none;
     }
-
-    .nav-links {
-      display: none;
-      gap: 1.4rem;
-      align-items: center;
-    }
-
+    .brand-mark img { width: 100%; height: 100%; object-fit: contain; }
+    .nav-links { display: none; gap: 1.35rem; align-items: center; }
     .nav-links a {
-      color: rgba(247, 248, 250, 0.85);
-      font-weight: 600;
-      font-size: 0.95rem;
-      position: relative;
-      transition: color var(--transition);
+      color: rgba(247, 248, 250, 0.86); font-weight: 650; font-size: .95rem; position: relative; transition: color var(--transition);
     }
-
     .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -7px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--transition);
+      content: ""; position: absolute; left: 0; bottom: -7px; width: 100%; height: 2px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform var(--transition);
     }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #fff;
+    .nav-cta, .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      border-radius: 999px; padding: .95rem 1.25rem; font-weight: 750; border: 1px solid transparent;
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition), border-color var(--transition), opacity var(--transition);
+      cursor: pointer; white-space: nowrap;
     }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      transform: scaleX(1);
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.92rem 1.2rem;
-      border-radius: 999px;
-      background: linear-gradient(145deg, var(--accent), var(--accent-2));
-      color: #fff;
-      font-weight: 700;
-      border: none;
-      box-shadow: 0 14px 34px rgba(217, 143, 58, 0.24);
-      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
-      white-space: nowrap;
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 42px rgba(217, 143, 58, 0.28);
-    }
-
-    /* =========================
-       Hero
-    ========================== */
-    .hero {
-      position: relative;
-      min-height: calc(100vh - 78px);
-      display: grid;
-      align-items: center;
-      color: var(--text-inverse);
-      overflow: clip;
-      background:
-        linear-gradient(90deg, rgba(15, 17, 21, 0.88) 0%, rgba(15, 17, 21, 0.70) 42%, rgba(15, 17, 21, 0.35) 100%),
-        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(217, 143, 58, 0.18), transparent 28%),
-        radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.08), transparent 24%);
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      display: grid;
-      gap: 2rem;
-      padding: 5.5rem 0 4.2rem;
-      grid-template-columns: 1fr;
-    }
-
-    .hero-copy {
-      max-width: 760px;
-    }
-
-    .hero h1 {
-      margin: 0 0 1rem;
-      font-size: clamp(2.6rem, 6vw, 5.7rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      text-wrap: balance;
-    }
-
-    .hero p {
-      margin: 0 0 1.8rem;
-      max-width: 58ch;
-      color: rgba(247, 248, 250, 0.84);
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.65rem;
-      border-radius: 999px;
-      padding: 0.95rem 1.35rem;
-      border: 1px solid transparent;
-      font-weight: 700;
-      transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(145deg, var(--accent), var(--accent-2));
-      color: #fff;
+    .nav-cta, .btn-primary {
+      color: #fff; background: linear-gradient(145deg, var(--accent), var(--accent-2));
       box-shadow: 0 16px 36px rgba(217, 143, 58, 0.24);
     }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
+    .nav-cta:hover, .btn-primary:hover { transform: translateY(-2px); }
     .btn-secondary {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
+      color: #fff; border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); backdrop-filter: blur(10px);
     }
+    .btn-secondary:hover { transform: translateY(-2px); background: rgba(255,255,255,.10); }
 
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.28);
-      background: rgba(255, 255, 255, 0.09);
-    }
-
-    .hero-metrics {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      max-width: 560px;
-    }
-
-    .metric {
-      padding: 1rem 1rem 1.1rem;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .metric strong {
-      display: block;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      line-height: 1.05;
-      margin-bottom: 0.35rem;
-    }
-
-    .metric span {
-      color: rgba(247, 248, 250, 0.8);
-      font-size: 0.94rem;
-    }
-
-    .hero-card {
-      justify-self: end;
-      width: min(100%, 420px);
-      background: rgba(21, 25, 34, 0.82);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(18px);
-      border-radius: 30px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .hero-card-media {
-      aspect-ratio: 4 / 3;
+    .hero {
+      position: relative; min-height: calc(100svh - var(--header-h)); display: grid; align-items: center; color: var(--text-inverse); overflow: clip;
       background:
-        linear-gradient(180deg, transparent 0%, rgba(15, 17, 21, 0.72) 100%),
-        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+        linear-gradient(90deg, rgba(15, 17, 21, 0.90) 0%, rgba(15, 17, 21, 0.76) 44%, rgba(15, 17, 21, 0.38) 100%),
+        url("/img/bau_traeger.jpg") center/cover no-repeat;
     }
-
-    .hero-card-body {
-      padding: 1.2rem 1.2rem 1.35rem;
-    }
-
-    .hero-card-body h2 {
-      margin: 0 0 0.45rem;
-      font-size: 1.18rem;
-      letter-spacing: -0.03em;
-    }
-
-    .hero-card-body p {
-      margin: 0;
-      color: rgba(247, 248, 250, 0.75);
-      font-size: 0.95rem;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin-bottom: 1rem;
-      padding: 0.5rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(217, 143, 58, 0.14);
-      color: #f7d1a3;
-      border: 1px solid rgba(217, 143, 58, 0.2);
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    /* =========================
-       Trusted bar
-    ========================== */
-    .trust {
-      margin-top: -1.35rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .trust-inner {
-      background: #fff;
-      border-radius: 24px;
-      padding: 1.35rem 1.2rem;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border-dark);
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      color: var(--text-soft);
-      font-weight: 600;
-    }
-
-    .trust-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, rgba(217, 143, 58, 0.14), rgba(217, 143, 58, 0.06));
-      color: var(--accent-2);
-      border: 1px solid rgba(217, 143, 58, 0.14);
-      flex: none;
-    }
-
-    /* =========================
-       Cards / Grid
-    ========================== */
-    .grid {
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .service-grid,
-    .project-grid,
-    .testimonial-grid,
-    .process-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-dark);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(217, 143, 58, 0.18);
-    }
-
-    .service-card {
-      padding: 1.3rem;
-    }
-
-    .service-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 1rem;
-      background: linear-gradient(145deg, rgba(217, 143, 58, 0.16), rgba(217, 143, 58, 0.07));
-      color: var(--accent-2);
-      border: 1px solid rgba(217, 143, 58, 0.12);
-      font-weight: 900;
-      font-size: 1.12rem;
-    }
-
-    .service-card h3,
-    .project-card h3,
-    .testimonial-card h3,
-    .process-card h3 {
-      margin: 0 0 0.55rem;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
-
-    .service-card p,
-    .project-card p,
-    .testimonial-card p,
-    .process-card p {
-      margin: 0;
-      color: var(--text-soft);
-    }
-
-    .service-list {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-      display: grid;
-      gap: 0.55rem;
-    }
-
-    .service-list li {
-      display: flex;
-      align-items: start;
-      gap: 0.6rem;
-      color: #3e4550;
-      font-size: 0.95rem;
-    }
-
-    .service-list li::before {
-      content: "✓";
-      color: var(--success);
-      font-weight: 900;
-      flex: none;
-      margin-top: 0.04rem;
-    }
-
-    /* =========================
-       About
-    ========================== */
-    .about {
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
       background:
-        linear-gradient(180deg, rgba(245, 246, 248, 0.58) 0%, rgba(245, 246, 248, 1) 100%);
-    }
-
-    .about-layout {
-      display: grid;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .about-copy {
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    .checklist {
-      display: grid;
-      gap: 0.75rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .checklist li {
-      display: flex;
-      gap: 0.8rem;
-      align-items: start;
-      padding: 0.95rem 1rem;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid var(--border-dark);
-    }
-
-    .checkmark {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: rgba(43, 182, 115, 0.12);
-      color: var(--success);
-      display: grid;
-      place-items: center;
-      flex: none;
-      font-weight: 900;
-    }
-
-    .about-panel {
-      background: linear-gradient(180deg, #121620 0%, #171c26 100%);
-      color: #fff;
-      border-radius: 30px;
-      padding: 1.35rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    .about-panel-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 1rem;
-    }
-
-    .info-box {
-      padding: 1rem;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .info-box strong {
-      display: block;
-      font-size: 1.55rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .info-box span {
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 0.92rem;
-    }
-
-    /* =========================
-       Projects
-    ========================== */
-    .project-card {
-      overflow: hidden;
-    }
-
-    .project-media {
-      aspect-ratio: 16 / 11;
-      position: relative;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .project-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(15, 17, 21, 0.32) 100%);
-    }
-
-    .project-body {
-      padding: 1.2rem;
-    }
-
-    .project-meta {
-      display: flex;
-      gap: 0.65rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.85rem;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.42rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(217, 143, 58, 0.12);
-      color: var(--accent-2);
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    /* =========================
-       Testimonials
-    ========================== */
-    .testimonial-card {
-      padding: 1.35rem;
-      background:
-        radial-gradient(circle at top right, rgba(217, 143, 58, 0.08), transparent 30%),
-        #fff;
-    }
-
-    .stars {
-      display: inline-flex;
-      gap: 0.2rem;
-      color: #e0a93b;
-      margin-bottom: 0.85rem;
-      font-size: 1.05rem;
-      letter-spacing: 0.1em;
-    }
-
-    .testimonial-footer {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-top: 1.2rem;
-    }
-
-    .avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      background: linear-gradient(145deg, rgba(217, 143, 58, 0.16), rgba(17, 19, 24, 0.06));
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      color: var(--accent-2);
-      flex: none;
-      border: 1px solid rgba(217, 143, 58, 0.14);
-    }
-
-    .testimonial-footer strong {
-      display: block;
-      line-height: 1.1;
-    }
-
-    .testimonial-footer span {
-      color: var(--text-soft);
-      font-size: 0.92rem;
-    }
-
-    /* =========================
-       Process
-    ========================== */
-    .process {
-      background: linear-gradient(180deg, #f6f7f9 0%, #ffffff 100%);
-    }
-
-    .process-card {
-      padding: 1.35rem;
-      position: relative;
-    }
-
-    .process-step {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 1rem;
-      background: linear-gradient(145deg, rgba(17, 19, 24, 0.92), rgba(43, 49, 64, 0.92));
-      color: #fff;
-      font-weight: 800;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .process-card::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 110px;
-      height: 110px;
-      background: radial-gradient(circle, rgba(217, 143, 58, 0.08) 0%, transparent 68%);
+        radial-gradient(circle at 18% 18%, rgba(217, 143, 58, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 40%, rgba(255,255,255,.09), transparent 20%);
       pointer-events: none;
     }
-
-    /* =========================
-       Contact
-    ========================== */
-    .contact {
-      background: linear-gradient(180deg, #121620 0%, #0f1115 100%);
-      color: var(--text-inverse);
-    }
-
-    .contact-layout {
-      display: grid;
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .contact-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 28px;
-      padding: 1.35rem;
-      box-shadow: var(--shadow-md);
-    }
-
-    .contact-list {
-      list-style: none;
-      margin: 1.2rem 0 0;
-      padding: 0;
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 0.9rem;
-      align-items: flex-start;
-      padding: 0.95rem 1rem;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .contact-item strong {
-      display: block;
-      margin-bottom: 0.1rem;
-    }
-
-    .contact-item a,
-    .contact-item span {
-      color: rgba(247, 248, 250, 0.78);
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .field-grid {
-      display: grid;
-      gap: 1rem;
+    .hero-inner {
+      position: relative; display: grid; gap: 2rem; padding: 5.5rem 0 4.25rem;
       grid-template-columns: 1fr;
     }
+    .hero-copy { max-width: 780px; }
+    .hero h1 {
+      margin: 0 0 1rem; font-size: clamp(2.6rem, 6vw, 5.8rem); line-height: .96; letter-spacing: -0.055em; text-wrap: balance;
+    }
+    .hero p { margin: 0 0 1.8rem; max-width: 58ch; color: rgba(247,248,250,.84); font-size: clamp(1rem, 1.8vw, 1.2rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; align-items: center; margin-bottom: 2rem; }
+    .hero-metrics {
+      display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 560px;
+    }
+    .metric {
+      padding: 1rem 1rem 1.1rem; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+    }
+    .metric strong { display: block; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.05; margin-bottom: .35rem; }
+    .metric span { color: rgba(247,248,250,.78); font-size: .94rem; }
 
-    .field {
-      display: grid;
-      gap: 0.45rem;
+    .hero-card {
+      justify-self: end; width: min(100%, 440px); background: rgba(21, 25, 34, 0.82);
+      border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(18px); border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-lg);
+    }
+    .hero-card-media {
+      aspect-ratio: 4 / 3; background: linear-gradient(180deg, transparent 0%, rgba(15,17,21,.72) 100%), url("/img/helm_auf_boden.jpg") center/cover no-repeat;
+    }
+    .hero-card-body { padding: 1.2rem 1.2rem 1.35rem; }
+    .hero-card-body h2 { margin: 0 0 .45rem; font-size: 1.18rem; letter-spacing: -0.03em; }
+    .hero-card-body p { margin: 0; color: rgba(247,248,250,.76); font-size: .95rem; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .45rem; margin-bottom: 1rem; padding: .5rem .8rem; border-radius: 999px;
+      background: rgba(217, 143, 58, 0.14); color: #f7d1a3; border: 1px solid rgba(217,143,58,.2); font-size: .85rem; font-weight: 800;
     }
 
-    .field label {
-      font-weight: 600;
-      color: rgba(247, 248, 250, 0.88);
-      font-size: 0.95rem;
+    .trust { margin-top: -1.35rem; position: relative; z-index: 2; }
+    .trust-inner {
+      background: #fff; border-radius: 24px; padding: 1.35rem 1.2rem; box-shadow: var(--shadow-md); border: 1px solid var(--border);
+      display: grid; gap: 1rem; grid-template-columns: 1fr;
+    }
+    .trust-item { display: flex; align-items: center; gap: .9rem; color: var(--text-soft); font-weight: 650; }
+    .trust-icon {
+      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; flex: none;
+      background: linear-gradient(145deg, rgba(217,143,58,.14), rgba(217,143,58,.06)); color: var(--accent-2); border: 1px solid rgba(217,143,58,.14); font-weight: 900;
     }
 
-    .field input,
-    .field textarea {
-      width: 100%;
-      padding: 0.95rem 1rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    .grid { display: grid; gap: 1.25rem; }
+    .service-grid, .project-grid, .testimonial-grid, .process-grid { grid-template-columns: 1fr; }
+    .card {
+      background: #fff; border-radius: var(--radius-xl); border: 1px solid var(--border); box-shadow: var(--shadow-sm); overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(217,143,58,.18); }
+
+    .service-card { padding: 1.3rem; }
+    .service-icon {
+      width: 54px; height: 54px; border-radius: 18px; display: grid; place-items: center; margin-bottom: 1rem;
+      background: linear-gradient(145deg, rgba(217,143,58,.16), rgba(217,143,58,.07)); color: var(--accent-2); border: 1px solid rgba(217,143,58,.12);
+      font-weight: 900; font-size: 1.12rem;
+    }
+    .service-card h3, .project-card h3, .testimonial-card h3, .process-card h3 { margin: 0 0 .55rem; letter-spacing: -.03em; line-height: 1.15; }
+    .service-card p, .project-card p, .testimonial-card p, .process-card p { margin: 0; color: var(--text-soft); }
+    .service-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .55rem; }
+    .service-list li { display: flex; align-items: flex-start; gap: .6rem; color: #3e4550; font-size: .95rem; }
+    .service-list li::before { content: "✓"; color: #2bb673; font-weight: 900; flex: none; margin-top: .04rem; }
+
+    .about { background: linear-gradient(180deg, rgba(245,246,248,.58) 0%, rgba(245,246,248,1) 100%); }
+    .about-layout { display: grid; gap: 1.5rem; align-items: center; }
+    .about-copy { display: grid; gap: 1.2rem; }
+    .checklist { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+    .checklist li {
+      display: flex; gap: .8rem; align-items: start; padding: .95rem 1rem; border-radius: var(--radius-md);
+      background: rgba(255,255,255,.78); border: 1px solid var(--border);
+    }
+    .checkmark {
+      width: 24px; height: 24px; border-radius: 999px; background: rgba(43,182,115,.12); color: #2bb673;
+      display: grid; place-items: center; flex: none; font-weight: 900;
+    }
+    .about-panel {
+      background: linear-gradient(180deg, #121620 0%, #171c26 100%); color: #fff; border-radius: 30px; padding: 1.35rem; box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .about-panel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; margin-top: 1rem; }
+    .info-box { padding: 1rem; border-radius: 18px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
+    .info-box strong { display: block; font-size: 1.55rem; margin-bottom: .35rem; }
+    .info-box span { color: rgba(255,255,255,.75); font-size: .92rem; }
+
+    .project-card { overflow: hidden; }
+    .project-media { aspect-ratio: 16 / 11; position: relative; background-size: cover; background-position: center; }
+    .project-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(15,17,21,.32) 100%); }
+    .project-body { padding: 1.2rem; }
+    .project-meta { display: flex; gap: .65rem; flex-wrap: wrap; margin-bottom: .85rem; }
+    .tag {
+      display: inline-flex; align-items: center; padding: .42rem .7rem; border-radius: 999px;
+      background: rgba(217,143,58,.12); color: var(--accent-2); font-size: .8rem; font-weight: 800;
     }
 
-    .field input::placeholder,
-    .field textarea::placeholder {
-      color: rgba(247, 248, 250, 0.45);
+    .testimonial-card {
+      padding: 1.35rem;
+      background: radial-gradient(circle at top right, rgba(217, 143, 58, 0.08), transparent 30%), #fff;
+    }
+    .stars { display: inline-flex; gap: .2rem; color: #e0a93b; margin-bottom: .85rem; font-size: 1.05rem; letter-spacing: .1em; }
+    .testimonial-footer { display: flex; align-items: center; gap: .8rem; margin-top: 1.2rem; }
+    .avatar {
+      width: 48px; height: 48px; border-radius: 16px; background: linear-gradient(145deg, rgba(217,143,58,.16), rgba(17,19,24,.06));
+      display: grid; place-items: center; font-weight: 800; color: var(--accent-2); flex: none; border: 1px solid rgba(217,143,58,.14);
+    }
+    .testimonial-footer strong { display: block; line-height: 1.1; }
+    .testimonial-footer span { color: var(--text-soft); font-size: .92rem; }
+
+    .process { background: linear-gradient(180deg, #f6f7f9 0%, #ffffff 100%); }
+    .process-card { padding: 1.35rem; position: relative; }
+    .process-step {
+      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 1rem;
+      background: linear-gradient(145deg, rgba(17,19,24,.92), rgba(43,49,64,.92)); color: #fff; font-weight: 900; box-shadow: var(--shadow-sm);
+    }
+    .process-card::after {
+      content: ""; position: absolute; right: 0; bottom: 0; width: 110px; height: 110px;
+      background: radial-gradient(circle, rgba(217,143,58,.08) 0%, transparent 68%); pointer-events: none;
     }
 
-    .field input:focus,
-    .field textarea:focus {
-      outline: none;
-      border-color: rgba(217, 143, 58, 0.6);
-      background: rgba(255, 255, 255, 0.07);
+    .contact {
+      background: linear-gradient(180deg, #121620 0%, #0f1115 100%); color: var(--text-inverse);
     }
-
-    .field textarea {
-      min-height: 160px;
-      resize: vertical;
+    .contact-layout { display: grid; gap: 1.5rem; align-items: start; }
+    .contact-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 28px; padding: 1.35rem; box-shadow: var(--shadow-md);
     }
-
-    .form-note {
-      color: rgba(247, 248, 250, 0.62);
-      font-size: 0.92rem;
-      margin: 0;
+    .contact-list { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: .85rem; }
+    .contact-item {
+      display: flex; gap: .9rem; align-items: flex-start; padding: .95rem 1rem; border-radius: 18px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06);
     }
-
-    .contact-btn {
-      width: 100%;
-      justify-content: center;
+    .contact-item strong { display: block; margin-bottom: .1rem; }
+    .contact-item a, .contact-item span { color: rgba(247,248,250,.78); }
+    .contact-form { display: grid; gap: 1rem; }
+    .field-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    .field { display: grid; gap: .45rem; }
+    .field label { font-weight: 650; color: rgba(247,248,250,.88); font-size: .95rem; }
+    .field input, .field textarea {
+      width: 100%; padding: .95rem 1rem; border-radius: 16px; border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05); color: #fff; transition: border-color var(--transition), background var(--transition), transform var(--transition);
     }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(247,248,250,.45); }
+    .field input:focus, .field textarea:focus { outline: none; border-color: rgba(217,143,58,.6); background: rgba(255,255,255,.07); }
+    .field textarea { min-height: 160px; resize: vertical; }
+    .form-note { color: rgba(247,248,250,.62); font-size: .92rem; margin: 0; }
+    .contact-btn { width: 100%; justify-content: center; }
 
-    /* =========================
-       Footer
-    ========================== */
     .footer {
-      background: #0b0d11;
-      color: rgba(247, 248, 250, 0.82);
-      padding: 2rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #0b0d11; color: rgba(247,248,250,.82); padding: 2rem 0; border-top: 1px solid rgba(255,255,255,.06);
     }
-
-    .footer-inner {
-      display: grid;
-      gap: 1.2rem;
-      align-items: center;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-links a {
-      color: rgba(247, 248, 250, 0.78);
-      transition: color var(--transition);
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .social {
-      display: flex;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-    }
-
+    .footer-inner { display: grid; gap: 1.2rem; align-items: center; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .footer-links a { color: rgba(247,248,250,.78); transition: color var(--transition); }
+    .footer-links a:hover { color: #fff; }
+    .social { display: flex; gap: .7rem; flex-wrap: wrap; }
     .social a {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: transform var(--transition), background var(--transition);
+      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); transition: transform var(--transition), background var(--transition);
     }
+    .social a:hover { transform: translateY(-2px); background: rgba(217,143,58,.14); }
 
-    .social a:hover {
-      transform: translateY(-2px);
-      background: rgba(217, 143, 58, 0.14);
-    }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms ease, transform 700ms ease; will-change: opacity, transform; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* =========================
-       Scroll Reveal
-    ========================== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 700ms ease, transform 700ms ease;
-      will-change: opacity, transform;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================
-       Responsive
-    ========================== */
     @media (min-width: 640px) {
-      .trust-inner {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .field-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .contact-btn {
-        width: auto;
-        justify-self: start;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr auto auto;
-      }
+      .trust-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-btn { width: auto; justify-self: start; }
+      .footer-inner { grid-template-columns: 1fr auto auto; }
     }
-
     @media (min-width: 768px) {
-      .hero-inner {
-        grid-template-columns: 1.1fr 0.85fr;
-        gap: 2.2rem;
-        align-items: center;
-      }
-
-      .service-grid,
-      .project-grid,
-      .testimonial-grid,
-      .process-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .about-layout,
-      .contact-layout {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .nav-links {
-        display: flex;
-      }
-
-      .trust-inner {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
+      .hero-inner { grid-template-columns: 1.1fr .85fr; gap: 2.2rem; align-items: center; }
+      .service-grid, .project-grid, .testimonial-grid, .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-layout, .contact-layout { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: flex; }
+      .trust-inner { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1024px) {
+      .section { padding: 6.5rem 0; }
+      .hero-inner { padding: 6.8rem 0 5rem; }
+      .service-grid, .project-grid, .testimonial-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .process-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .about-layout { gap: 2.4rem; }
+      .contact-layout { gap: 2rem; }
     }
 
-    @media (min-width: 1024px) {
-      .section {
-        padding: 6.5rem 0;
-      }
-
-      .hero-inner {
-        padding: 6.8rem 0 5rem;
-      }
-
-      .service-grid,
-      .project-grid,
-      .testimonial-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .process-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .about-layout {
-        gap: 2.4rem;
-      }
-
-      .contact-layout {
-        gap: 2rem;
-      }
+    /* Mobile nav */
+    .menu-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 46px; height: 46px; border-radius: 14px; border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06); color: #fff; cursor: pointer;
+    }
+    .menu-toggle span { display: block; width: 18px; height: 2px; background: currentColor; position: relative; }
+    .menu-toggle span::before, .menu-toggle span::after {
+      content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor;
+    }
+    .menu-toggle span::before { top: -6px; }
+    .menu-toggle span::after { top: 6px; }
+    .mobile-panel {
+      display: none; padding: 0 0 1rem; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .mobile-panel.open { display: block; }
+    .mobile-panel a {
+      display: block; padding: .9rem 0; color: rgba(247,248,250,.9); border-bottom: 1px solid rgba(255,255,255,.06);
+      font-weight: 650;
     }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <header class="header">
-    <div class="container nav" aria-label="Hauptnavigation">
-      <a class="logo" href="#top" aria-label="NovaBau Startseite">
-        <span class="logo-mark">N</span>
-        <span>NovaBau</span>
-      </a>
+    <div class="container">
+      <div class="nav" aria-label="Hauptnavigation">
+        <a class="brand" href="#top" aria-label="M&S Bau&Dach GmbH Startseite">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="/img/logo.jpg" alt="" loading="eager" />
+          </span>
+          <span>M&amp;S Bau&amp;Dach GmbH</span>
+        </a>
 
-      <nav class="nav-links" aria-label="Sektionen">
+        <nav class="nav-links" aria-label="Sektionen">
+          <a href="#leistungen">Leistungen</a>
+          <a href="#ueber-uns">Über uns</a>
+          <a href="#projekte">Projekte</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <a class="nav-cta" href="#kontakt">Projekt anfragen</a>
+
+        <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <nav id="mobile-menu" class="mobile-panel" aria-label="Mobile Sektionen">
         <a href="#leistungen">Leistungen</a>
         <a href="#ueber-uns">Über uns</a>
         <a href="#projekte">Projekte</a>
-        <a href="#bewertungen">Bewertungen</a>
         <a href="#ablauf">Ablauf</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-
-      <a class="nav-cta" href="#kontakt">Projekt anfragen</a>
     </div>
   </header>
 
@@ -1038,46 +384,46 @@
     <section id="top" class="hero">
       <div class="container hero-inner">
         <div class="hero-copy reveal">
-          <div class="hero-badge">Bauen mit Präzision · Qualität · Verlässlichkeit</div>
-          <h1>Architektur trifft Handwerk. Bauprojekte mit Anspruch.</h1>
+          <div class="hero-badge">Wir beraten Sie gerne und übernehmen die Umsetzung Ihres Bauvorhabens</div>
+          <h1>Bauprojekte mit Qualität, Präzision und Erfahrung.</h1>
           <p>
-            NovaBau realisiert hochwertige Neubau-, Sanierungs- und Ausbauprojekte für private, gewerbliche und
-            institutionelle Auftraggeber – modern geplant, sauber ausgeführt und terminsicher umgesetzt.
+            M&amp;S Bau&amp;Dach GmbH realisiert hochwertige Arbeiten mit spezialisierten Fachkräften und Fachfirmen –
+            von der Sanierung bis zum Neubau, sauber geplant und zuverlässig umgesetzt.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#kontakt">Kostenloses Erstgespräch</a>
+            <a class="btn btn-primary" href="#kontakt">Kostenlose Anfrage</a>
             <a class="btn btn-secondary" href="#projekte">Referenzen ansehen</a>
           </div>
 
           <div class="hero-metrics" aria-label="Kennzahlen">
             <div class="metric">
-              <strong>120+</strong>
-              <span>erfolgreich realisierte Bauprojekte</span>
+              <strong>8</strong>
+              <span>Leistungsbereiche aus einer Hand</span>
             </div>
             <div class="metric">
-              <strong>25</strong>
-              <span>Jahre Erfahrung im Bauhandwerk</span>
+              <strong>24/7</strong>
+              <span>klar strukturierte Projektkommunikation</span>
             </div>
             <div class="metric">
-              <strong>98%</strong>
-              <span>Weiterempfehlungsrate unserer Kunden</span>
+              <strong>NRW</strong>
+              <span>regional verwurzelt in Neunkirchen-Seelscheid</span>
             </div>
             <div class="metric">
               <strong>100%</strong>
-              <span>persönliche Betreuung von Anfang bis Abschluss</span>
+              <span>verbindliche und saubere Ausführung</span>
             </div>
           </div>
         </div>
 
-        <aside class="hero-card reveal" aria-label="Highlight-Projekt">
-          <div class="hero-card-media" role="img" aria-label="Moderne Baustelle mit hochwertiger Architektur"></div>
+        <aside class="hero-card reveal" aria-label="Highlight-Bereich">
+          <div class="hero-card-media" role="img" aria-label="Rote Schutzhelm-Inszenierung auf der Baustelle"></div>
           <div class="hero-card-body">
             <div class="hero-badge">Aktuelles Projekt</div>
-            <h2>Mehrfamilienhaus in Massivbauweise</h2>
+            <h2>Verlässliche Umsetzung für anspruchsvolle Bauvorhaben</h2>
             <p>
-              Komplette Umsetzung inklusive Rohbau, Fassade, Innenausbau und Koordination aller Gewerke – effizient,
-              transparent und mit klarer Terminstruktur.
+              Fachlich koordinierte Abläufe, hochwertige Materialien und ein klarer Fokus auf Qualität, Sicherheit und
+              Termintreue.
             </p>
           </div>
         </aside>
@@ -1086,22 +432,10 @@
 
     <section class="trust" aria-label="Vertrauensmerkmale">
       <div class="container trust-inner reveal">
-        <div class="trust-item">
-          <span class="trust-icon">⟡</span>
-          <span>Premium-Qualität in jeder Bauphase</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon">⌂</span>
-          <span>Verbindliche Planung und saubere Ausführung</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon">✓</span>
-          <span>Transparente Angebote ohne versteckte Kosten</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon">★</span>
-          <span>Persönliche Ansprechpartner und kurze Wege</span>
-        </div>
+        <div class="trust-item"><span class="trust-icon">✓</span><span>Spezialisierte Facharbeiter und Fachfirmen</span></div>
+        <div class="trust-item"><span class="trust-icon">⌂</span><span>Persönlicher Ansprechpartner vor Ort</span></div>
+        <div class="trust-item"><span class="trust-icon">★</span><span>Hochwertige Arbeit mit sauberen Details</span></div>
+        <div class="trust-item"><span class="trust-icon">↗</span><span>Terminsichere und transparente Abläufe</span></div>
       </div>
     </section>
 
@@ -1109,64 +443,99 @@
       <div class="container">
         <div class="reveal">
           <div class="eyebrow">Leistungen</div>
-          <h2 class="section-title">Komplettlösungen für Bauvorhaben mit Anspruch</h2>
+          <h2 class="section-title">Alles, was ein Bau- und Dachunternehmen stark macht</h2>
           <p class="section-subtitle">
-            Von der ersten Idee bis zur finalen Übergabe begleiten wir Projekte strukturiert, effizient und mit einem
-            hohen Anspruch an Design, Funktion und Ausführung.
+            Die aktuellen Leistungen der M&amp;S Bau&amp;Dach GmbH sind in einem klaren, modernen Leistungssystem gebündelt –
+            ideal für schnelle Orientierung und bessere Anfragen.
           </p>
         </div>
 
         <div class="grid service-grid" style="margin-top: 2rem;">
           <article class="card service-card reveal">
             <div class="service-icon">01</div>
-            <h3>Neubau & Rohbau</h3>
-            <p>
-              Tragfähige Konstruktionen, präzise Planung und saubere Koordination für Wohn- und Gewerbeobjekte.
-            </p>
+            <h3>Maurer- und Betonarbeiten</h3>
+            <p>Rohbau, Fundamentarbeiten und tragende Konstruktionen mit präziser Ausführung.</p>
             <ul class="service-list">
-              <li>Massivbau und Stahlbeton</li>
-              <li>Komplette Rohbaukoordination</li>
-              <li>Qualitätskontrolle auf jeder Baustufe</li>
+              <li>Neubau und Erweiterungen</li>
+              <li>Beton- und Schalungsarbeiten</li>
+              <li>Robuste, langlebige Bauweise</li>
             </ul>
           </article>
 
           <article class="card service-card reveal">
             <div class="service-icon">02</div>
-            <h3>Sanierung & Modernisierung</h3>
-            <p>
-              Wir bringen Bestandsgebäude technisch und optisch auf den neuesten Stand – nachhaltig, wertsteigernd und
-              präzise umgesetzt.
-            </p>
+            <h3>Dachdeckerleistungen</h3>
+            <p>Sanierung, Neueindeckung und Abdichtungslösungen für dauerhaften Wetterschutz.</p>
             <ul class="service-list">
-              <li>Energetische Sanierung</li>
-              <li>Fassaden- und Dacharbeiten</li>
-              <li>Modernisierung im Bestand</li>
+              <li>Dachsanierung</li>
+              <li>Wartung und Instandsetzung</li>
+              <li>Saubere Details an Anschlüssen</li>
             </ul>
           </article>
 
           <article class="card service-card reveal">
             <div class="service-icon">03</div>
-            <h3>Innenausbau</h3>
-            <p>
-              Hochwertige Innenräume mit klaren Details, sauberem Finish und abgestimmten Materialkonzepten.
-            </p>
+            <h3>Innen- und Außenputz</h3>
+            <p>Hochwertige Putzarbeiten für glatte Oberflächen, Schutz und eine starke Optik.</p>
             <ul class="service-list">
-              <li>Trockenbau und Ausbau</li>
-              <li>Oberflächen und Feinarbeiten</li>
-              <li>Individuelle Raumlösungen</li>
+              <li>Innenputz und Oberflächen</li>
+              <li>Außenputz und Fassadenfinish</li>
+              <li>Sauberer, einheitlicher Look</li>
             </ul>
           </article>
 
           <article class="card service-card reveal">
             <div class="service-icon">04</div>
-            <h3>Projektsteuerung</h3>
-            <p>
-              Verlässliche Abläufe durch strukturierte Koordination aller Gewerke, Termine und Ansprechpartner.
-            </p>
+            <h3>Wärmedämmverbundsysteme</h3>
+            <p>Energetische Sanierung und effiziente Dämmung für moderne Gebäudehüllen.</p>
             <ul class="service-list">
-              <li>Transparente Zeitpläne</li>
-              <li>Effiziente Kommunikation</li>
-              <li>Feste Qualitätsstandards</li>
+              <li>Effiziente Fassadendämmung</li>
+              <li>Wertsteigerung der Immobilie</li>
+              <li>Nachhaltige Bauphysik</li>
+            </ul>
+          </article>
+
+          <article class="card service-card reveal">
+            <div class="service-icon">05</div>
+            <h3>Fliesen, Platten &amp; Mosaik</h3>
+            <p>Präzise Verlegung mit klaren Linien und hochwertigem Materialeinsatz.</p>
+            <ul class="service-list">
+              <li>Bäder und Wohnbereiche</li>
+              <li>Außenflächen und Terrassen</li>
+              <li>Saubere Fugenbilder</li>
+            </ul>
+          </article>
+
+          <article class="card service-card reveal">
+            <div class="service-icon">06</div>
+            <h3>Trockenbau</h3>
+            <p>Flexible Raumlösungen für Wohn- und Gewerbeobjekte mit sauberem Finish.</p>
+            <ul class="service-list">
+              <li>Trennwände und Decken</li>
+              <li>Schall- und Brandschutzlösungen</li>
+              <li>Schneller, sauberer Ausbau</li>
+            </ul>
+          </article>
+
+          <article class="card service-card reveal">
+            <div class="service-icon">07</div>
+            <h3>Brand- und Wasserschadensanierung</h3>
+            <p>Strukturierte Sanierungsmaßnahmen, um Schäden effizient und fachgerecht zu beheben.</p>
+            <ul class="service-list">
+              <li>Schnelle Reaktion</li>
+              <li>Schadensbegrenzung</li>
+              <li>Wiederherstellung der Nutzbarkeit</li>
+            </ul>
+          </article>
+
+          <article class="card service-card reveal">
+            <div class="service-icon">08</div>
+            <h3>Fassadengestaltung &amp; GaLaBau</h3>
+            <p>Außenbereiche mit klarer Gestaltung, stimmiger Optik und funktionalem Mehrwert.</p>
+            <ul class="service-list">
+              <li>Fassadenoptik und Gestaltung</li>
+              <li>Garten- und Landschaftsgestaltung</li>
+              <li>Terrassen, Wege und Außenflächen</li>
             </ul>
           </article>
         </div>
@@ -1177,62 +546,51 @@
       <div class="container about-layout">
         <div class="about-copy reveal">
           <div class="eyebrow">Über uns</div>
-          <h2 class="section-title">Ein Bauunternehmen mit Haltung, Präzision und Verlässlichkeit</h2>
+          <h2 class="section-title">Ein zuverlässiger Partner für Bau, Dach und Sanierung</h2>
           <p class="section-subtitle">
-            NovaBau steht für moderne Baukultur, langlebige Ergebnisse und eine partnerschaftliche Zusammenarbeit.
-            Unser Team vereint Handwerkserfahrung, technische Kompetenz und einen klaren Blick für Qualität.
+            Die M&amp;S Bau&amp;Dach GmbH steht für professionelle Projektumsetzung, klare Kommunikation und Arbeiten mit
+            dauerhaftem Qualitätsanspruch. Jede Leistung wird sorgfältig geplant und durch erfahrene Fachkräfte
+            ausgeführt.
           </p>
 
           <ul class="checklist">
             <li>
               <span class="checkmark">✓</span>
               <div>
-                <strong>Hochwertige Ausführung</strong>
-                <div>Wir legen Wert auf saubere Details, robuste Materialien und eine professionelle Baustellenorganisation.</div>
-              </div>
-            </li>
-            <li>
-              <span class="checkmark">✓</span>
-              <div>
                 <strong>Persönliche Betreuung</strong>
-                <div>Sie erhalten feste Ansprechpartner und eine klare Kommunikation über alle Projektphasen hinweg.</div>
+                <div>Direkter Kontakt mit Michael Seifert und kurze Wege in der Abstimmung.</div>
               </div>
             </li>
             <li>
               <span class="checkmark">✓</span>
               <div>
-                <strong>Terminsicherheit</strong>
-                <div>Wir planen verbindlich, arbeiten strukturiert und halten Abläufe transparent und nachvollziehbar.</div>
+                <strong>Saubere Ausführung</strong>
+                <div>Fachgerechte Arbeiten mit Blick auf Details, Sicherheit und Haltbarkeit.</div>
+              </div>
+            </li>
+            <li>
+              <span class="checkmark">✓</span>
+              <div>
+                <strong>Transparente Abläufe</strong>
+                <div>Klare Projektstruktur vom ersten Gespräch bis zur finalen Übergabe.</div>
               </div>
             </li>
           </ul>
         </div>
 
         <aside class="about-panel reveal">
-          <div class="eyebrow" style="color:#f7d1a3;">Warum NovaBau</div>
-          <h3 style="margin:0 0 .6rem; font-size:1.45rem; line-height:1.1;">Qualität, die sichtbar bleibt – und Vertrauen, das wächst.</h3>
+          <div class="eyebrow" style="color:#f7d1a3;">Was uns auszeichnet</div>
+          <h3 style="margin:0 0 .6rem; font-size:1.45rem; line-height:1.1;">Qualität sichtbar machen und Vertrauen stärken.</h3>
           <p style="margin:0; color:rgba(255,255,255,.76);">
-            Unsere Projekte entstehen aus einem klaren Prozess, konsequenter Abstimmung und einem hohen Anspruch an
-            Ästhetik, Funktion und Wirtschaftlichkeit.
+            Mit einem breiten Leistungsspektrum, spezialisierten Partnern und einem hohen Anspruch an Zuverlässigkeit
+            entsteht ein Ergebnis, das technisch überzeugt und optisch sauber wirkt.
           </p>
 
           <div class="about-panel-grid">
-            <div class="info-box">
-              <strong>25+</strong>
-              <span>Jahre Erfahrung</span>
-            </div>
-            <div class="info-box">
-              <strong>40</strong>
-              <span>Fachpartner im Netzwerk</span>
-            </div>
-            <div class="info-box">
-              <strong>100%</strong>
-              <span>individuelle Planung</span>
-            </div>
-            <div class="info-box">
-              <strong>24/7</strong>
-              <span>Erreichbarkeit im Projekt</span>
-            </div>
+            <div class="info-box"><strong>25+</strong><span>Jahre Erfahrung</span></div>
+            <div class="info-box"><strong>8</strong><span>Leistungsbereiche</span></div>
+            <div class="info-box"><strong>100%</strong><span>persönliche Betreuung</span></div>
+            <div class="info-box"><strong>NRW</strong><span>regional im Einsatz</span></div>
           </div>
         </aside>
       </div>
@@ -1242,47 +600,38 @@
       <div class="container">
         <div class="reveal">
           <div class="eyebrow">Referenzen</div>
-          <h2 class="section-title">Ausgewählte Projekte und Referenzen</h2>
+          <h2 class="section-title">Projektbeispiele mit starkem visuellen Auftritt</h2>
           <p class="section-subtitle">
-            Ein Einblick in unsere Arbeitsweise: klare Formen, hochwertige Materialien und präzise Umsetzung von der
-            Planung bis zur Übergabe.
+            Hier wird die Seite für den Relaunch deutlich aufgewertet: große Bilder, klare Karten und ein hochwertiger
+            Eindruck für neue Anfragen.
           </p>
         </div>
 
         <div class="grid project-grid" style="margin-top: 2rem;">
           <article class="card project-card reveal">
-            <div class="project-media" style="background-image:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="project-media" style="background-image:url('/img/bau_traeger.jpg');"></div>
             <div class="project-body">
-              <div class="project-meta">
-                <span class="tag">Neubau</span>
-                <span class="tag">Wohnbau</span>
-              </div>
-              <h3>Stadtvilla am Park</h3>
-              <p>Elegante Kubatur, hochwertige Fassade und ein individuell gestaltetes Raumkonzept mit klarer Linienführung.</p>
+              <div class="project-meta"><span class="tag">Rohbau</span><span class="tag">Neubau</span></div>
+              <h3>Tragende Konstruktionen im Neubau</h3>
+              <p>Präzise Rohbauarbeiten mit sauberer Baustellenorganisation und hoher Ausführungsqualität.</p>
             </div>
           </article>
 
           <article class="card project-card reveal">
-            <div class="project-media" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="project-media" style="background-image:url('/img/helm_auf_boden.jpg');"></div>
             <div class="project-body">
-              <div class="project-meta">
-                <span class="tag">Innenausbau</span>
-                <span class="tag">Gewerbe</span>
-              </div>
-              <h3>Office-Loft mit Showroom</h3>
-              <p>Modernes Arbeitsumfeld mit offenen Flächen, akustisch optimierten Bereichen und edlen Oberflächen.</p>
+              <div class="project-meta"><span class="tag">Bauleitung</span><span class="tag">Sicherheit</span></div>
+              <h3>Strukturierte Projektkoordination</h3>
+              <p>Klare Abläufe, saubere Kommunikation und eine professionelle Abstimmung aller Arbeitsschritte.</p>
             </div>
           </article>
 
           <article class="card project-card reveal">
-            <div class="project-media" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="project-media" style="background-image:url('/img/brick-wall.jpg');"></div>
             <div class="project-body">
-              <div class="project-meta">
-                <span class="tag">Sanierung</span>
-                <span class="tag">Bestand</span>
-              </div>
-              <h3>Altbau modernisiert</h3>
-              <p>Energetische Ertüchtigung, neue Oberflächen und behutsame Modernisierung unter Erhalt des Charakters.</p>
+              <div class="project-meta"><span class="tag">Mauerwerk</span><span class="tag">Fassade</span></div>
+              <h3>Sauber ausgeführte Außenflächen</h3>
+              <p>Fassadengestaltung und Mauerwerk mit robustem Charakter und hochwertiger Materialwirkung.</p>
             </div>
           </article>
         </div>
@@ -1295,57 +644,30 @@
           <div class="eyebrow">Kundenstimmen</div>
           <h2 class="section-title">Vertrauen entsteht durch Ergebnisse</h2>
           <p class="section-subtitle">
-            Unsere Kunden schätzen die klare Kommunikation, die saubere Ausführung und das hohe Maß an Zuverlässigkeit.
+            Platzhalter-Bewertungen können später problemlos durch echte Google-Bewertungen ersetzt werden.
           </p>
         </div>
 
         <div class="grid testimonial-grid" style="margin-top: 2rem;">
           <article class="card testimonial-card reveal">
             <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-            <h3>Professionell von Anfang bis Ende</h3>
-            <p>
-              „Die Zusammenarbeit war strukturiert, transparent und angenehm. Besonders beeindruckt hat uns die
-              Qualität der Ausführung und die termingerechte Fertigstellung.“
-            </p>
-            <div class="testimonial-footer">
-              <div class="avatar">MH</div>
-              <div>
-                <strong>Martin H.</strong>
-                <span>Private Bauherrschaft</span>
-              </div>
-            </div>
+            <h3>Sauber, schnell und verlässlich</h3>
+            <p>„Die Arbeiten wurden termingerecht und in sehr guter Qualität ausgeführt. Die Kommunikation war klar und angenehm.“</p>
+            <div class="testimonial-footer"><div class="avatar">MH</div><div><strong>Martin H.</strong><span>Privatkunde</span></div></div>
           </article>
 
           <article class="card testimonial-card reveal">
             <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-            <h3>Hohe Qualität und saubere Baustelle</h3>
-            <p>
-              „Das Team hat äußerst zuverlässig gearbeitet. Die Kommunikation war schnell, Lösungen wurden pragmatisch
-              und fachlich fundiert umgesetzt.“
-            </p>
-            <div class="testimonial-footer">
-              <div class="avatar">SK</div>
-              <div>
-                <strong>Sabine K.</strong>
-                <span>Projektentwicklung</span>
-              </div>
-            </div>
+            <h3>Kompetent bei Sanierung und Ausbau</h3>
+            <p>„Besonders positiv war die strukturierte Arbeitsweise und die saubere Baustellenorganisation über den gesamten Ablauf.“</p>
+            <div class="testimonial-footer"><div class="avatar">SK</div><div><strong>Sabine K.</strong><span>Objektbetreuung</span></div></div>
           </article>
 
           <article class="card testimonial-card reveal">
             <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-            <h3>Empfehlenswert für anspruchsvolle Projekte</h3>
-            <p>
-              „Von der Planung bis zur Abnahme verlief alles sehr professionell. NovaBau denkt mit, arbeitet präzise
-              und liefert ein überzeugendes Ergebnis.“
-            </p>
-            <div class="testimonial-footer">
-              <div class="avatar">TR</div>
-              <div>
-                <strong>Thomas R.</strong>
-                <span>Gewerbekunde</span>
-              </div>
-            </div>
+            <h3>Ein Partner, auf den man sich verlassen kann</h3>
+            <p>„Von der ersten Abstimmung bis zur Übergabe war alles professionell. Die Ausführung wirkt hochwertig und solide.“</p>
+            <div class="testimonial-footer"><div class="avatar">TR</div><div><strong>Thomas R.</strong><span>Gewerbekunde</span></div></div>
           </article>
         </div>
       </div>
@@ -1355,36 +677,32 @@
       <div class="container">
         <div class="reveal">
           <div class="eyebrow">Ablauf</div>
-          <h2 class="section-title">Ein klarer Prozess für planbare Ergebnisse</h2>
+          <h2 class="section-title">Vier Schritte zu einem sauberen Projektergebnis</h2>
           <p class="section-subtitle">
-            Jede Zusammenarbeit folgt einem strukturierten Ablauf – damit Qualität, Termine und Kommunikation
-            jederzeit nachvollziehbar bleiben.
+            Der Prozess ist bewusst klar und verständlich gestaltet – damit Kunden jederzeit wissen, was als Nächstes passiert.
           </p>
         </div>
 
         <div class="grid process-grid" style="margin-top: 2rem;">
           <article class="card process-card reveal">
             <div class="process-step">1</div>
-            <h3>Beratung & Bedarf</h3>
-            <p>Wir analysieren Anforderungen, Ziele, Budget und Rahmenbedingungen in einem ersten Gespräch.</p>
+            <h3>Beratung</h3>
+            <p>Erstgespräch, Projektaufnahme und Einschätzung des Leistungsumfangs.</p>
           </article>
-
           <article class="card process-card reveal">
             <div class="process-step">2</div>
-            <h3>Konzept & Planung</h3>
-            <p>Auf Basis der Anforderungen erstellen wir ein transparentes Konzept mit klarer Struktur und Zeitplanung.</p>
+            <h3>Planung</h3>
+            <p>Transparente Abstimmung zu Zeitrahmen, Materialien und Ablauf.</p>
           </article>
-
           <article class="card process-card reveal">
             <div class="process-step">3</div>
             <h3>Ausführung</h3>
-            <p>Die Umsetzung erfolgt koordiniert, sauber dokumentiert und mit konsequenter Qualitätskontrolle.</p>
+            <p>Fachgerechte Umsetzung durch spezialisierte Teams und Partnerfirmen.</p>
           </article>
-
           <article class="card process-card reveal">
             <div class="process-step">4</div>
             <h3>Übergabe</h3>
-            <p>Nach Abschluss prüfen wir alle Details gemeinsam und übergeben das Projekt in einwandfreiem Zustand.</p>
+            <p>Qualitätskontrolle, Abnahme und saubere Fertigstellung des Projekts.</p>
           </article>
         </div>
       </div>
@@ -1394,18 +712,19 @@
       <div class="container">
         <div class="reveal">
           <div class="eyebrow" style="color:#f7d1a3;">Kontakt</div>
-          <h2 class="section-title" style="color:#fff;">Sprechen Sie mit uns über Ihr Bauvorhaben</h2>
+          <h2 class="section-title" style="color:#fff;">Jetzt das nächste Bauvorhaben besprechen</h2>
           <p class="section-subtitle" style="color:rgba(247,248,250,.74);">
-            Ob Neubau, Sanierung oder Innenausbau – wir beraten Sie persönlich und unverbindlich.
+            Hier sind die aktuellen Kontaktdaten der M&amp;S Bau&amp;Dach GmbH direkt eingebaut.
           </p>
         </div>
 
         <div class="contact-layout" style="margin-top: 2rem;">
           <div class="contact-card reveal">
-            <h3 style="margin:0 0 0.6rem;">NovaBau GmbH</h3>
+            <h3 style="margin:0 0 .6rem;">M&amp;S Bau&amp;Dach GmbH</h3>
             <p style="margin:0; color:rgba(247,248,250,.74);">
-              Musterstraße 12<br />
-              10115 Berlin
+              Michael Seifert<br />
+              An der Senffabrik 6<br />
+              53819 Neunkirchen-Seelscheid
             </p>
 
             <ul class="contact-list">
@@ -1413,29 +732,27 @@
                 <span class="trust-icon" aria-hidden="true">☎</span>
                 <div>
                   <strong>Telefon</strong>
-                  <a href="tel:+493012345678">+49 30 123 456 78</a>
+                  <a href="tel:+4922479699900">+49 02247 9699900</a>
                 </div>
               </li>
-
               <li class="contact-item">
                 <span class="trust-icon" aria-hidden="true">✉</span>
                 <div>
                   <strong>E-Mail</strong>
-                  <a href="mailto:info@novabau.de">info@novabau.de</a>
+                  <a href="mailto:info@munds-gmbh.de">info@munds-gmbh.de</a>
                 </div>
               </li>
-
               <li class="contact-item">
-                <span class="trust-icon" aria-hidden="true">⌂</span>
+                <span class="trust-icon" aria-hidden="true">⏱</span>
                 <div>
-                  <strong>Standort</strong>
-                  <span>Berlin · Brandenburg · bundesweite Projektanfragen möglich</span>
+                  <strong>Öffnungszeiten</strong>
+                  <span>Mo. - Fr. 8:00 - 17:00</span>
                 </div>
               </li>
             </ul>
 
             <p class="form-note" style="margin-top:1rem;">
-              Persönliche Projektgespräche nach Terminvereinbarung vor Ort oder digital.
+              Amtsgericht Koblenz · HRB 27050 · Webauftritt im Rahmen des Relaunches modernisiert.
             </p>
           </div>
 
@@ -1446,34 +763,30 @@
                   <label for="name">Ihr Name</label>
                   <input id="name" name="name" type="text" placeholder="Max Mustermann" autocomplete="name" />
                 </div>
-
                 <div class="field">
                   <label for="email">E-Mail</label>
-                  <input id="email" name="email" type="email" placeholder="max@firma.de" autocomplete="email" />
+                  <input id="email" name="email" type="email" placeholder="max@beispiel.de" autocomplete="email" />
                 </div>
               </div>
 
               <div class="field-grid">
                 <div class="field">
                   <label for="phone">Telefon</label>
-                  <input id="phone" name="phone" type="tel" placeholder="+49 30 12345678" autocomplete="tel" />
+                  <input id="phone" name="phone" type="tel" placeholder="+49 171 1234567" autocomplete="tel" />
                 </div>
-
                 <div class="field">
                   <label for="subject">Projektart</label>
-                  <input id="subject" name="subject" type="text" placeholder="Neubau, Sanierung, Innenausbau" />
+                  <input id="subject" name="subject" type="text" placeholder="Dachsanierung, Rohbau, Sanierung" />
                 </div>
               </div>
 
               <div class="field">
                 <label for="message">Ihr Anliegen</label>
-                <textarea id="message" name="message" placeholder="Beschreiben Sie Ihr Bauvorhaben, den Zeitrahmen und besondere Anforderungen."></textarea>
+                <textarea id="message" name="message" placeholder="Beschreiben Sie Ihr Projekt, den gewünschten Zeitrahmen und besondere Anforderungen."></textarea>
               </div>
 
               <button class="btn btn-primary contact-btn" type="submit">Anfrage senden</button>
-              <p class="form-note">
-                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung Ihrer Anfrage zu.
-              </p>
+              <p class="form-note">Dieses Formular ist optisch vorbereitet und kann mit einem Backend oder Mail-Handler verbunden werden.</p>
             </form>
           </div>
         </div>
@@ -1484,14 +797,14 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div>
-        <strong style="color:#fff;">NovaBau</strong>
-        <div style="margin-top:.25rem;">Modernes Bauunternehmen für hochwertige Projekte.</div>
+        <strong style="color:#fff;">M&amp;S Bau&amp;Dach GmbH</strong>
+        <div style="margin-top:.25rem;">Bau-, Dach- und Sanierungsleistungen mit Qualitätsanspruch.</div>
       </div>
 
       <div class="footer-links" aria-label="Rechtliche Links">
         <a href="#top">Startseite</a>
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
       </div>
 
       <div class="social" aria-label="Social Media">
@@ -1503,29 +816,25 @@
   </footer>
 
   <script>
-    // Smooth section highlighting
-    const navLinks = [...document.querySelectorAll('.nav-links a')];
-    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const navLinks = [...document.querySelectorAll('.nav-links a, .mobile-panel a')];
+    const sections = [...document.querySelectorAll('section[id]')];
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     const setActiveLink = () => {
-      const scrollPosition = window.scrollY + 110;
-
-      sections.forEach((section, index) => {
-        const top = section.offsetTop;
-        const bottom = top + section.offsetHeight;
-        const link = navLinks[index];
-
-        if (scrollPosition >= top && scrollPosition < bottom) {
-          navLinks.forEach(a => a.classList.remove('active'));
-          link.classList.add('active');
-        }
+      const pos = window.scrollY + 120;
+      let current = null;
+      sections.forEach(section => {
+        if (pos >= section.offsetTop && pos < section.offsetTop + section.offsetHeight) current = section.id;
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
       });
     };
 
     window.addEventListener('scroll', setActiveLink, { passive: true });
     setActiveLink();
 
-    // Scroll reveal animation
     const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1534,19 +843,27 @@
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.14,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
+    }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
     revealElements.forEach(el => observer.observe(el));
 
-    // Prevent demo form submission
-    const form = document.querySelector('.contact-form');
-    form.addEventListener('submit', (e) => {
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+    });
+
+    mobileMenu?.addEventListener('click', (e) => {
+      if (e.target.matches('a')) {
+        mobileMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Menü öffnen');
+      }
+    });
+
+    document.querySelector('.contact-form')?.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Vielen Dank! Ihre Anfrage wurde als Demo-Formular vorbereitet.');
-      form.reset();
+      alert('Demo-Formular: Anfrage wurde vorbereitet. Bitte mit Backend oder E-Mail-Service verbinden.');
+      e.target.reset();
     });
   </script>
 </body>
