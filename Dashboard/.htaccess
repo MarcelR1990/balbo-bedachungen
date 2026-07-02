@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Geschuetzter Dashboard-Bereich"
-AuthUserFile /ABSOLUTER/PFAD/ZU/.htpasswd
-Require valid-user
