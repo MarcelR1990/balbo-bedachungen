@@ -179,6 +179,158 @@
       font-size: 1.5rem;
     }
 
+
+    /* Dashboard Login */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 10000;
+    }
+
+    .login-overlay.is-visible {
+      display: flex;
+    }
+
+    .login-modal {
+      width: min(480px, 100%);
+      background: #111111;
+      color: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .login-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(90deg, rgba(227,6,19,.18), rgba(255,255,255,0));
+    }
+
+    .login-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .login-body {
+      padding: 18px 20px 20px;
+    }
+
+    .login-text {
+      margin: 0 0 14px;
+      color: #cfcfcf;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .login-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .login-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .login-field label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #e8e8e8;
+    }
+
+    .login-input-wrap {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .login-input {
+      flex: 1;
+      min-width: 0;
+      height: 46px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #0b0b0b;
+      color: #fff;
+      font: inherit;
+      outline: none;
+    }
+
+    .login-input:focus {
+      border-color: #e30613;
+      box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.18);
+    }
+
+    .login-toggle {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #0b0b0b;
+      color: #fff;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .login-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .login-button,
+    .login-cancel {
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 0;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-button {
+      background: #e30613;
+      color: #fff;
+      flex: 1 1 180px;
+    }
+
+    .login-cancel {
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      flex: 1 1 140px;
+    }
+
+    .login-hint {
+      margin: 0;
+      min-height: 1.2em;
+      font-size: 13px;
+      color: #ffb4b4;
+    }
+
+    @media (max-width: 600px) {
+      .login-actions {
+        flex-direction: column;
+      }
+
+      .login-button,
+      .login-cancel {
+        width: 100%;
+      }
+    }
+
     /* Popup */
     .popup-overlay {
       position: fixed;
@@ -439,7 +591,7 @@
       <a href="impressum.html">Impressum</a> ·
       <a href="datenschutz.html">Datenschutz</a><!-- ·      
       <a href="Test.html">Test M&S</a> --> ·
-      <a href="dashboard.html">Dashboard</a>      
+      <a href="#" id="dashboardTrigger" aria-haspopup="dialog" aria-controls="dashboardLoginModal">Dashboard</a>      
     </p>
 
     <p>
@@ -451,6 +603,46 @@
       </a>
     </p>
   </footer>
+
+
+  <!-- Dashboard Login Modal -->
+  <div class="login-overlay" id="dashboardLoginModal" aria-hidden="true">
+    <section class="login-modal" role="dialog" aria-modal="true" aria-labelledby="dashboardLoginTitle">
+      <div class="login-header">
+        <h2 class="login-title" id="dashboardLoginTitle">Dashboard öffnen</h2>
+      </div>
+
+      <div class="login-body">
+        <p class="login-text">Bitte Kennwort eingeben, um das Dashboard zu öffnen.</p>
+
+        <form class="login-form" id="dashboardLoginForm">
+          <div class="login-field">
+            <label for="dashboardPassword">Kennwort</label>
+            <div class="login-input-wrap">
+              <input
+                class="login-input"
+                type="password"
+                id="dashboardPassword"
+                name="dashboardPassword"
+                autocomplete="current-password"
+                inputmode="text"
+                placeholder="Kennwort eingeben"
+              />
+              <button class="login-toggle" type="button" id="togglePassword" aria-label="Kennwort anzeigen">👁</button>
+            </div>
+          </div>
+
+          <p class="login-hint" id="dashboardHint" aria-live="polite"></p>
+
+          <div class="login-actions">
+            <button class="login-button" type="submit">Öffnen</button>
+            <button class="login-cancel" type="button" id="cancelDashboardLogin">Abbrechen</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
 
   <!-- Popup -->
   <div class="popup-overlay" id="adPopup" aria-hidden="true">
@@ -473,6 +665,7 @@
       </div>
     </section>
   </div>
+
 
   <script>
     (function () {
@@ -508,7 +701,74 @@
         if (e.key === 'Escape') closePopup();
       });
     })();
+
+    (function () {
+      const PASSWORD = 'balbo2026'; // Hier dein echtes Kennwort einsetzen
+      const dashboardUrl = 'dashboard.html';
+
+      const trigger = document.getElementById('dashboardTrigger');
+      const modal = document.getElementById('dashboardLoginModal');
+      const form = document.getElementById('dashboardLoginForm');
+      const input = document.getElementById('dashboardPassword');
+      const toggle = document.getElementById('togglePassword');
+      const cancelBtn = document.getElementById('cancelDashboardLogin');
+      const hint = document.getElementById('dashboardHint');
+
+      function openModal() {
+        modal.classList.add('is-visible');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        hint.textContent = '';
+        input.value = '';
+        input.type = 'password';
+        toggle.textContent = '👁';
+        toggle.setAttribute('aria-label', 'Kennwort anzeigen');
+        setTimeout(() => input.focus(), 0);
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-visible');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+
+      cancelBtn.addEventListener('click', closeModal);
+
+      toggle.addEventListener('click', function () {
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        toggle.textContent = show ? '🙈' : '👁';
+        toggle.setAttribute('aria-label', show ? 'Kennwort verbergen' : 'Kennwort anzeigen');
+        input.focus();
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (input.value === PASSWORD) {
+          window.location.href = dashboardUrl;
+          return;
+        }
+        hint.textContent = 'Kennwort ist falsch.';
+        input.select();
+      });
+
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-visible')) {
+          closeModal();
+        }
+      });
+    })();
   </script>
+
 
 </body>
 </html>
