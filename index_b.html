@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#005bbb" />
   <title>KG Fidele Birker e.V. | Startseite</title>
-  <meta name="description" content="Karnevalsgesellschaft Fidele Birker e.V. - News, Veranstaltungen, Verein, Galerie, Kontakt und Mitglied werden." />
+  <meta name="description" content="Karnevalsgesellschaft Fidele Birker e.V. - News, Veranstaltungen, Vermietung, Verein, Galerie, Kontakt und Mitglied werden." />
   <meta name="robots" content="index, follow" />
-  <meta name="keywords" content="Fidele Birker, Karneval, Lohmar-Birk, Veranstaltungen, Mitglied werden, Galerie, Kontakt" />
-
   <style>
     :root{
       --primary:#005bbb;
-      --primary-dark:#004a98;
+      --primary-dark:#004b99;
       --accent:#d9ecff;
-      --bg:#f6f8fc;
+      --bg:#f4f7fb;
       --surface:#ffffff;
       --surface-2:#eef3f8;
-      --text:#1d2940;
-      --muted:#5c6b80;
-      --border:#d9e1eb;
-      --shadow:0 10px 30px rgba(29,41,64,.08);
+      --surface-3:#e6f0fb;
+      --text:#172338;
+      --muted:#5f6d82;
+      --border:#d7e1ec;
+      --shadow:0 10px 30px rgba(23,35,56,.08);
+      --shadow-2:0 16px 40px rgba(23,35,56,.12);
       --radius:18px;
       --radius-lg:24px;
       --container:1180px;
@@ -30,14 +30,15 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
       color:var(--text);
       background:var(--bg);
       line-height:1.6;
     }
 
-    img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button,input,textarea,select{font:inherit}
     .container{
       width:min(calc(100% - 32px), var(--container));
       margin:0 auto;
@@ -47,42 +48,52 @@
       position:absolute;
       left:16px;
       top:-60px;
+      z-index:9999;
       background:var(--primary);
       color:#fff;
       padding:12px 16px;
       border-radius:999px;
       transition:top .2s ease;
-      z-index:1000;
     }
     .skip-link:focus{top:16px}
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:100;
-      background:rgba(255,255,255,.94);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--border);
-    }
-
-    .topbar{
+    .utility{
       background:var(--primary);
       color:#fff;
       font-size:.92rem;
     }
-    .topbar .container{
+    .utility .container{
       display:flex;
       justify-content:space-between;
+      align-items:center;
       gap:12px;
       padding:8px 0;
       flex-wrap:wrap;
+    }
+    .utility-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .utility-links a{
+      opacity:.92;
+    }
+    .utility-links a:hover{opacity:1;text-decoration:underline}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:200;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
     }
 
     .header-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
+      gap:16px;
       padding:14px 0;
     }
 
@@ -92,16 +103,16 @@
       gap:12px;
       min-width:0;
     }
-    .logo{
+    .brand-mark{
       width:46px;
       height:46px;
       border-radius:14px;
-      background:linear-gradient(135deg,var(--primary),#2d8cff);
+      background:linear-gradient(135deg,var(--primary),#2c87f0);
+      position:relative;
       box-shadow:var(--shadow);
       flex:0 0 auto;
-      position:relative;
     }
-    .logo:after{
+    .brand-mark:after{
       content:"";
       position:absolute;
       inset:11px;
@@ -115,39 +126,92 @@
     .brand-text strong{
       display:block;
       font-size:1rem;
+      letter-spacing:-.02em;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
     .brand-text span{
       color:var(--muted);
-      font-size:.85rem;
+      font-size:.84rem;
     }
 
-    nav ul{
+    nav{
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .nav-list{
+      display:flex;
+      align-items:center;
+      gap:4px;
+      list-style:none;
       margin:0;
       padding:0;
-      list-style:none;
-      display:flex;
-      gap:4px;
-      align-items:center;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
-    nav a{
-      display:block;
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:600;
-      color:var(--muted);
+    .nav-item{
+      position:relative;
     }
-    nav a:hover,
-    nav a:focus-visible{
+    .nav-link{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:10px 13px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:700;
+      transition:.2s ease;
+      cursor:pointer;
+    }
+    .nav-link:hover,
+    .nav-link:focus-visible{
       background:var(--accent);
       color:var(--text);
       outline:none;
     }
+    .nav-arrow{font-size:.75rem; opacity:.75}
 
+    .dropdown{
+      position:absolute;
+      left:0;
+      top:calc(100% + 8px);
+      min-width:260px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow-2);
+      padding:10px;
+      display:none;
+    }
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown{
+      display:block;
+    }
+    .dropdown a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:650;
+      color:var(--text);
+    }
+    .dropdown a:hover{
+      background:var(--surface-2);
+      color:var(--primary);
+    }
+    .dropdown small{
+      display:block;
+      color:var(--muted);
+      font-weight:500;
+      margin-top:2px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
     .btn{
       display:inline-flex;
       align-items:center;
@@ -155,7 +219,7 @@
       gap:8px;
       padding:12px 18px;
       border-radius:999px;
-      font-weight:700;
+      font-weight:800;
       border:1px solid transparent;
       cursor:pointer;
       transition:.2s ease;
@@ -175,20 +239,78 @@
     }
     .btn-secondary:hover{background:var(--surface-2)}
 
+    .mobile-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+      font-size:1.1rem;
+    }
+
+    .mobile-nav{
+      display:none;
+      padding:0 0 14px;
+    }
+    .mobile-nav.open{display:block}
+    .mobile-nav-section{
+      margin-top:8px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      background:var(--surface);
+    }
+    .mobile-nav-head{
+      width:100%;
+      border:0;
+      background:var(--surface);
+      text-align:left;
+      padding:13px 14px;
+      font-weight:800;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
+    }
+    .mobile-nav-links{
+      display:none;
+      border-top:1px solid var(--border);
+      padding:8px;
+    }
+    .mobile-nav-section.open .mobile-nav-links{display:block}
+    .mobile-nav-links a{
+      display:block;
+      padding:11px 12px;
+      border-radius:12px;
+      color:var(--text);
+      font-weight:650;
+    }
+    .mobile-nav-links a:hover{background:var(--surface-2)}
+
+    .breadcrumb{
+      padding:14px 0 0;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .breadcrumb a:hover{text-decoration:underline}
+
+    main{padding-bottom:34px}
+
     .hero{
-      padding:28px 0 20px;
+      padding:18px 0 22px;
     }
     .hero-grid{
       display:grid;
-      grid-template-columns:1.35fr .95fr;
-      gap:18px;
-      align-items:stretch;
+      grid-template-columns:1.25fr .95fr;
+      gap:16px;
     }
-    .hero-main,
-    .hero-side,
-    .section-card,
-    .news-item,
-    .contact-box,
+    .hero-banner,
+    .panel,
+    .news-card,
+    .info-card,
+    .contact-card,
     .faq-item{
       background:var(--surface);
       border:1px solid var(--border);
@@ -196,56 +318,61 @@
       box-shadow:var(--shadow);
     }
 
-    .hero-main{
+    .hero-banner{
+      padding:30px;
+      min-height:360px;
+      color:#fff;
       position:relative;
       overflow:hidden;
-      min-height:420px;
-      padding:36px;
       background:
-        linear-gradient(135deg, rgba(0,91,187,.96), rgba(29,41,64,.92)),
-        url('hero-placeholder.jpg') center/cover no-repeat;
-      color:#fff;
+        linear-gradient(135deg, rgba(0,91,187,.96), rgba(23,35,56,.94)),
+        url("hero-placeholder.jpg") center/cover no-repeat;
     }
-    .hero-main:before{
+    .hero-banner:before{
       content:"";
       position:absolute;
       inset:0;
       background:
         radial-gradient(circle at top right, rgba(255,255,255,.16), transparent 24%),
-        radial-gradient(circle at bottom left, rgba(255,255,255,.10), transparent 28%);
+        radial-gradient(circle at bottom left, rgba(255,255,255,.08), transparent 28%);
       pointer-events:none;
     }
     .hero-content{
       position:relative;
       z-index:1;
-      max-width:650px;
-      height:100%;
+      max-width:680px;
       display:flex;
       flex-direction:column;
       justify-content:center;
+      min-height:300px;
     }
     .eyebrow{
       display:inline-flex;
+      align-items:center;
       width:max-content;
+      gap:8px;
       padding:7px 12px;
       border-radius:999px;
       background:rgba(255,255,255,.14);
       border:1px solid rgba(255,255,255,.18);
+      font-weight:800;
+      font-size:.84rem;
       margin-bottom:16px;
-      font-size:.88rem;
-      font-weight:700;
     }
-    h1{
+    h1,h2,h3,h4{
       margin:0;
-      font-size:clamp(2.2rem,5vw,4.2rem);
-      line-height:1.05;
+      line-height:1.08;
       letter-spacing:-.03em;
     }
+    h1{
+      font-size:clamp(2.15rem,5vw,4rem);
+      max-width:13ch;
+    }
     .hero-text{
-      margin:16px 0 0;
-      max-width:58ch;
-      color:rgba(255,255,255,.88);
+      margin:14px 0 0;
+      max-width:60ch;
       font-size:1.05rem;
+      color:rgba(255,255,255,.88);
     }
     .hero-actions{
       display:flex;
@@ -257,103 +384,95 @@
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:22px;
+      margin-top:18px;
     }
     .pill{
-      padding:9px 12px;
+      padding:8px 12px;
       border-radius:999px;
       background:rgba(255,255,255,.12);
       border:1px solid rgba(255,255,255,.16);
-      font-size:.92rem;
+      font-size:.9rem;
     }
 
     .hero-side{
-      padding:24px;
+      padding:22px;
       display:flex;
       flex-direction:column;
       gap:14px;
     }
     .side-badge{
       display:inline-flex;
-      align-items:center;
       width:max-content;
       padding:7px 12px;
       border-radius:999px;
       background:var(--accent);
       color:var(--primary-dark);
-      font-weight:800;
-      font-size:.86rem;
+      font-weight:900;
+      font-size:.84rem;
     }
-    .event-title{
-      margin:0;
+    .hero-side h2{
       font-size:1.55rem;
-      line-height:1.15;
     }
-    .event-list{
+    .detail-list{
       display:grid;
-      gap:12px;
-      margin-top:6px;
+      gap:10px;
+      margin-top:4px;
     }
-    .event-row{
+    .detail{
       display:flex;
       gap:12px;
       padding:12px;
       border-radius:14px;
       background:var(--surface-2);
     }
-    .event-row strong{
+    .detail strong{
       display:block;
       margin-bottom:2px;
     }
-    .event-row span{
+    .detail span{
       color:var(--muted);
       font-size:.95rem;
     }
 
-    main{padding-bottom:34px}
-
     .section{
-      padding:26px 0 0;
+      padding:18px 0 0;
     }
     .section-head{
       display:flex;
       justify-content:space-between;
       align-items:end;
       gap:16px;
-      margin-bottom:14px;
       flex-wrap:wrap;
+      margin-bottom:14px;
     }
     .section h2{
-      margin:0;
-      font-size:clamp(1.5rem,3vw,2.3rem);
-      line-height:1.1;
-      letter-spacing:-.03em;
+      font-size:clamp(1.5rem,3vw,2.2rem);
     }
-    .section p.lead{
+    .lead{
       margin:8px 0 0;
       color:var(--muted);
-      max-width:72ch;
+      max-width:78ch;
     }
 
     .stats{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:14px;
-      margin-top:18px;
+      margin-top:14px;
     }
     .stat{
-      padding:18px;
-      text-align:center;
       background:var(--surface);
       border:1px solid var(--border);
       border-radius:18px;
+      padding:18px;
+      text-align:center;
       box-shadow:var(--shadow);
     }
     .stat strong{
       display:block;
+      color:var(--primary);
       font-size:2rem;
       line-height:1;
-      color:var(--primary);
       letter-spacing:-.03em;
     }
     .stat span{
@@ -363,12 +482,60 @@
       font-size:.95rem;
     }
 
-    .grid-3{
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .panel{
+      padding:22px;
+    }
+
+    .panel h3{
+      font-size:1.2rem;
+      margin-bottom:10px;
+    }
+
+    .news-list{
+      display:grid;
+      gap:14px;
+    }
+    .news-card{
+      padding:18px;
+    }
+    .news-top{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:8px;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+    .tag{
+      display:inline-flex;
+      width:max-content;
+      padding:5px 10px;
+      border-radius:999px;
+      background:var(--accent);
+      color:var(--primary-dark);
+      font-weight:800;
+    }
+    .news-card h3{
+      font-size:1.12rem;
+      margin-bottom:8px;
+    }
+    .news-card p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .card-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:16px;
     }
-
     .card{
       overflow:hidden;
       background:var(--surface);
@@ -377,48 +544,89 @@
       box-shadow:var(--shadow);
     }
     .card-media{
-      height:180px;
+      height:170px;
+      background:linear-gradient(135deg, rgba(0,91,187,.9), rgba(23,35,56,.84));
+      position:relative;
+    }
+    .card-media:before{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        linear-gradient(135deg, rgba(0,91,187,.90), rgba(29,41,64,.82)),
-        url('placeholder.jpg') center/cover no-repeat;
+        radial-gradient(circle at 18% 22%, rgba(255,255,255,.26), transparent 18%),
+        radial-gradient(circle at 72% 38%, rgba(255,255,255,.12), transparent 18%),
+        radial-gradient(circle at 58% 80%, rgba(255,255,255,.13), transparent 16%);
     }
     .card-body{
-      padding:20px;
+      padding:18px;
     }
     .card-body h3{
-      margin:0 0 8px;
-      font-size:1.2rem;
+      margin-bottom:8px;
+      font-size:1.14rem;
     }
     .card-body p{
       margin:0;
       color:var(--muted);
     }
     .card-footer{
-      padding:0 20px 20px;
+      padding:0 18px 18px;
       display:flex;
-      justify-content:space-between;
       align-items:center;
+      justify-content:space-between;
       gap:12px;
+      flex-wrap:wrap;
     }
     .link{
       color:var(--primary);
-      font-weight:700;
+      font-weight:800;
     }
+    .link:hover{text-decoration:underline}
 
-    .split{
+    .info-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:1.05fr .95fr;
       gap:16px;
       align-items:stretch;
     }
-    .section-card{
-      padding:22px;
+    .figure{
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+      min-height:360px;
+      background:linear-gradient(135deg, rgba(0,91,187,.95), rgba(23,35,56,.95));
+      position:relative;
+      box-shadow:var(--shadow-2);
     }
-    .value-list{
+    .figure:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 25% 30%, rgba(255,255,255,.16), transparent 20%),
+        radial-gradient(circle at 75% 22%, rgba(255,255,255,.10), transparent 18%),
+        radial-gradient(circle at 64% 80%, rgba(217,236,255,.16), transparent 18%);
+    }
+    .figure-caption{
+      position:absolute;
+      left:20px;
+      right:20px;
+      bottom:20px;
+      padding:18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      backdrop-filter:blur(12px);
+    }
+    .figure-caption strong{
+      display:block;
+      font-size:1.35rem;
+      margin-bottom:6px;
+    }
+    .value-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:12px;
-      margin-top:16px;
+      margin-top:14px;
     }
     .value{
       padding:14px;
@@ -429,135 +637,125 @@
       display:block;
       margin-bottom:4px;
     }
-    .value span{color:var(--muted);font-size:.95rem}
+    .value span{
+      color:var(--muted);
+      font-size:.94rem;
+    }
 
     .gallery-grid{
       display:grid;
-      grid-template-columns:repeat(6,1fr);
+      grid-template-columns:repeat(12,1fr);
       gap:12px;
       margin-top:12px;
     }
     .gallery-item{
       min-height:150px;
       border-radius:18px;
-      background:
-        linear-gradient(135deg, rgba(0,91,187,.86), rgba(29,41,64,.82));
-      position:relative;
       overflow:hidden;
+      position:relative;
+      cursor:pointer;
       border:1px solid var(--border);
       box-shadow:var(--shadow);
-      cursor:pointer;
+      background:linear-gradient(135deg, rgba(0,91,187,.88), rgba(23,35,56,.84));
     }
     .gallery-item:before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 20% 25%, rgba(255,255,255,.26), transparent 18%),
-        radial-gradient(circle at 72% 40%, rgba(255,255,255,.12), transparent 20%),
-        radial-gradient(circle at 55% 80%, rgba(255,255,255,.14), transparent 16%);
-      opacity:.9;
+        radial-gradient(circle at 20% 24%, rgba(255,255,255,.24), transparent 18%),
+        radial-gradient(circle at 72% 36%, rgba(255,255,255,.12), transparent 18%),
+        radial-gradient(circle at 56% 82%, rgba(255,255,255,.12), transparent 16%);
+      opacity:.95;
     }
     .gallery-item span{
       position:absolute;
       left:14px;
-      bottom:14px;
       right:14px;
+      bottom:14px;
       color:#fff;
-      font-weight:700;
+      font-weight:800;
+      z-index:1;
     }
     .span-2{grid-column:span 2}
     .span-3{grid-column:span 3}
     .span-4{grid-column:span 4}
+    .span-5{grid-column:span 5}
+    .span-6{grid-column:span 6}
 
     .cta{
       background:linear-gradient(135deg, var(--primary), #1873de);
       color:#fff;
       border-radius:var(--radius-lg);
-      padding:26px;
-      box-shadow:var(--shadow);
+      padding:24px;
+      box-shadow:var(--shadow-2);
       display:flex;
       justify-content:space-between;
-      align-items:center;
       gap:16px;
+      align-items:center;
       flex-wrap:wrap;
     }
-    .cta h2{
-      margin:0;
-      color:#fff;
-    }
+    .cta h2{color:#fff}
     .cta p{
       margin:8px 0 0;
-      max-width:68ch;
+      max-width:70ch;
       color:rgba(255,255,255,.88);
     }
 
-    .news-list{
+    .social-grid{
       display:grid;
-      gap:14px;
-      margin-top:12px;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
     }
-    .news-item{
-      padding:18px;
+    .social-card{
+      padding:20px;
+      border-radius:var(--radius-lg);
+      background:var(--surface);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
     }
-    .news-meta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+    .social-card h3{
       margin-bottom:8px;
-      font-size:.88rem;
+    }
+    .social-card p{
       color:var(--muted);
-    }
-    .tag{
-      display:inline-flex;
-      width:max-content;
-      padding:5px 10px;
-      border-radius:999px;
-      background:var(--accent);
-      color:var(--primary-dark);
-      font-weight:700;
-    }
-    .news-item h3{
-      margin:0 0 8px;
-      font-size:1.1rem;
-    }
-    .news-item p{
-      margin:0;
-      color:var(--muted);
+      margin:0 0 14px;
     }
 
     .faq{
       display:grid;
       gap:12px;
-      margin-top:12px;
     }
     .faq-item{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:var(--surface);
+      box-shadow:var(--shadow);
       overflow:hidden;
     }
     .faq-btn{
       width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      padding:18px 20px;
       border:0;
       background:transparent;
-      cursor:pointer;
-      font:inherit;
       text-align:left;
+      padding:16px 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
       font-weight:800;
+      cursor:pointer;
       color:var(--text);
     }
     .faq-content{
       max-height:0;
       overflow:hidden;
       transition:max-height .25s ease;
-      padding:0 20px;
+      padding:0 18px;
       color:var(--muted);
     }
     .faq-item.open .faq-content{
-      padding-bottom:18px;
+      padding-bottom:16px;
     }
 
     .contact-grid{
@@ -565,7 +763,7 @@
       grid-template-columns:1fr 1fr;
       gap:16px;
     }
-    .contact-box{
+    .contact-card{
       padding:22px;
     }
     .contact-list{
@@ -575,19 +773,44 @@
     }
     .contact-row{
       display:flex;
-      gap:12px;
       align-items:flex-start;
+      gap:12px;
       padding:14px;
-      background:var(--surface-2);
       border-radius:16px;
+      background:var(--surface-2);
     }
-    .contact-row strong{display:block}
+    .contact-row strong{
+      display:block;
+      margin-bottom:2px;
+    }
     .contact-row span{color:var(--muted)}
+
+    .menu-links{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    .menu-link{
+      padding:12px 14px;
+      border-radius:14px;
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      font-weight:750;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+    .menu-link small{
+      color:var(--muted);
+      font-weight:500;
+      display:block;
+    }
 
     form{
       display:grid;
       gap:12px;
-      margin-top:14px;
     }
     .field-grid{
       display:grid;
@@ -596,49 +819,43 @@
     }
     label{
       display:block;
-      font-size:.92rem;
-      font-weight:700;
       margin-bottom:6px;
+      font-size:.92rem;
+      font-weight:800;
     }
-    input, textarea, select{
+    input,textarea,select{
       width:100%;
       border:1px solid var(--border);
       border-radius:14px;
       padding:13px 14px;
-      font:inherit;
       background:#fff;
       color:var(--text);
     }
-    textarea{
-      min-height:140px;
-      resize:vertical;
-    }
+    textarea{min-height:140px; resize:vertical}
 
-    footer{
-      margin-top:30px;
-      padding:26px 0 36px;
-      border-top:1px solid var(--border);
-      background:#fff;
-    }
-    .footer-grid{
+    .footer-top{
       display:grid;
-      grid-template-columns:1.25fr 1fr 1fr 1fr;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
       gap:18px;
+    }
+    footer{
+      margin-top:32px;
+      padding:28px 0 34px;
+      background:#fff;
+      border-top:1px solid var(--border);
     }
     footer h4{
       margin:0 0 10px;
       font-size:1rem;
     }
     footer ul{
-      list-style:none;
-      padding:0;
       margin:0;
+      padding:0;
+      list-style:none;
       display:grid;
       gap:8px;
     }
-    footer a{
-      color:var(--muted);
-    }
+    footer a{color:var(--muted)}
     footer a:hover{color:var(--primary)}
     .footer-bottom{
       margin-top:18px;
@@ -652,55 +869,28 @@
       font-size:.92rem;
     }
 
-    .mobile-toggle{
-      display:none;
-      border:1px solid var(--border);
-      background:#fff;
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      font-size:1.2rem;
-      cursor:pointer;
-    }
-
-    .mobile-nav{
-      display:none;
-      padding:0 0 14px;
-    }
-    .mobile-nav a{
-      display:block;
-      padding:12px 14px;
-      border-radius:14px;
-      background:var(--surface);
-      border:1px solid var(--border);
-      margin-top:8px;
-      font-weight:700;
-    }
-
-    .reveal{opacity:0;transform:translateY(16px);transition:.5s ease}
-    .reveal.in{opacity:1;transform:none}
-
     .lightbox{
       position:fixed;
       inset:0;
-      background:rgba(10,16,26,.82);
       display:none;
       align-items:center;
       justify-content:center;
+      background:rgba(10,16,26,.82);
+      backdrop-filter:blur(14px);
+      z-index:3000;
       padding:18px;
-      z-index:2000;
     }
     .lightbox.open{display:flex}
     .lightbox-panel{
       width:min(960px,100%);
-      background:#fff;
-      border-radius:24px;
       overflow:hidden;
-      box-shadow:0 30px 80px rgba(0,0,0,.35);
+      border-radius:24px;
+      background:#fff;
+      box-shadow:0 30px 80px rgba(0,0,0,.36);
     }
     .lightbox-img{
-      min-height:420px;
-      background:linear-gradient(135deg, rgba(0,91,187,.88), rgba(29,41,64,.82));
+      min-height:400px;
+      background:linear-gradient(135deg, rgba(0,91,187,.92), rgba(23,35,56,.86));
       position:relative;
     }
     .lightbox-img:before{
@@ -708,15 +898,16 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 25% 25%, rgba(255,255,255,.22), transparent 18%),
-        radial-gradient(circle at 75% 40%, rgba(255,255,255,.12), transparent 20%);
+        radial-gradient(circle at 24% 28%, rgba(255,255,255,.22), transparent 18%),
+        radial-gradient(circle at 76% 42%, rgba(255,255,255,.12), transparent 18%),
+        radial-gradient(circle at 55% 82%, rgba(255,255,255,.14), transparent 16%);
     }
     .lightbox-body{
-      padding:18px 20px 22px;
+      padding:18px 20px 20px;
       display:flex;
       justify-content:space-between;
       gap:12px;
-      align-items:start;
+      align-items:flex-start;
     }
 
     .back-to-top{
@@ -725,63 +916,80 @@
       bottom:18px;
       width:46px;
       height:46px;
-      border-radius:999px;
       border:0;
+      border-radius:999px;
       background:var(--primary);
       color:#fff;
-      box-shadow:var(--shadow);
       cursor:pointer;
+      box-shadow:var(--shadow);
       opacity:0;
       pointer-events:none;
       transition:.2s ease;
+      z-index:120;
     }
     .back-to-top.show{
       opacity:1;
       pointer-events:auto;
     }
 
-    @media (max-width: 980px){
+    .reveal{
+      opacity:0;
+      transform:translateY(16px);
+      transition:.5s ease;
+    }
+    .reveal.in{
+      opacity:1;
+      transform:none;
+    }
+
+    .small-note{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    @media (max-width: 1024px){
       .hero-grid,
-      .split,
+      .info-grid,
       .contact-grid,
-      .footer-grid{
+      .footer-top,
+      .two-col{
         grid-template-columns:1fr;
       }
-      .grid-3{
-        grid-template-columns:1fr 1fr;
-      }
-      .stats{
+      .stats,
+      .card-grid,
+      .social-grid{
         grid-template-columns:1fr 1fr;
       }
       nav{display:none}
       .mobile-toggle{display:inline-flex;align-items:center;justify-content:center}
-      .mobile-nav.open{display:block}
+      .mobile-nav{display:block}
     }
 
     @media (max-width: 640px){
-      .hero-main{
-        min-height:auto;
-        padding:24px;
-      }
+      .hero-banner{padding:22px}
+      .hero-content{min-height:auto}
       .hero-actions,
       .cta{
         flex-direction:column;
         align-items:stretch;
       }
-      .grid-3,
       .stats,
-      .field-grid,
-      .value-list{
+      .card-grid,
+      .social-grid,
+      .menu-links,
+      .field-grid{
         grid-template-columns:1fr;
       }
       .gallery-grid{
         grid-template-columns:1fr;
       }
-      .span-2,.span-3,.span-4{grid-column:auto}
+      .span-2,.span-3,.span-4,.span-5,.span-6{
+        grid-column:auto;
+      }
       .header-inner{
         padding:12px 0;
       }
-      .topbar .container{
+      .utility .container{
         padding:7px 0;
       }
     }
@@ -789,9 +997,9 @@
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
       *,*::before,*::after{
-        animation-duration:.01ms !important;
         transition-duration:.01ms !important;
-        scroll-behavior:auto !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
       }
     }
   </style>
@@ -799,18 +1007,24 @@
 <body>
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <header>
-    <div class="topbar">
-      <div class="container">
-        <div>Karnevalsgesellschaft "Fidele Birker" 1991 e.V.</div>
-        <div>Kapellenstraße 1 · 53797 Lohmar · info@fidele-birker.de</div>
+  <div class="utility">
+    <div class="container">
+      <div>Karnevalsgesellschaft "Fidele Birker" 1991 e.V.</div>
+      <div class="utility-links">
+        <a href="#">Webshop</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Anfahrt</a>
+        <a href="#kontakt">Kontaktformular</a>
       </div>
     </div>
+  </div>
 
+  <header>
     <div class="container">
       <div class="header-inner">
         <a class="brand" href="#top" aria-label="Startseite">
-          <div class="logo" aria-hidden="true"></div>
+          <div class="brand-mark" aria-hidden="true"></div>
           <div class="brand-text">
             <strong>KG Fidele Birker e.V.</strong>
             <span>Karneval in Lohmar-Birk</span>
@@ -818,93 +1032,221 @@
         </a>
 
         <nav aria-label="Hauptnavigation">
-          <ul>
-            <li><a href="#news">News</a></li>
-            <li><a href="#veranstaltungen">Veranstaltungen</a></li>
-            <li><a href="#verein">Verein</a></li>
-            <li><a href="#galerie">Galerie</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="nav-link" href="#news">News <span class="nav-arrow">▾</span></a>
+              <div class="dropdown">
+                <a href="#news">Aktuelle News <small>Neuigkeiten und Hinweise</small></a>
+                <a href="#news">Archiv <small>Beiträge aus früheren Sessions</small></a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#veranstaltungen">Veranstaltungen <span class="nav-arrow">▾</span></a>
+              <div class="dropdown">
+                <a href="#veranstaltungen">Herrensitzung <small>Datum, Ort und Infos</small></a>
+                <a href="#veranstaltungen">Karnevalsfete <small>Party und Programm</small></a>
+                <a href="#veranstaltungen">Kindersitzung <small>Familienfreundliche Veranstaltung</small></a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#vermietung">Vermietung <span class="nav-arrow">▾</span></a>
+              <div class="dropdown">
+                <a href="#vermietung">Wagen 16 Personen <small>Verfügbarkeit und Infos</small></a>
+                <a href="#vermietung">Wagen 22 Personen <small>Verfügbarkeit und Infos</small></a>
+                <a href="#vermietung">Vermietungstermine <small>Kalender und Anfragen</small></a>
+                <a href="#kontakt">Ansprechpartner <small>Direkter Kontakt</small></a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#verein">Verein <span class="nav-arrow">▾</span></a>
+              <div class="dropdown">
+                <a href="#verein">Über uns <small>Geschichte und Einblick</small></a>
+                <a href="#verein">Vorstand <small>Ansprechpartner im Verein</small></a>
+                <a href="#verein">Senatoren <small>Unterstützer und Gremien</small></a>
+                <a href="#verein">Downloads <small>Dokumente und Satzung</small></a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#galerie">Galerie <span class="nav-arrow">▾</span></a>
+              <div class="dropdown">
+                <a href="#galerie">Session 2025/2026 <small>Bilder aus der aktuellen Session</small></a>
+                <a href="#galerie">Session 2024/2025 <small>Rückblick auf frühere Bilder</small></a>
+                <a href="#galerie">Session 2023/2024 <small>Veranstaltungen und Eindrücke</small></a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#kontakt">Kontakt <span class="nav-arrow">▾</span></a>
+              <div class="dropdown">
+                <a href="#kontakt">Übersicht <small>Schneller Einstieg</small></a>
+                <a href="#kontakt">Ansprechpartner <small>Direkte Kontakte</small></a>
+                <a href="#kontakt">Geschäftsstelle <small>Adresse und Erreichbarkeit</small></a>
+                <a href="#kontakt">Kontaktformular <small>Nachricht senden</small></a>
+              </div>
+            </li>
           </ul>
         </nav>
 
-        <a class="btn btn-primary" href="#mitglied">Jetzt Mitglied werden</a>
-        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Menü öffnen">☰</button>
+        <div class="actions">
+          <a class="btn btn-primary" href="#mitglied">Mitglied werden</a>
+          <button class="mobile-toggle" id="mobileToggle" type="button" aria-expanded="false" aria-controls="mobileNav">☰</button>
+        </div>
       </div>
 
-      <div class="mobile-nav" id="mobileNav">
-        <a href="#news">News</a>
-        <a href="#veranstaltungen">Veranstaltungen</a>
-        <a href="#verein">Verein</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#kontakt">Kontakt</a>
+      <div class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+        <div class="mobile-nav-section">
+          <button class="mobile-nav-head" type="button">News <span>+</span></button>
+          <div class="mobile-nav-links">
+            <a href="#news">Aktuelle News</a>
+            <a href="#news">Archiv</a>
+          </div>
+        </div>
+        <div class="mobile-nav-section">
+          <button class="mobile-nav-head" type="button">Veranstaltungen <span>+</span></button>
+          <div class="mobile-nav-links">
+            <a href="#veranstaltungen">Herrensitzung</a>
+            <a href="#veranstaltungen">Karnevalsfete</a>
+            <a href="#veranstaltungen">Kindersitzung</a>
+          </div>
+        </div>
+        <div class="mobile-nav-section">
+          <button class="mobile-nav-head" type="button">Vermietung <span>+</span></button>
+          <div class="mobile-nav-links">
+            <a href="#vermietung">Wagen 16 Personen</a>
+            <a href="#vermietung">Wagen 22 Personen</a>
+            <a href="#vermietung">Vermietungstermine</a>
+          </div>
+        </div>
+        <div class="mobile-nav-section">
+          <button class="mobile-nav-head" type="button">Verein <span>+</span></button>
+          <div class="mobile-nav-links">
+            <a href="#verein">Über uns</a>
+            <a href="#verein">Vorstand</a>
+            <a href="#verein">Senatoren</a>
+            <a href="#verein">Downloads</a>
+          </div>
+        </div>
+        <div class="mobile-nav-section">
+          <button class="mobile-nav-head" type="button">Galerie <span>+</span></button>
+          <div class="mobile-nav-links">
+            <a href="#galerie">Session 2025/2026</a>
+            <a href="#galerie">Session 2024/2025</a>
+          </div>
+        </div>
+        <div class="mobile-nav-section">
+          <button class="mobile-nav-head" type="button">Kontakt <span>+</span></button>
+          <div class="mobile-nav-links">
+            <a href="#kontakt">Übersicht</a>
+            <a href="#kontakt">Ansprechpartner</a>
+            <a href="#kontakt">Geschäftsstelle</a>
+            <a href="#kontakt">Kontaktformular</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
   <main id="content">
-    <section class="hero">
+    <div class="container">
+      <div class="breadcrumb">Du befindest dich hier: <a href="#top">Startseite “Alaaf”</a></div>
+    </div>
+
+    <section class="hero" id="top">
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-main reveal">
+          <div class="hero-banner reveal">
             <div class="hero-content">
-              <div class="eyebrow">Seit 1991 · Lohmar-Birk</div>
+              <div class="eyebrow">Karnevalsgesellschaft "Fidele Birker" 1991 e.V.</div>
               <h1>Fidele Birker.</h1>
               <p class="hero-text">
-                Gemeinsam Karneval erleben, Veranstaltungen feiern und Vereinsleben gestalten.
-                Informieren Sie sich über News, Termine, Galerie, Mitgliedschaft und Kontakt.
+                Herzlich willkommen auf unserer Startseite. Hier finden Sie News, Veranstaltungen, Kontakt,
+                Mitgliedschaft, Social Media und alles rund um unser Vereinsleben in Lohmar-Birk.
               </p>
-
               <div class="hero-actions">
                 <a class="btn btn-primary" href="#veranstaltungen">Veranstaltungen ansehen</a>
                 <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
               </div>
-
-              <div class="hero-pills" aria-label="Kurzinfos">
+              <div class="hero-pills" aria-label="Schnellzugriff">
+                <span class="pill">News</span>
                 <span class="pill">Herrensitzung</span>
-                <span class="pill">Kindersitzung</span>
-                <span class="pill">Karnevalsfete</span>
-                <span class="pill">Sessionsauftakt</span>
+                <span class="pill">Kontakt</span>
+                <span class="pill">Mitglied werden</span>
               </div>
             </div>
           </div>
 
-          <aside class="hero-side reveal" aria-label="Nächste Veranstaltung">
-            <span class="side-badge">Nächste Veranstaltung</span>
-            <h2 class="event-title">Herrensitzung 2027</h2>
-            <div class="event-list">
-              <div class="event-row">
+          <aside class="hero-side panel reveal" aria-label="Herrensitzung 2027">
+            <div class="side-badge">Herrensitzung 2027</div>
+            <h2>Die nächste große Veranstaltung.</h2>
+            <div class="detail-list">
+              <div class="detail">
                 <div>📅</div>
                 <div>
                   <strong>Wann</strong>
                   <span>Samstag, 09.01.2027</span>
                 </div>
               </div>
-              <div class="event-row">
+              <div class="detail">
                 <div>📍</div>
                 <div>
                   <strong>Wo</strong>
                   <span>Bürgerhaus Birk</span>
                 </div>
               </div>
-              <div class="event-row">
+              <div class="detail">
                 <div>⏰</div>
                 <div>
-                  <strong>Einlass / Beginn</strong>
-                  <span>13:00 Uhr / 14:11 Uhr</span>
+                  <strong>Einlass</strong>
+                  <span>13:00 Uhr</span>
                 </div>
               </div>
-              <div class="event-row">
+              <div class="detail">
+                <div>🎉</div>
+                <div>
+                  <strong>Beginn</strong>
+                  <span>14:11 Uhr</span>
+                </div>
+              </div>
+              <div class="detail">
                 <div>💶</div>
                 <div>
                   <strong>Preis</strong>
-                  <span>38,- Euro</span>
+                  <span>38,- Euro (Einlass ab 16 Jahren)</span>
                 </div>
               </div>
             </div>
-
-            <a class="btn btn-primary" href="#veranstaltungen">Zur Veranstaltung</a>
-            <a class="btn btn-secondary" href="#mitglied">Mitglied werden</a>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#veranstaltungen">zur Veranstaltung</a>
+              <a class="btn btn-secondary" href="#mitglied">Mitglied werden</a>
+            </div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Kurzinformationen">
+      <div class="container">
+        <div class="stats reveal">
+          <div class="stat">
+            <strong>1991</strong>
+            <span>gegründet in Lohmar-Birk</span>
+          </div>
+          <div class="stat">
+            <strong>150+</strong>
+            <span>Mitglieder im Verein</span>
+          </div>
+          <div class="stat">
+            <strong>4</strong>
+            <span>große Veranstaltungssäulen</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Leidenschaft für Karneval</span>
+          </div>
         </div>
       </div>
     </section>
@@ -914,37 +1256,37 @@
         <div class="section-head reveal">
           <div>
             <h2>News</h2>
-            <p class="lead">Aktuelle Hinweise, Bilder und Neuigkeiten aus dem Vereinsleben.</p>
+            <p class="lead">Aktuelle Meldungen, Bilder und Hinweise wie auf der bisherigen Seite – nur übersichtlicher dargestellt.</p>
           </div>
-          <a class="btn btn-secondary" href="#">Alle News ansehen</a>
+          <a class="btn btn-secondary" href="#">Archiv ansehen</a>
         </div>
 
         <div class="news-list">
-          <article class="news-item reveal">
-            <div class="news-meta">
+          <article class="news-card reveal">
+            <div class="news-top">
               <span class="tag">Aktuell</span>
+              <span>04.04.2026</span>
+            </div>
+            <h3>Frohe Ostern</h3>
+            <p>Die Karnevalsgesellschaft "Fidele Birker" wünscht Euch und Euren Familien und Freunden ein schönes und frohes Osterfest.</p>
+          </article>
+
+          <article class="news-card reveal">
+            <div class="news-top">
+              <span class="tag">News</span>
               <span>16.02.2026</span>
             </div>
             <h3>Fotos der Kindersitzung online</h3>
-            <p>Die Fotos der Kindersitzung sind online und zeigen die schönsten Momente der Veranstaltung.</p>
+            <p>Die schönsten Momente der Kindersitzung sind online und können jetzt in der Galerie angeschaut werden.</p>
           </article>
 
-          <article class="news-item reveal">
-            <div class="news-meta">
-              <span class="tag">News</span>
+          <article class="news-card reveal">
+            <div class="news-top">
+              <span class="tag">Rückblick</span>
               <span>15.02.2026</span>
             </div>
             <h3>Fotos der Herrensitzung und Karnevalsfete online</h3>
             <p>Großartige Stimmung und mega Party im Bürgerzentrum in Birk – die Bilder sind jetzt verfügbar.</p>
-          </article>
-
-          <article class="news-item reveal">
-            <div class="news-meta">
-              <span class="tag">Verein</span>
-              <span>01.01.2026</span>
-            </div>
-            <h3>Frohes Neues Jahr</h3>
-            <p>Ein neues Jahr voller Veranstaltungen, Begegnungen und karnevalistischer Vorfreude.</p>
           </article>
         </div>
       </div>
@@ -955,11 +1297,11 @@
         <div class="section-head reveal">
           <div>
             <h2>Veranstaltungen</h2>
-            <p class="lead">Die wichtigsten Termine des Vereins kompakt und übersichtlich dargestellt.</p>
+            <p class="lead">Die Kernveranstaltungen bleiben sichtbar im Fokus und werden in einer sauberen Kartenansicht präsentiert.</p>
           </div>
         </div>
 
-        <div class="grid-3">
+        <div class="card-grid">
           <article class="card reveal">
             <div class="card-media"></div>
             <div class="card-body">
@@ -968,33 +1310,106 @@
             </div>
             <div class="card-footer">
               <span class="tag">38,- Euro</span>
-              <a class="link" href="#">Zur Veranstaltung</a>
+              <a class="link" href="#">zur Veranstaltung</a>
             </div>
           </article>
 
           <article class="card reveal">
-            <div class="card-media" style="background:linear-gradient(135deg, rgba(0,91,187,.88), rgba(217,236,255,.82));"></div>
+            <div class="card-media" style="background:linear-gradient(135deg, rgba(217,236,255,.95), rgba(0,91,187,.86));"></div>
             <div class="card-body">
               <h3>Karnevalsfete</h3>
               <p>Samstag, 16.01.2027 · Bürgerhaus Birk · Einlass 19:30 Uhr · Beginn 20:00 Uhr</p>
             </div>
             <div class="card-footer">
               <span class="tag">10,- / 12,- Euro</span>
-              <a class="link" href="#">Zur Veranstaltung</a>
+              <a class="link" href="#">zur Veranstaltung</a>
             </div>
           </article>
 
           <article class="card reveal">
-            <div class="card-media" style="background:linear-gradient(135deg, rgba(29,41,64,.9), rgba(0,91,187,.82));"></div>
+            <div class="card-media" style="background:linear-gradient(135deg, rgba(23,35,56,.95), rgba(0,91,187,.84));"></div>
             <div class="card-body">
               <h3>Kindersitzung 2027</h3>
               <p>Sonntag, 31.01.2027 · Bürgerhaus Birk · Einlass 14:00 Uhr · Beginn 15:00 Uhr</p>
             </div>
             <div class="card-footer">
               <span class="tag">Kinder 4,- / Erwachsene 8,-</span>
-              <a class="link" href="#">Zur Veranstaltung</a>
+              <a class="link" href="#">zur Veranstaltung</a>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="vermietung">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>Vermietung</h2>
+            <p class="lead">Die bisherigen Vermietungsangebote bleiben erhalten und werden kompakt als Servicebereich dargestellt.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel reveal">
+            <h3>Wagen und Termine</h3>
+            <div class="menu-links">
+              <a class="menu-link" href="#">
+                <div>
+                  Wagen 16 Personen
+                  <small>Details und Verfügbarkeit</small>
+                </div>
+                <span>→</span>
+              </a>
+              <a class="menu-link" href="#">
+                <div>
+                  Wagen 22 Personen
+                  <small>Details und Verfügbarkeit</small>
+                </div>
+                <span>→</span>
+              </a>
+              <a class="menu-link" href="#">
+                <div>
+                  Vermietungstermine
+                  <small>Kalender und freie Slots</small>
+                </div>
+                <span>→</span>
+              </a>
+              <a class="menu-link" href="#kontakt">
+                <div>
+                  Ansprechpartner
+                  <small>Fragen direkt klären</small>
+                </div>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="panel reveal">
+            <h3>Wichtige Hinweise</h3>
+            <p class="small-note">
+              Hier können später die originalen Vermietungstexte, Bedingungen, Termine und PDF-Downloads eingebunden werden.
+              Die Struktur ist bereits so angelegt, dass sie nah an der bestehenden Website bleibt.
+            </p>
+            <div class="value-grid">
+              <div class="value">
+                <strong>Planung</strong>
+                <span>Termine übersichtlich anzeigen</span>
+              </div>
+              <div class="value">
+                <strong>Kontakt</strong>
+                <span>Direkter Draht zum Team</span>
+              </div>
+              <div class="value">
+                <strong>Transparenz</strong>
+                <span>Klare Infos statt langer Texte</span>
+              </div>
+              <div class="value">
+                <strong>Service</strong>
+                <span>Schnell und verständlich</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1004,56 +1419,44 @@
         <div class="section-head reveal">
           <div>
             <h2>Verein</h2>
-            <p class="lead">Informationen über die KG Fidele Birker, den Vorstand und die Vereinsarbeit.</p>
+            <p class="lead">Die Vereinsseite bleibt nah am Original, nur klarer gegliedert und besser lesbar.</p>
           </div>
         </div>
 
-        <div class="split">
-          <div class="section-card reveal">
-            <h3>Über uns</h3>
-            <p>
-              Die Karnevalsgesellschaft „Fidele Birker“ wurde am 23.11.1991 mit Sitz in Lohmar-Birk gegründet.
-              Der Einzugsbereich geht weit über die drei Hauptorte Heide, Inger und Birk hinaus.
-            </p>
-
-            <div class="value-list">
-              <div class="value">
-                <strong>Gründung</strong>
-                <span>1991 in Lohmar-Birk</span>
-              </div>
-              <div class="value">
-                <strong>Mitglieder</strong>
-                <span>rund 150 Mitglieder</span>
-              </div>
-              <div class="value">
-                <strong>Schwerpunkt</strong>
-                <span>Karneval & Gemeinschaft</span>
-              </div>
-              <div class="value">
-                <strong>Ort</strong>
-                <span>Lohmar-Birk</span>
-              </div>
-            </div>
-
-            <div class="hero-actions" style="margin-top:18px">
-              <a class="btn btn-primary" href="#">Vorstand ansehen</a>
-              <a class="btn btn-secondary" href="#">Mitglied werden</a>
+        <div class="info-grid">
+          <div class="figure reveal">
+            <div class="figure-caption">
+              <strong>Über uns</strong>
+              <span>Die Karnevalsgesellschaft „Fidele Birker“ wurde am 23.11.1991 mit Sitz in Lohmar-Birk gegründet.</span>
             </div>
           </div>
 
-          <div class="section-card reveal">
-            <h3>Mitglied werden</h3>
-            <p>
-              Wir freuen uns über jedes neue Vereinsmitglied. Informationen zum Verein und zur Mitgliedschaft
-              finden Sie hier kompakt und verständlich.
+          <div class="panel reveal">
+            <h3>Die wichtigsten Bereiche</h3>
+            <p class="small-note">
+              Auf der bestehenden Seite finden sich im Vereinsbereich unter anderem Über uns, Vorstand, Senatoren, Ehrenmitglieder, Sessionsorden, Downloads und Satzung.
             </p>
-            <ul>
-              <li>aktiv mitmachen oder unterstützen</li>
-              <li>Teil des Vereinslebens werden</li>
-              <li>Veranstaltungen mitgestalten</li>
-            </ul>
-            <div class="hero-actions" style="margin-top:18px">
-              <a class="btn btn-primary" href="#kontakt">Jetzt anfragen</a>
+            <div class="value-grid">
+              <div class="value">
+                <strong>Vorstand</strong>
+                <span>Ansprechpartner des Vereins</span>
+              </div>
+              <div class="value">
+                <strong>Senatoren</strong>
+                <span>Unterstützung und Netzwerk</span>
+              </div>
+              <div class="value">
+                <strong>Ehrenmitglieder</strong>
+                <span>Würdigung besonderer Verdienste</span>
+              </div>
+              <div class="value">
+                <strong>Downloads</strong>
+                <span>Dokumente und Satzung</span>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#mitglied">Mitglied werden</a>
+              <a class="btn btn-secondary" href="#">Vorstand ansehen</a>
             </div>
           </div>
         </div>
@@ -1065,28 +1468,28 @@
         <div class="section-head reveal">
           <div>
             <h2>Galerie</h2>
-            <p class="lead">Bilder aus Sessions, Veranstaltungen und Vereinsmomenten.</p>
+            <p class="lead">Die Galerie bleibt als Jahresübersicht erhalten, bekommt aber eine klarere, moderne Kacheloptik.</p>
           </div>
         </div>
 
         <div class="gallery-grid reveal">
-          <div class="gallery-item span-3" data-title="Session 2022/2023">
+          <div class="gallery-item span-6" data-title="Session 2025/2026" data-subtitle="Kindersitzung, Karnevalsfete und Herrensitzung">
+            <span>Session 2025/2026</span>
+          </div>
+          <div class="gallery-item span-3" data-title="Session 2024/2025" data-subtitle="Kindersitzung">
+            <span>Session 2024/2025</span>
+          </div>
+          <div class="gallery-item span-3" data-title="Session 2023/2024" data-subtitle="Sessionsstart und Sommerfest">
+            <span>Session 2023/2024</span>
+          </div>
+          <div class="gallery-item span-4" data-title="Session 2022/2023" data-subtitle="Kindersitzung, Karnevalsfete und Sessionsstart">
             <span>Session 2022/2023</span>
           </div>
-          <div class="gallery-item span-3" data-title="Herrensitzung">
-            <span>Herrensitzung</span>
+          <div class="gallery-item span-4" data-title="Session 2021/2022" data-subtitle="Prunksitzung und Sessionsstart">
+            <span>Session 2021/2022</span>
           </div>
-          <div class="gallery-item span-2" data-title="Karnevalsfete">
-            <span>Karnevalsfete</span>
-          </div>
-          <div class="gallery-item span-2" data-title="Kindersitzung">
-            <span>Kindersitzung</span>
-          </div>
-          <div class="gallery-item span-4" data-title="Sessionsstart">
-            <span>Sessionsstart</span>
-          </div>
-          <div class="gallery-item span-2" data-title="Vereinsleben">
-            <span>Vereinsleben</span>
+          <div class="gallery-item span-4" data-title="Session 2019/2020" data-subtitle="Kindersitzung, Karnevalsfete, Herrensitzung">
+            <span>Session 2019/2020</span>
           </div>
         </div>
       </div>
@@ -1096,13 +1499,34 @@
       <div class="container">
         <div class="cta reveal">
           <div>
-            <h2>Jetzt Mitglied werden</h2>
-            <p>
-              Du möchtest Mitglied werden? Wir freuen uns über jedes neue Vereinsmitglied.
-              Auf Wunsch kann hier später ein Formular oder eine PDF-Beitrittserklärung eingebunden werden.
-            </p>
+            <h2>Jetzt Mitglied werden!</h2>
+            <p>Du möchtest Mitglied werden? Wir freuen uns über jedes (neue) Vereinsmitglied. Die Seite kann später direkt mit Formular oder PDF verknüpft werden.</p>
           </div>
           <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="social">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>Social Media</h2>
+            <p class="lead">Die bestehenden Social-Media-Hinweise werden als eigene, übersichtliche Sektion eingebunden.</p>
+          </div>
+        </div>
+
+        <div class="social-grid">
+          <div class="social-card reveal">
+            <h3>Facebook</h3>
+            <p>Die aktuellsten Infos sowie Bilder und Videos unserer Veranstaltungen, Aktionen und vieles mehr findet Ihr auch auf Facebook.</p>
+            <a class="btn btn-primary" href="#">Facebook öffnen</a>
+          </div>
+          <div class="social-card reveal">
+            <h3>Instagram</h3>
+            <p>Hier gibt es weitere Eindrücke, Rückblicke und kurze Einblicke in unser Vereinsleben und unsere Veranstaltungen.</p>
+            <a class="btn btn-primary" href="#">Instagram öffnen</a>
+          </div>
         </div>
       </div>
     </section>
@@ -1111,17 +1535,14 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <h2>Termine & Veranstaltungen für Ihr Smartphone</h2>
-            <p class="lead">
-              Der bisherige Hinweis bleibt erhalten, wird aber klarer und lesbarer dargestellt.
-            </p>
+            <h2>Termine & Veranstaltungen für Ihr Smartphone!</h2>
+            <p class="lead">Der bisherige Hinweis wird als kompakter Servicebereich beibehalten.</p>
           </div>
         </div>
 
-        <div class="section-card reveal">
-          <p>
-            Die wichtigsten Termine und Veranstaltungen können hier später zusätzlich als mobile Kurzansicht,
-            Kalender oder Download-Bereich eingebunden werden.
+        <div class="panel reveal">
+          <p class="small-note">
+            Hier kann später eine mobile Terminübersicht, ein Kalender oder ein Download-Bereich ergänzt werden.
           </p>
         </div>
       </div>
@@ -1132,19 +1553,21 @@
         <div class="section-head reveal">
           <div>
             <h2>Kontakt</h2>
-            <p class="lead">Schnell erreichbar und übersichtlich wie auf der bisherigen Seite, nur moderner organisiert.</p>
+            <p class="lead">Der Kontaktbereich bleibt nah am Original: Übersicht, Ansprechpartner, Geschäftsstelle und Formular.</p>
           </div>
         </div>
 
         <div class="contact-grid">
-          <div class="contact-box reveal">
-            <h3>Geschäftsstelle</h3>
+          <div class="contact-card reveal">
+            <h3>Übersicht</h3>
+            <p class="small-note">Möchtet Ihr Kontakt mit uns aufnehmen oder habt Ihr Fragen oder Anregungen? In unserer Kontaktübersicht findet Ihr alle Ansprechpartner.</p>
+
             <div class="contact-list">
               <div class="contact-row">
                 <div>📍</div>
                 <div>
-                  <strong>Adresse</strong>
-                  <span>Kapellenstraße 1, 53797 Lohmar</span>
+                  <strong>Geschäftsstelle</strong>
+                  <span>Kapellenstraße 1 · 53797 Lohmar</span>
                 </div>
               </div>
               <div class="contact-row">
@@ -1162,9 +1585,14 @@
                 </div>
               </div>
             </div>
+
+            <div class="hero-actions" style="margin-top:16px">
+              <a class="btn btn-primary" href="#mitglied">Mitglied werden</a>
+              <a class="btn btn-secondary" href="#">Ansprechpartner</a>
+            </div>
           </div>
 
-          <div class="contact-box reveal">
+          <div class="contact-card reveal">
             <h3>Kontaktformular</h3>
             <form>
               <div class="field-grid">
@@ -1178,7 +1606,7 @@
                 </div>
               </div>
               <div>
-                <label for="subject">Betreff</label>
+                <label for="subject">Anliegen</label>
                 <select id="subject">
                   <option>Allgemeine Anfrage</option>
                   <option>Mitgliedschaft</option>
@@ -1202,32 +1630,32 @@
         <div class="section-head reveal">
           <div>
             <h2>Häufige Fragen</h2>
-            <p class="lead">Ein kleiner FAQ-Bereich ergänzt die Inhalte und hilft Besuchern schneller weiter.</p>
+            <p class="lead">Kompakter FAQ-Bereich für die wichtigsten Standardfragen.</p>
           </div>
         </div>
 
         <div class="faq">
           <div class="faq-item reveal">
             <button class="faq-btn" type="button">
-              <span>Wie kann ich Mitglied werden?</span>
+              <span>Wie werde ich Mitglied?</span>
               <span>+</span>
             </button>
             <div class="faq-content">
-              Über den Kontaktbereich können Sie eine Mitgliedschaft anfragen. Später lässt sich hier auch ein Formular ergänzen.
+              Über den Kontaktbereich kann eine Mitgliedschaft angefragt werden. Später lässt sich hier zusätzlich ein PDF-Formular einbinden.
             </div>
           </div>
           <div class="faq-item reveal">
             <button class="faq-btn" type="button">
-              <span>Wo finde ich die Termine?</span>
+              <span>Wo finde ich die Veranstaltungen?</span>
               <span>+</span>
             </button>
             <div class="faq-content">
-              Die wichtigsten Termine stehen direkt auf der Startseite im Bereich Veranstaltungen.
+              Die wichtigsten Termine stehen direkt auf der Startseite und können zusätzlich in einer separaten Unterseite gepflegt werden.
             </div>
           </div>
           <div class="faq-item reveal">
             <button class="faq-btn" type="button">
-              <span>Kann ich Bilder aus der Galerie öffnen?</span>
+              <span>Kann ich die Galerie öffnen?</span>
               <span>+</span>
             </button>
             <div class="faq-content">
@@ -1241,16 +1669,17 @@
 
   <footer>
     <div class="container">
-      <div class="footer-grid reveal">
+      <div class="footer-top reveal">
         <div>
           <h4>KG Fidele Birker e.V.</h4>
-          <p>Karnevalsgesellschaft "Fidele Birker" 1991 e.V. · Kapellenstraße 1 · 53797 Lohmar</p>
+          <p class="small-note">Karnevalsgesellschaft "Fidele Birker" 1991 e.V.<br />Kapellenstraße 1<br />53797 Lohmar</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul>
             <li><a href="#news">News</a></li>
             <li><a href="#veranstaltungen">Veranstaltungen</a></li>
+            <li><a href="#vermietung">Vermietung</a></li>
             <li><a href="#verein">Verein</a></li>
             <li><a href="#galerie">Galerie</a></li>
           </ul>
@@ -1260,7 +1689,7 @@
           <ul>
             <li><a href="#mitglied">Mitglied werden</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#social">Social Media</a></li>
             <li><a href="#smartphone">Smartphone-Termine</a></li>
           </ul>
         </div>
@@ -1276,7 +1705,7 @@
 
       <div class="footer-bottom">
         <div>© 2026 Karnevalsgesellschaft "Fidele Birker" 1991 e.V.</div>
-        <div><a href="#">Facebook</a> · <a href="#">Instagram</a> · <a href="#">Kontakt</a></div>
+        <div><a href="#">Facebook</a> · <a href="#">Instagram</a> · <a href="#">Webshop</a></div>
       </div>
     </div>
   </footer>
@@ -1289,7 +1718,7 @@
       <div class="lightbox-body">
         <div>
           <strong id="lbTitle">Galerie</strong>
-          <div id="lbText" style="color:var(--muted)">Vorschau</div>
+          <div id="lbText" style="color:var(--muted)">Bildvorschau</div>
         </div>
         <button class="btn btn-secondary" id="closeLightbox" type="button">Schließen</button>
       </div>
@@ -1308,8 +1737,20 @@
 
     const mobileToggle = document.getElementById("mobileToggle");
     const mobileNav = document.getElementById("mobileNav");
+
     mobileToggle.addEventListener("click", () => {
-      mobileNav.classList.toggle("open");
+      const open = mobileNav.classList.toggle("open");
+      mobileToggle.setAttribute("aria-expanded", String(open));
+      mobileToggle.textContent = open ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".mobile-nav-section").forEach(section => {
+      const btn = section.querySelector(".mobile-nav-head");
+      btn.addEventListener("click", () => {
+        const isOpen = section.classList.contains("open");
+        document.querySelectorAll(".mobile-nav-section").forEach(s => s.classList.remove("open"));
+        if (!isOpen) section.classList.add("open");
+      });
     });
 
     const backToTop = document.getElementById("backToTop");
@@ -1343,7 +1784,7 @@
     document.querySelectorAll(".gallery-item").forEach(item => {
       item.addEventListener("click", () => {
         lbTitle.textContent = item.dataset.title || "Galerie";
-        lbText.textContent = "Bildvorschau";
+        lbText.textContent = item.dataset.subtitle || "Bildvorschau";
         lightbox.classList.add("open");
         lightbox.setAttribute("aria-hidden", "false");
       });
