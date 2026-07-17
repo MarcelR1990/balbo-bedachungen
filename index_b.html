@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#005bbb" />
   <title>KG Fidele Birker e.V. | Startseite</title>
-  <meta name="description" content="Karnevalsgesellschaft Fidele Birker e.V. - News, Veranstaltungen, Vermietung, Verein, Galerie, Kontakt und Mitglied werden." />
+  <meta name="description" content="KG Fidele Birker e.V. - Startseite mit News, Veranstaltungen, Verein, Galerie, Kontakt und Mitgliedschaft." />
   <meta name="robots" content="index, follow" />
   <style>
     :root{
       --primary:#005bbb;
-      --primary-dark:#004b99;
+      --primary-dark:#004a98;
       --accent:#d9ecff;
       --bg:#f4f7fb;
       --surface:#ffffff;
       --surface-2:#eef3f8;
-      --surface-3:#e6f0fb;
       --text:#172338;
       --muted:#5f6d82;
       --border:#d7e1ec;
@@ -39,6 +38,7 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     button,input,textarea,select{font:inherit}
+
     .container{
       width:min(calc(100% - 32px), var(--container));
       margin:0 auto;
@@ -75,10 +75,7 @@
       flex-wrap:wrap;
       gap:10px;
     }
-    .utility-links a{
-      opacity:.92;
-    }
-    .utility-links a:hover{opacity:1;text-decoration:underline}
+    .utility-links a:hover{text-decoration:underline}
 
     header{
       position:sticky;
@@ -289,17 +286,10 @@
     }
     .mobile-nav-links a:hover{background:var(--surface-2)}
 
-    .breadcrumb{
-      padding:14px 0 0;
-      color:var(--muted);
-      font-size:.92rem;
-    }
-    .breadcrumb a:hover{text-decoration:underline}
-
     main{padding-bottom:34px}
 
     .hero{
-      padding:18px 0 22px;
+      padding:22px 0 26px;
     }
     .hero-grid{
       display:grid;
@@ -309,9 +299,9 @@
     .hero-banner,
     .panel,
     .news-card,
-    .info-card,
+    .feature-card,
     .contact-card,
-    .faq-item{
+    .cta-box{
       background:var(--surface);
       border:1px solid var(--border);
       border-radius:var(--radius-lg);
@@ -319,14 +309,14 @@
     }
 
     .hero-banner{
-      padding:30px;
-      min-height:360px;
+      padding:34px;
+      min-height:390px;
       color:#fff;
       position:relative;
       overflow:hidden;
       background:
         linear-gradient(135deg, rgba(0,91,187,.96), rgba(23,35,56,.94)),
-        url("hero-placeholder.jpg") center/cover no-repeat;
+        url("images/hero.jpg") center/cover no-repeat;
     }
     .hero-banner:before{
       content:"";
@@ -344,7 +334,7 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
-      min-height:300px;
+      min-height:320px;
     }
     .eyebrow{
       display:inline-flex;
@@ -482,60 +472,12 @@
       font-size:.95rem;
     }
 
-    .two-col{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .panel{
-      padding:22px;
-    }
-
-    .panel h3{
-      font-size:1.2rem;
-      margin-bottom:10px;
-    }
-
-    .news-list{
-      display:grid;
-      gap:14px;
-    }
-    .news-card{
-      padding:18px;
-    }
-    .news-top{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-bottom:8px;
-      color:var(--muted);
-      font-size:.88rem;
-    }
-    .tag{
-      display:inline-flex;
-      width:max-content;
-      padding:5px 10px;
-      border-radius:999px;
-      background:var(--accent);
-      color:var(--primary-dark);
-      font-weight:800;
-    }
-    .news-card h3{
-      font-size:1.12rem;
-      margin-bottom:8px;
-    }
-    .news-card p{
-      margin:0;
-      color:var(--muted);
-    }
-
-    .card-grid{
+    .grid-3{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:16px;
     }
+
     .card{
       overflow:hidden;
       background:var(--surface);
@@ -582,180 +524,93 @@
     }
     .link:hover{text-decoration:underline}
 
-    .info-grid{
+    .split{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
+      grid-template-columns:1fr 1fr;
       gap:16px;
-      align-items:stretch;
     }
-    .figure{
-      border-radius:var(--radius-lg);
-      overflow:hidden;
-      min-height:360px;
-      background:linear-gradient(135deg, rgba(0,91,187,.95), rgba(23,35,56,.95));
-      position:relative;
-      box-shadow:var(--shadow-2);
+    .panel{
+      padding:22px;
     }
-    .figure:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 25% 30%, rgba(255,255,255,.16), transparent 20%),
-        radial-gradient(circle at 75% 22%, rgba(255,255,255,.10), transparent 18%),
-        radial-gradient(circle at 64% 80%, rgba(217,236,255,.16), transparent 18%);
+    .panel h3{
+      font-size:1.2rem;
+      margin-bottom:10px;
     }
-    .figure-caption{
-      position:absolute;
-      left:20px;
-      right:20px;
-      bottom:20px;
-      padding:18px;
-      border-radius:20px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.18);
-      color:#fff;
-      backdrop-filter:blur(12px);
-    }
-    .figure-caption strong{
-      display:block;
-      font-size:1.35rem;
-      margin-bottom:6px;
-    }
-    .value-grid{
+
+    .feature-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:12px;
       margin-top:14px;
     }
-    .value{
+    .feature-card{
       padding:14px;
-      border-radius:16px;
       background:var(--surface-2);
+      box-shadow:none;
     }
-    .value strong{
-      display:block;
-      margin-bottom:4px;
-    }
-    .value span{
-      color:var(--muted);
-      font-size:.94rem;
-    }
+    .feature-card strong{display:block;margin-bottom:4px}
+    .feature-card span{color:var(--muted);font-size:.94rem}
 
-    .gallery-grid{
+    .news-list{
       display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:12px;
-      margin-top:12px;
+      gap:14px;
     }
-    .gallery-item{
-      min-height:150px;
-      border-radius:18px;
-      overflow:hidden;
-      position:relative;
-      cursor:pointer;
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      background:linear-gradient(135deg, rgba(0,91,187,.88), rgba(23,35,56,.84));
+    .news-card{
+      padding:18px;
     }
-    .gallery-item:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 24%, rgba(255,255,255,.24), transparent 18%),
-        radial-gradient(circle at 72% 36%, rgba(255,255,255,.12), transparent 18%),
-        radial-gradient(circle at 56% 82%, rgba(255,255,255,.12), transparent 16%);
-      opacity:.95;
+    .news-top{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:8px;
+      color:var(--muted);
+      font-size:.88rem;
     }
-    .gallery-item span{
-      position:absolute;
-      left:14px;
-      right:14px;
-      bottom:14px;
-      color:#fff;
+    .tag{
+      display:inline-flex;
+      width:max-content;
+      padding:5px 10px;
+      border-radius:999px;
+      background:var(--accent);
+      color:var(--primary-dark);
       font-weight:800;
-      z-index:1;
     }
-    .span-2{grid-column:span 2}
-    .span-3{grid-column:span 3}
-    .span-4{grid-column:span 4}
-    .span-5{grid-column:span 5}
-    .span-6{grid-column:span 6}
+    .news-card h3{
+      font-size:1.12rem;
+      margin-bottom:8px;
+    }
+    .news-card p{
+      margin:0;
+      color:var(--muted);
+    }
 
-    .cta{
+    .cta-box{
       background:linear-gradient(135deg, var(--primary), #1873de);
       color:#fff;
-      border-radius:var(--radius-lg);
       padding:24px;
-      box-shadow:var(--shadow-2);
       display:flex;
       justify-content:space-between;
       gap:16px;
       align-items:center;
       flex-wrap:wrap;
     }
-    .cta h2{color:#fff}
-    .cta p{
+    .cta-box h2{color:#fff}
+    .cta-box p{
       margin:8px 0 0;
       max-width:70ch;
       color:rgba(255,255,255,.88);
     }
 
-    .social-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:16px;
+    .info-box{
+      padding:22px;
     }
-    .social-card{
-      padding:20px;
-      border-radius:var(--radius-lg);
-      background:var(--surface);
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-    }
-    .social-card h3{
+    .info-box h3{
       margin-bottom:8px;
     }
-    .social-card p{
+    .info-box p{
+      margin:0;
       color:var(--muted);
-      margin:0 0 14px;
-    }
-
-    .faq{
-      display:grid;
-      gap:12px;
-    }
-    .faq-item{
-      border:1px solid var(--border);
-      border-radius:18px;
-      background:var(--surface);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .faq-btn{
-      width:100%;
-      border:0;
-      background:transparent;
-      text-align:left;
-      padding:16px 18px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:center;
-      font-weight:800;
-      cursor:pointer;
-      color:var(--text);
-    }
-    .faq-content{
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .25s ease;
-      padding:0 18px;
-      color:var(--muted);
-    }
-    .faq-item.open .faq-content{
-      padding-bottom:16px;
     }
 
     .contact-grid{
@@ -785,53 +640,25 @@
     }
     .contact-row span{color:var(--muted)}
 
-    .menu-links{
+    .social-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
-      gap:10px;
-      margin-top:14px;
+      gap:16px;
     }
-    .menu-link{
-      padding:12px 14px;
-      border-radius:14px;
-      background:var(--surface-2);
+    .social-card{
+      padding:20px;
+      border-radius:var(--radius-lg);
+      background:var(--surface);
       border:1px solid var(--border);
-      font-weight:750;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      align-items:center;
+      box-shadow:var(--shadow);
     }
-    .menu-link small{
+    .social-card h3{
+      margin-bottom:8px;
+    }
+    .social-card p{
       color:var(--muted);
-      font-weight:500;
-      display:block;
+      margin:0 0 14px;
     }
-
-    form{
-      display:grid;
-      gap:12px;
-    }
-    .field-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
-    label{
-      display:block;
-      margin-bottom:6px;
-      font-size:.92rem;
-      font-weight:800;
-    }
-    input,textarea,select{
-      width:100%;
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:13px 14px;
-      background:#fff;
-      color:var(--text);
-    }
-    textarea{min-height:140px; resize:vertical}
 
     .footer-top{
       display:grid;
@@ -868,6 +695,56 @@
       color:var(--muted);
       font-size:.92rem;
     }
+
+    .mobile-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+      font-size:1.1rem;
+    }
+
+    .mobile-nav{
+      display:none;
+      padding:0 0 14px;
+    }
+    .mobile-nav.open{display:block}
+    .mobile-nav-section{
+      margin-top:8px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      background:var(--surface);
+    }
+    .mobile-nav-head{
+      width:100%;
+      border:0;
+      background:var(--surface);
+      text-align:left;
+      padding:13px 14px;
+      font-weight:800;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
+    }
+    .mobile-nav-links{
+      display:none;
+      border-top:1px solid var(--border);
+      padding:8px;
+    }
+    .mobile-nav-section.open .mobile-nav-links{display:block}
+    .mobile-nav-links a{
+      display:block;
+      padding:11px 12px;
+      border-radius:12px;
+      color:var(--text);
+      font-weight:650;
+    }
+    .mobile-nav-links a:hover{background:var(--surface-2)}
 
     .lightbox{
       position:fixed;
@@ -949,15 +826,15 @@
 
     @media (max-width: 1024px){
       .hero-grid,
-      .info-grid,
+      .split,
       .contact-grid,
-      .footer-top,
-      .two-col{
+      .footer-top{
         grid-template-columns:1fr;
       }
       .stats,
-      .card-grid,
-      .social-grid{
+      .grid-3,
+      .social-grid,
+      .feature-grid{
         grid-template-columns:1fr 1fr;
       }
       nav{display:none}
@@ -969,28 +846,29 @@
       .hero-banner{padding:22px}
       .hero-content{min-height:auto}
       .hero-actions,
-      .cta{
+      .cta-box{
         flex-direction:column;
         align-items:stretch;
       }
       .stats,
-      .card-grid,
+      .grid-3,
       .social-grid,
-      .menu-links,
+      .feature-grid,
       .field-grid{
         grid-template-columns:1fr;
-      }
-      .gallery-grid{
-        grid-template-columns:1fr;
-      }
-      .span-2,.span-3,.span-4,.span-5,.span-6{
-        grid-column:auto;
       }
       .header-inner{
         padding:12px 0;
       }
       .utility .container{
         padding:7px 0;
+      }
+      .panel,
+      .contact-card,
+      .news-card,
+      .social-card,
+      .info-box{
+        padding:18px;
       }
     }
 
@@ -1011,11 +889,10 @@
     <div class="container">
       <div>Karnevalsgesellschaft "Fidele Birker" 1991 e.V.</div>
       <div class="utility-links">
-        <a href="#">Webshop</a>
         <a href="#">Facebook</a>
         <a href="#">Instagram</a>
-        <a href="#">Anfahrt</a>
-        <a href="#kontakt">Kontaktformular</a>
+        <a href="#">Webshop</a>
+        <a href="#kontakt">Kontakt</a>
       </div>
     </div>
   </div>
@@ -1023,7 +900,7 @@
   <header>
     <div class="container">
       <div class="header-inner">
-        <a class="brand" href="#top" aria-label="Startseite">
+        <a class="brand" href="index.html" aria-label="Startseite">
           <div class="brand-mark" aria-hidden="true"></div>
           <div class="brand-text">
             <strong>KG Fidele Birker e.V.</strong>
@@ -1034,65 +911,64 @@
         <nav aria-label="Hauptnavigation">
           <ul class="nav-list">
             <li class="nav-item">
-              <a class="nav-link" href="#news">News <span class="nav-arrow">▾</span></a>
+              <a class="nav-link" href="news.html">News <span class="nav-arrow">▾</span></a>
               <div class="dropdown">
-                <a href="#news">Aktuelle News <small>Neuigkeiten und Hinweise</small></a>
-                <a href="#news">Archiv <small>Beiträge aus früheren Sessions</small></a>
+                <a href="news.html">Aktuelle News <small>Neuigkeiten und Hinweise</small></a>
+                <a href="news.html">Archiv <small>Beiträge aus früheren Sessions</small></a>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#veranstaltungen">Veranstaltungen <span class="nav-arrow">▾</span></a>
+              <a class="nav-link" href="veranstaltungen.html">Veranstaltungen <span class="nav-arrow">▾</span></a>
               <div class="dropdown">
-                <a href="#veranstaltungen">Herrensitzung <small>Datum, Ort und Infos</small></a>
-                <a href="#veranstaltungen">Karnevalsfete <small>Party und Programm</small></a>
-                <a href="#veranstaltungen">Kindersitzung <small>Familienfreundliche Veranstaltung</small></a>
+                <a href="veranstaltungen.html">Herrensitzung <small>Datum, Ort und Infos</small></a>
+                <a href="veranstaltungen.html">Karnevalsfete <small>Party und Programm</small></a>
+                <a href="veranstaltungen.html">Kindersitzung <small>Familienfreundliche Veranstaltung</small></a>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#vermietung">Vermietung <span class="nav-arrow">▾</span></a>
+              <a class="nav-link" href="vermietung.html">Vermietung <span class="nav-arrow">▾</span></a>
               <div class="dropdown">
-                <a href="#vermietung">Wagen 16 Personen <small>Verfügbarkeit und Infos</small></a>
-                <a href="#vermietung">Wagen 22 Personen <small>Verfügbarkeit und Infos</small></a>
-                <a href="#vermietung">Vermietungstermine <small>Kalender und Anfragen</small></a>
-                <a href="#kontakt">Ansprechpartner <small>Direkter Kontakt</small></a>
+                <a href="vermietung.html">Wagen 16 Personen <small>Details und Verfügbarkeit</small></a>
+                <a href="vermietung.html">Wagen 22 Personen <small>Details und Verfügbarkeit</small></a>
+                <a href="vermietung.html">Vermietungstermine <small>Kalender und Anfragen</small></a>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#verein">Verein <span class="nav-arrow">▾</span></a>
+              <a class="nav-link" href="verein.html">Verein <span class="nav-arrow">▾</span></a>
               <div class="dropdown">
-                <a href="#verein">Über uns <small>Geschichte und Einblick</small></a>
-                <a href="#verein">Vorstand <small>Ansprechpartner im Verein</small></a>
-                <a href="#verein">Senatoren <small>Unterstützer und Gremien</small></a>
-                <a href="#verein">Downloads <small>Dokumente und Satzung</small></a>
+                <a href="verein.html">Über uns <small>Geschichte und Einblick</small></a>
+                <a href="verein.html">Vorstand <small>Ansprechpartner im Verein</small></a>
+                <a href="verein.html">Senatoren <small>Unterstützer und Gremien</small></a>
+                <a href="verein.html">Downloads <small>Dokumente und Satzung</small></a>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#galerie">Galerie <span class="nav-arrow">▾</span></a>
+              <a class="nav-link" href="galerie.html">Galerie <span class="nav-arrow">▾</span></a>
               <div class="dropdown">
-                <a href="#galerie">Session 2025/2026 <small>Bilder aus der aktuellen Session</small></a>
-                <a href="#galerie">Session 2024/2025 <small>Rückblick auf frühere Bilder</small></a>
-                <a href="#galerie">Session 2023/2024 <small>Veranstaltungen und Eindrücke</small></a>
+                <a href="galerie.html">Session 2025/2026 <small>Bilder aus der aktuellen Session</small></a>
+                <a href="galerie.html">Session 2024/2025 <small>Rückblick auf frühere Bilder</small></a>
+                <a href="galerie.html">Session 2023/2024 <small>Veranstaltungen und Eindrücke</small></a>
               </div>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#kontakt">Kontakt <span class="nav-arrow">▾</span></a>
+              <a class="nav-link" href="kontakt.html">Kontakt <span class="nav-arrow">▾</span></a>
               <div class="dropdown">
-                <a href="#kontakt">Übersicht <small>Schneller Einstieg</small></a>
-                <a href="#kontakt">Ansprechpartner <small>Direkte Kontakte</small></a>
-                <a href="#kontakt">Geschäftsstelle <small>Adresse und Erreichbarkeit</small></a>
-                <a href="#kontakt">Kontaktformular <small>Nachricht senden</small></a>
+                <a href="kontakt.html">Übersicht <small>Schneller Einstieg</small></a>
+                <a href="kontakt.html">Ansprechpartner <small>Direkte Kontakte</small></a>
+                <a href="kontakt.html">Geschäftsstelle <small>Adresse und Erreichbarkeit</small></a>
+                <a href="kontakt.html">Kontaktformular <small>Nachricht senden</small></a>
               </div>
             </li>
           </ul>
         </nav>
 
         <div class="actions">
-          <a class="btn btn-primary" href="#mitglied">Mitglied werden</a>
+          <a class="btn btn-primary" href="mitglied.html">Mitglied werden</a>
           <button class="mobile-toggle" id="mobileToggle" type="button" aria-expanded="false" aria-controls="mobileNav">☰</button>
         </div>
       </div>
@@ -1101,49 +977,49 @@
         <div class="mobile-nav-section">
           <button class="mobile-nav-head" type="button">News <span>+</span></button>
           <div class="mobile-nav-links">
-            <a href="#news">Aktuelle News</a>
-            <a href="#news">Archiv</a>
+            <a href="news.html">Aktuelle News</a>
+            <a href="news.html">Archiv</a>
           </div>
         </div>
         <div class="mobile-nav-section">
           <button class="mobile-nav-head" type="button">Veranstaltungen <span>+</span></button>
           <div class="mobile-nav-links">
-            <a href="#veranstaltungen">Herrensitzung</a>
-            <a href="#veranstaltungen">Karnevalsfete</a>
-            <a href="#veranstaltungen">Kindersitzung</a>
+            <a href="veranstaltungen.html">Herrensitzung</a>
+            <a href="veranstaltungen.html">Karnevalsfete</a>
+            <a href="veranstaltungen.html">Kindersitzung</a>
           </div>
         </div>
         <div class="mobile-nav-section">
           <button class="mobile-nav-head" type="button">Vermietung <span>+</span></button>
           <div class="mobile-nav-links">
-            <a href="#vermietung">Wagen 16 Personen</a>
-            <a href="#vermietung">Wagen 22 Personen</a>
-            <a href="#vermietung">Vermietungstermine</a>
+            <a href="vermietung.html">Wagen 16 Personen</a>
+            <a href="vermietung.html">Wagen 22 Personen</a>
+            <a href="vermietung.html">Vermietungstermine</a>
           </div>
         </div>
         <div class="mobile-nav-section">
           <button class="mobile-nav-head" type="button">Verein <span>+</span></button>
           <div class="mobile-nav-links">
-            <a href="#verein">Über uns</a>
-            <a href="#verein">Vorstand</a>
-            <a href="#verein">Senatoren</a>
-            <a href="#verein">Downloads</a>
+            <a href="verein.html">Über uns</a>
+            <a href="verein.html">Vorstand</a>
+            <a href="verein.html">Senatoren</a>
+            <a href="verein.html">Downloads</a>
           </div>
         </div>
         <div class="mobile-nav-section">
           <button class="mobile-nav-head" type="button">Galerie <span>+</span></button>
           <div class="mobile-nav-links">
-            <a href="#galerie">Session 2025/2026</a>
-            <a href="#galerie">Session 2024/2025</a>
+            <a href="galerie.html">Session 2025/2026</a>
+            <a href="galerie.html">Session 2024/2025</a>
           </div>
         </div>
         <div class="mobile-nav-section">
           <button class="mobile-nav-head" type="button">Kontakt <span>+</span></button>
           <div class="mobile-nav-links">
-            <a href="#kontakt">Übersicht</a>
-            <a href="#kontakt">Ansprechpartner</a>
-            <a href="#kontakt">Geschäftsstelle</a>
-            <a href="#kontakt">Kontaktformular</a>
+            <a href="kontakt.html">Übersicht</a>
+            <a href="kontakt.html">Ansprechpartner</a>
+            <a href="kontakt.html">Geschäftsstelle</a>
+            <a href="kontakt.html">Kontaktformular</a>
           </div>
         </div>
       </div>
@@ -1151,11 +1027,7 @@
   </header>
 
   <main id="content">
-    <div class="container">
-      <div class="breadcrumb">Du befindest dich hier: <a href="#top">Startseite “Alaaf”</a></div>
-    </div>
-
-    <section class="hero" id="top">
+    <section class="hero">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-banner reveal">
@@ -1163,12 +1035,12 @@
               <div class="eyebrow">Karnevalsgesellschaft "Fidele Birker" 1991 e.V.</div>
               <h1>Fidele Birker.</h1>
               <p class="hero-text">
-                Herzlich willkommen auf unserer Startseite. Hier finden Sie News, Veranstaltungen, Kontakt,
-                Mitgliedschaft, Social Media und alles rund um unser Vereinsleben in Lohmar-Birk.
+                Herzlich willkommen auf der Startseite unserer Karnevalsgesellschaft.
+                Hier finden Sie die wichtigsten Einstiege zu News, Veranstaltungen, Verein, Galerie und Kontakt.
               </p>
               <div class="hero-actions">
-                <a class="btn btn-primary" href="#veranstaltungen">Veranstaltungen ansehen</a>
-                <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
+                <a class="btn btn-primary" href="veranstaltungen.html">Veranstaltungen ansehen</a>
+                <a class="btn btn-secondary" href="kontakt.html">Kontakt aufnehmen</a>
               </div>
               <div class="hero-pills" aria-label="Schnellzugriff">
                 <span class="pill">News</span>
@@ -1179,7 +1051,7 @@
             </div>
           </div>
 
-          <aside class="hero-side panel reveal" aria-label="Herrensitzung 2027">
+          <aside class="hero-side panel reveal" aria-label="Nächste Veranstaltung">
             <div class="side-badge">Herrensitzung 2027</div>
             <h2>Die nächste große Veranstaltung.</h2>
             <div class="detail-list">
@@ -1220,15 +1092,15 @@
               </div>
             </div>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#veranstaltungen">zur Veranstaltung</a>
-              <a class="btn btn-secondary" href="#mitglied">Mitglied werden</a>
+              <a class="btn btn-primary" href="veranstaltungen.html">zur Veranstaltung</a>
+              <a class="btn btn-secondary" href="mitglied.html">Mitglied werden</a>
             </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Kurzinformationen">
+    <section class="section">
       <div class="container">
         <div class="stats reveal">
           <div class="stat">
@@ -1256,9 +1128,9 @@
         <div class="section-head reveal">
           <div>
             <h2>News</h2>
-            <p class="lead">Aktuelle Meldungen, Bilder und Hinweise wie auf der bisherigen Seite – nur übersichtlicher dargestellt.</p>
+            <p class="lead">Aktuelle Meldungen, Bilder und Hinweise auf einen Blick.</p>
           </div>
-          <a class="btn btn-secondary" href="#">Archiv ansehen</a>
+          <a class="btn btn-secondary" href="news.html">Alle News</a>
         </div>
 
         <div class="news-list">
@@ -1297,11 +1169,12 @@
         <div class="section-head reveal">
           <div>
             <h2>Veranstaltungen</h2>
-            <p class="lead">Die Kernveranstaltungen bleiben sichtbar im Fokus und werden in einer sauberen Kartenansicht präsentiert.</p>
+            <p class="lead">Die wichtigsten Termine werden direkt von der Startseite aus erreichbar gemacht.</p>
           </div>
+          <a class="btn btn-secondary" href="veranstaltungen.html">Zur Übersichtsseite</a>
         </div>
 
-        <div class="card-grid">
+        <div class="grid-3">
           <article class="card reveal">
             <div class="card-media"></div>
             <div class="card-body">
@@ -1310,7 +1183,7 @@
             </div>
             <div class="card-footer">
               <span class="tag">38,- Euro</span>
-              <a class="link" href="#">zur Veranstaltung</a>
+              <a class="link" href="veranstaltungen.html">zur Veranstaltung</a>
             </div>
           </article>
 
@@ -1322,7 +1195,7 @@
             </div>
             <div class="card-footer">
               <span class="tag">10,- / 12,- Euro</span>
-              <a class="link" href="#">zur Veranstaltung</a>
+              <a class="link" href="veranstaltungen.html">zur Veranstaltung</a>
             </div>
           </article>
 
@@ -1334,82 +1207,9 @@
             </div>
             <div class="card-footer">
               <span class="tag">Kinder 4,- / Erwachsene 8,-</span>
-              <a class="link" href="#">zur Veranstaltung</a>
+              <a class="link" href="veranstaltungen.html">zur Veranstaltung</a>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="vermietung">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Vermietung</h2>
-            <p class="lead">Die bisherigen Vermietungsangebote bleiben erhalten und werden kompakt als Servicebereich dargestellt.</p>
-          </div>
-        </div>
-
-        <div class="two-col">
-          <div class="panel reveal">
-            <h3>Wagen und Termine</h3>
-            <div class="menu-links">
-              <a class="menu-link" href="#">
-                <div>
-                  Wagen 16 Personen
-                  <small>Details und Verfügbarkeit</small>
-                </div>
-                <span>→</span>
-              </a>
-              <a class="menu-link" href="#">
-                <div>
-                  Wagen 22 Personen
-                  <small>Details und Verfügbarkeit</small>
-                </div>
-                <span>→</span>
-              </a>
-              <a class="menu-link" href="#">
-                <div>
-                  Vermietungstermine
-                  <small>Kalender und freie Slots</small>
-                </div>
-                <span>→</span>
-              </a>
-              <a class="menu-link" href="#kontakt">
-                <div>
-                  Ansprechpartner
-                  <small>Fragen direkt klären</small>
-                </div>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="panel reveal">
-            <h3>Wichtige Hinweise</h3>
-            <p class="small-note">
-              Hier können später die originalen Vermietungstexte, Bedingungen, Termine und PDF-Downloads eingebunden werden.
-              Die Struktur ist bereits so angelegt, dass sie nah an der bestehenden Website bleibt.
-            </p>
-            <div class="value-grid">
-              <div class="value">
-                <strong>Planung</strong>
-                <span>Termine übersichtlich anzeigen</span>
-              </div>
-              <div class="value">
-                <strong>Kontakt</strong>
-                <span>Direkter Draht zum Team</span>
-              </div>
-              <div class="value">
-                <strong>Transparenz</strong>
-                <span>Klare Infos statt langer Texte</span>
-              </div>
-              <div class="value">
-                <strong>Service</strong>
-                <span>Schnell und verständlich</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1419,44 +1219,47 @@
         <div class="section-head reveal">
           <div>
             <h2>Verein</h2>
-            <p class="lead">Die Vereinsseite bleibt nah am Original, nur klarer gegliedert und besser lesbar.</p>
+            <p class="lead">Über uns, Vorstand, Senatoren und Downloads bleiben als eigene Unterseiten erhalten.</p>
           </div>
+          <a class="btn btn-secondary" href="verein.html">Zur Vereinsseite</a>
         </div>
 
-        <div class="info-grid">
-          <div class="figure reveal">
-            <div class="figure-caption">
-              <strong>Über uns</strong>
-              <span>Die Karnevalsgesellschaft „Fidele Birker“ wurde am 23.11.1991 mit Sitz in Lohmar-Birk gegründet.</span>
+        <div class="split">
+          <div class="panel reveal">
+            <h3>Über uns</h3>
+            <p class="small-note">
+              Die Karnevalsgesellschaft „Fidele Birker“ wurde am 23.11.1991 mit Sitz in Lohmar-Birk gegründet.
+              Der Einzugsbereich geht weit über die drei Hauptorte Heide, Inger und Birk hinaus.
+            </p>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <strong>Geschichte</strong>
+                <span>Seit 1991 im Vereinsleben aktiv.</span>
+              </div>
+              <div class="feature-card">
+                <strong>Mitglieder</strong>
+                <span>Rund 150 Mitglieder gehören dazu.</span>
+              </div>
+              <div class="feature-card">
+                <strong>Vorstand</strong>
+                <span>Klare Ansprechpartner im Verein.</span>
+              </div>
+              <div class="feature-card">
+                <strong>Downloads</strong>
+                <span>Satzung, Infos und Formulare.</span>
+              </div>
             </div>
           </div>
 
           <div class="panel reveal">
-            <h3>Die wichtigsten Bereiche</h3>
+            <h3>Mitglied werden</h3>
             <p class="small-note">
-              Auf der bestehenden Seite finden sich im Vereinsbereich unter anderem Über uns, Vorstand, Senatoren, Ehrenmitglieder, Sessionsorden, Downloads und Satzung.
+              Wir freuen uns über jedes neue Vereinsmitglied. Auf der künftigen Unterseite kann ein Formular,
+              eine Beitrittserklärung oder ein kurzer Mitgliedsantrag eingebunden werden.
             </p>
-            <div class="value-grid">
-              <div class="value">
-                <strong>Vorstand</strong>
-                <span>Ansprechpartner des Vereins</span>
-              </div>
-              <div class="value">
-                <strong>Senatoren</strong>
-                <span>Unterstützung und Netzwerk</span>
-              </div>
-              <div class="value">
-                <strong>Ehrenmitglieder</strong>
-                <span>Würdigung besonderer Verdienste</span>
-              </div>
-              <div class="value">
-                <strong>Downloads</strong>
-                <span>Dokumente und Satzung</span>
-              </div>
-            </div>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#mitglied">Mitglied werden</a>
-              <a class="btn btn-secondary" href="#">Vorstand ansehen</a>
+              <a class="btn btn-primary" href="mitglied.html">Mitglied werden</a>
+              <a class="btn btn-secondary" href="verein.html">Mehr über den Verein</a>
             </div>
           </div>
         </div>
@@ -1468,41 +1271,59 @@
         <div class="section-head reveal">
           <div>
             <h2>Galerie</h2>
-            <p class="lead">Die Galerie bleibt als Jahresübersicht erhalten, bekommt aber eine klarere, moderne Kacheloptik.</p>
+            <p class="lead">Die Galerie ist als Jahresübersicht angelegt und öffnet später die jeweiligen Seiten oder Alben.</p>
           </div>
+          <a class="btn btn-secondary" href="galerie.html">Zur Galerie</a>
         </div>
 
-        <div class="gallery-grid reveal">
-          <div class="gallery-item span-6" data-title="Session 2025/2026" data-subtitle="Kindersitzung, Karnevalsfete und Herrensitzung">
-            <span>Session 2025/2026</span>
-          </div>
-          <div class="gallery-item span-3" data-title="Session 2024/2025" data-subtitle="Kindersitzung">
-            <span>Session 2024/2025</span>
-          </div>
-          <div class="gallery-item span-3" data-title="Session 2023/2024" data-subtitle="Sessionsstart und Sommerfest">
-            <span>Session 2023/2024</span>
-          </div>
-          <div class="gallery-item span-4" data-title="Session 2022/2023" data-subtitle="Kindersitzung, Karnevalsfete und Sessionsstart">
-            <span>Session 2022/2023</span>
-          </div>
-          <div class="gallery-item span-4" data-title="Session 2021/2022" data-subtitle="Prunksitzung und Sessionsstart">
-            <span>Session 2021/2022</span>
-          </div>
-          <div class="gallery-item span-4" data-title="Session 2019/2020" data-subtitle="Kindersitzung, Karnevalsfete, Herrensitzung">
-            <span>Session 2019/2020</span>
-          </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="card-media"></div>
+            <div class="card-body">
+              <h3>Session 2025/2026</h3>
+              <p>Kindersitzung, Karnevalsfete und Herrensitzung</p>
+            </div>
+            <div class="card-footer">
+              <span class="tag">Aktuell</span>
+              <a class="link" href="galerie.html">öffnen</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-media" style="background:linear-gradient(135deg, rgba(217,236,255,.95), rgba(23,35,56,.86));"></div>
+            <div class="card-body">
+              <h3>Session 2024/2025</h3>
+              <p>Kindersitzung und weitere Eindrücke</p>
+            </div>
+            <div class="card-footer">
+              <span class="tag">Archiv</span>
+              <a class="link" href="galerie.html">öffnen</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-media" style="background:linear-gradient(135deg, rgba(23,35,56,.95), rgba(0,91,187,.84));"></div>
+            <div class="card-body">
+              <h3>Session 2023/2024</h3>
+              <p>Sessionsstart, Sommerfest und Rückblicke</p>
+            </div>
+            <div class="card-footer">
+              <span class="tag">Rückblick</span>
+              <a class="link" href="galerie.html">öffnen</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="mitglied">
       <div class="container">
-        <div class="cta reveal">
+        <div class="cta-box reveal">
           <div>
             <h2>Jetzt Mitglied werden!</h2>
-            <p>Du möchtest Mitglied werden? Wir freuen uns über jedes (neue) Vereinsmitglied. Die Seite kann später direkt mit Formular oder PDF verknüpft werden.</p>
+            <p>Du möchtest Mitglied werden? Wir freuen uns über jedes neue Vereinsmitglied.</p>
           </div>
-          <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
+          <a class="btn btn-secondary" href="mitglied.html">Zur Mitgliedschaft</a>
         </div>
       </div>
     </section>
@@ -1512,7 +1333,7 @@
         <div class="section-head reveal">
           <div>
             <h2>Social Media</h2>
-            <p class="lead">Die bestehenden Social-Media-Hinweise werden als eigene, übersichtliche Sektion eingebunden.</p>
+            <p class="lead">Facebook und Instagram bleiben als eigene Einstiegspunkte bestehen.</p>
           </div>
         </div>
 
@@ -1531,36 +1352,20 @@
       </div>
     </section>
 
-    <section class="section" id="smartphone">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Termine & Veranstaltungen für Ihr Smartphone!</h2>
-            <p class="lead">Der bisherige Hinweis wird als kompakter Servicebereich beibehalten.</p>
-          </div>
-        </div>
-
-        <div class="panel reveal">
-          <p class="small-note">
-            Hier kann später eine mobile Terminübersicht, ein Kalender oder ein Download-Bereich ergänzt werden.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="kontakt">
       <div class="container">
         <div class="section-head reveal">
           <div>
             <h2>Kontakt</h2>
-            <p class="lead">Der Kontaktbereich bleibt nah am Original: Übersicht, Ansprechpartner, Geschäftsstelle und Formular.</p>
+            <p class="lead">Die Kontaktseite bleibt klar gegliedert und verweist später auf die detaillierten Unterseiten.</p>
           </div>
+          <a class="btn btn-secondary" href="kontakt.html">Zur Kontaktseite</a>
         </div>
 
         <div class="contact-grid">
           <div class="contact-card reveal">
             <h3>Übersicht</h3>
-            <p class="small-note">Möchtet Ihr Kontakt mit uns aufnehmen oder habt Ihr Fragen oder Anregungen? In unserer Kontaktübersicht findet Ihr alle Ansprechpartner.</p>
+            <p class="small-note">Möchtet Ihr Kontakt mit uns aufnehmen oder habt Ihr Fragen oder Anregungen? Hier findet Ihr alle wichtigen Hinweise.</p>
 
             <div class="contact-list">
               <div class="contact-row">
@@ -1584,11 +1389,6 @@
                   <span>02241 / 1687070</span>
                 </div>
               </div>
-            </div>
-
-            <div class="hero-actions" style="margin-top:16px">
-              <a class="btn btn-primary" href="#mitglied">Mitglied werden</a>
-              <a class="btn btn-secondary" href="#">Ansprechpartner</a>
             </div>
           </div>
 
@@ -1624,47 +1424,6 @@
         </div>
       </div>
     </section>
-
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Häufige Fragen</h2>
-            <p class="lead">Kompakter FAQ-Bereich für die wichtigsten Standardfragen.</p>
-          </div>
-        </div>
-
-        <div class="faq">
-          <div class="faq-item reveal">
-            <button class="faq-btn" type="button">
-              <span>Wie werde ich Mitglied?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-content">
-              Über den Kontaktbereich kann eine Mitgliedschaft angefragt werden. Später lässt sich hier zusätzlich ein PDF-Formular einbinden.
-            </div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-btn" type="button">
-              <span>Wo finde ich die Veranstaltungen?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-content">
-              Die wichtigsten Termine stehen direkt auf der Startseite und können zusätzlich in einer separaten Unterseite gepflegt werden.
-            </div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-btn" type="button">
-              <span>Kann ich die Galerie öffnen?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-content">
-              Ja, die Galerie ist bereits mit einer einfachen Lightbox vorbereitet.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -1677,20 +1436,20 @@
         <div>
           <h4>Navigation</h4>
           <ul>
-            <li><a href="#news">News</a></li>
-            <li><a href="#veranstaltungen">Veranstaltungen</a></li>
-            <li><a href="#vermietung">Vermietung</a></li>
-            <li><a href="#verein">Verein</a></li>
-            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="veranstaltungen.html">Veranstaltungen</a></li>
+            <li><a href="vermietung.html">Vermietung</a></li>
+            <li><a href="verein.html">Verein</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
           </ul>
         </div>
         <div>
           <h4>Service</h4>
           <ul>
-            <li><a href="#mitglied">Mitglied werden</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-            <li><a href="#social">Social Media</a></li>
-            <li><a href="#smartphone">Smartphone-Termine</a></li>
+            <li><a href="mitglied.html">Mitglied werden</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="veranstaltungen.html">Termine</a></li>
           </ul>
         </div>
         <div>
@@ -1711,19 +1470,6 @@
   </footer>
 
   <button class="back-to-top" id="backToTop" type="button" aria-label="Nach oben">↑</button>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-panel">
-      <div class="lightbox-img"></div>
-      <div class="lightbox-body">
-        <div>
-          <strong id="lbTitle">Galerie</strong>
-          <div id="lbText" style="color:var(--muted)">Bildvorschau</div>
-        </div>
-        <button class="btn btn-secondary" id="closeLightbox" type="button">Schließen</button>
-      </div>
-    </div>
-  </div>
 
   <script>
     const revealEls = document.querySelectorAll(".reveal");
@@ -1760,47 +1506,47 @@
     });
     backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-    document.querySelectorAll(".faq-item").forEach(item => {
-      const btn = item.querySelector(".faq-btn");
-      const content = item.querySelector(".faq-content");
-      btn.addEventListener("click", () => {
-        const open = item.classList.contains("open");
-        document.querySelectorAll(".faq-item").forEach(i => {
-          i.classList.remove("open");
-          i.querySelector(".faq-content").style.maxHeight = null;
-        });
-        if (!open) {
-          item.classList.add("open");
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    });
+    const lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.innerHTML = `
+      <div class="lightbox-panel">
+        <div class="lightbox-img"></div>
+        <div class="lightbox-body">
+          <div>
+            <strong>Galerie</strong>
+            <div style="color:var(--muted)">Bildvorschau</div>
+          </div>
+          <button class="btn btn-secondary" type="button" id="closeLightbox">Schließen</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
 
-    const lightbox = document.getElementById("lightbox");
-    const closeLightbox = document.getElementById("closeLightbox");
-    const lbTitle = document.getElementById("lbTitle");
-    const lbText = document.getElementById("lbText");
-
-    document.querySelectorAll(".gallery-item").forEach(item => {
+    document.querySelectorAll(".card, .gallery-item").forEach(item => {
       item.addEventListener("click", () => {
-        lbTitle.textContent = item.dataset.title || "Galerie";
-        lbText.textContent = item.dataset.subtitle || "Bildvorschau";
         lightbox.classList.add("open");
         lightbox.setAttribute("aria-hidden", "false");
       });
     });
 
-    function hideLightbox() {
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    lightbox.querySelector("#closeLightbox").addEventListener("click", () => {
       lightbox.classList.remove("open");
       lightbox.setAttribute("aria-hidden", "true");
-    }
-
-    closeLightbox.addEventListener("click", hideLightbox);
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) hideLightbox();
     });
+
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") hideLightbox();
+      if (e.key === "Escape") {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+      }
     });
   </script>
 </body>
