@@ -393,14 +393,44 @@
       z-index: 2;
     }
     .hero-shell {
-      display: none;
+      position: relative;
+      min-height: 880px;
+      background:
+        radial-gradient(circle at 25% 18%, rgba(255,255,255,0.92), rgba(255,255,255,0.24) 32%, transparent 54%),
+        radial-gradient(circle at 85% 18%, rgba(255,255,255,0.82), rgba(255,255,255,0.18) 26%, transparent 52%),
+        linear-gradient(180deg, #e1f1ff 0%, #d8ebfd 20%, #cfe6fb 48%, #d7ecff 100%);
+      border-bottom: 1px solid rgba(0, 91, 187, 0.08);
+      overflow: hidden;
     }
     .hero-shell::before {
-    display: none;
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      top: 120px;
+      height: 320px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55), transparent 22%),
+        radial-gradient(circle at 70% 40%, rgba(255,255,255,0.25), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0.02));
+      transform: skewY(-6deg);
+      pointer-events: none;
     }
     .hero-shell::after {
-    display: none;
+      content: "";
+      position: absolute;
+      left: -6%;
+      right: -6%;
+      bottom: -6px;
+      height: 230px;
+      background:
+        radial-gradient(ellipse at 50% 95%, rgba(0,91,187,0.18), transparent 58%),
+        linear-gradient(180deg, rgba(15,102,197,0.10), rgba(15,102,197,0.24));
+      border-top-left-radius: 50% 100%;
+      border-top-right-radius: 50% 100%;
+      pointer-events: none;
     }
+
     .hero-inner {
       position: relative;
       z-index: 2;
