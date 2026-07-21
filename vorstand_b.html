@@ -552,9 +552,22 @@
 
     .board-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       margin-top: 12px;
+      align-items: stretch;
+    }
+    .board-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .board-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
     }
     .board-card {
       background: #fff;
@@ -567,6 +580,54 @@
     .board-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-strong);
+    }
+
+    .photo-frame {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 30% 24%, rgba(255,255,255,0.72), transparent 18%),
+        linear-gradient(135deg, rgba(0,91,187,0.95), rgba(22,33,58,0.95));
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .photo-frame.placeholder {
+      display: grid;
+      place-items: center;
+    }
+    .photo-frame.placeholder .inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 8px;
+      place-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 18px;
+    }
+    .photo-label {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      min-height: 42px;
+      padding: 10px 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(23, 67, 122, 0.84);
+      color: #fff;
+      font-weight: 900;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      text-align: center;
+      backdrop-filter: blur(6px);
     }
     .photo-placeholder {
       aspect-ratio: 1 / 1.15;
@@ -845,6 +906,13 @@
       }
     }
 
+
+    @media (max-width: 720px) {
+      .photo-frame {
+        aspect-ratio: 1 / 1.08;
+      }
+    }
+
     @media (max-width: 720px) {
       .header-row {
         grid-template-columns: 1fr auto;
@@ -1094,92 +1162,87 @@
           </div>
         </div>
 
+        
         <div class="board-grid" id="vorstand">
           <article class="board-card reveal">
-            <div class="photo-placeholder">
-              <div class="inner">
-                <strong>
-                    <img src="Frohn.png" alt="Tobias Frohn" />
-                </strong>
-              </div>
+            <div class="photo-frame">
+              <img src="Frohn.png" alt="Tobias Frohn" />
+              <div class="photo-label">Präsident &amp; Literat</div>
             </div>
             <div class="board-body">
-              <h3>Tobias Frohn</h3>
+              <h3>TOBIAS FROHN</h3>
               <div class="role">Präsident, Literat und 1. Sitzungspräsident</div>
               <p>Hier kann eine kurze Beschreibung der Aufgaben oder ein Kontakttext stehen.</p>
             </div>
           </article>
 
           <article class="board-card reveal">
-            <div class="photo-placeholder" style="background: linear-gradient(135deg, rgba(13,108,201,0.96), rgba(20,70,132,0.96));">
-              <div class="inner">
-                <strong>
-                    <img src="Ich4.png" alt="Marcel Redmer" />
-                </strong>
-              </div>
+            <div class="photo-frame">
+              <img src="Ich4.png" alt="Marcel Redmer" />
+              <div class="photo-label">1. Geschäftsführer</div>
             </div>
             <div class="board-body">
-              <h3>Marcel Redmer</h3>
+              <h3>MARCEL REDMER</h3>
               <div class="role">1. Geschäftsführer</div>
               <p>Platz für Name, Funktion und optional kurze Informationen zur Zuständigkeit.</p>
             </div>
           </article>
 
           <article class="board-card reveal">
-            <div class="photo-placeholder" style="background: linear-gradient(135deg, rgba(22,33,58,0.96), rgba(0,91,187,0.96));">
-              <div class="inner">
-                <strong>
-                    <img src="Grun.png" alt="Pascal Grun" />
-                </strong>
-              </div>
+            <div class="photo-frame">
+              <img src="Grun.png" alt="Pascal Grun" />
+              <div class="photo-label">1. Schatzmeister</div>
             </div>
             <div class="board-body">
-              <h3>Pascal Grun</h3>
-              <div class="role">1. Schatzmesiter</div>
+              <h3>PASCAL GRUN</h3>
+              <div class="role">1. Schatzmeister</div>
               <p>Hier kann später die Person mit Zuständigkeit für Organisation und Verwaltung stehen.</p>
             </div>
           </article>
 
           <article class="board-card reveal">
-            <div class="photo-placeholder" style="background: linear-gradient(135deg, rgba(0,91,187,0.95), rgba(255,217,77,0.60));">
+            <div class="photo-frame placeholder">
               <div class="inner">
                 <div class="avatar">4</div>
                 <strong>Foto einfügen</strong>
                 <span>Beisitzerin</span>
               </div>
+              <div class="photo-label">Beisitzerin</div>
             </div>
             <div class="board-body">
-              <h3>Heike Aleksic-Jansen</h3>
+              <h3>HEIKE ALEKSIC-JANSEN</h3>
               <div class="role">Beisitzerin</div>
               <p>Platzhalter für den Bereich Finanzen, Beiträge und Vereinsbuchhaltung.</p>
             </div>
           </article>
 
           <article class="board-card reveal">
-            <div class="photo-placeholder" style="background: linear-gradient(135deg, rgba(13,108,201,0.96), rgba(0,91,187,0.88));">
+            <div class="photo-frame placeholder">
               <div class="inner">
                 <div class="avatar">5</div>
                 <strong>Foto einfügen</strong>
                 <span>Beisitzer</span>
               </div>
+              <div class="photo-label">Beisitzer</div>
             </div>
             <div class="board-body">
-              <h3>Armin Meis</h3>
+              <h3>ARMIN MEIS</h3>
               <div class="role">Beisitzer</div>
               <p>Hier ist Raum für eine kurze Vorstellung oder einen persönlichen Ansprechpartnerhinweis.</p>
             </div>
           </article>
 
           <article class="board-card reveal">
-            <div class="photo-placeholder" style="background: linear-gradient(135deg, rgba(17,95,179,0.96), rgba(10,33,72,0.96));">
+            <div class="photo-frame placeholder">
               <div class="inner">
                 <div class="avatar">6</div>
                 <strong>Foto einfügen</strong>
                 <span>Beisitzer</span>
               </div>
+              <div class="photo-label">Beisitzer</div>
             </div>
             <div class="board-body">
-              <h3>Helmut Steinrötter</h3>
+              <h3>HELMUT STEINRÖTTER</h3>
               <div class="role">Beisitzer</div>
               <p>Optional für weitere Rollen, Ausschüsse oder Teammitglieder erweiterbar.</p>
             </div>
