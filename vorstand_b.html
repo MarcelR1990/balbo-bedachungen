@@ -299,11 +299,66 @@
       box-shadow: var(--shadow);
       cursor: pointer;
     }
-    .mobile-panel {
-      display: none;
-      padding: 0 0 14px;
+
+    .mobile-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 16, 30, 0.42);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .22s ease;
+      z-index: 1990;
     }
-    .mobile-panel.open { display: block; }
+    body.menu-open .mobile-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(86vw, 360px);
+      height: 100vh;
+      transform: translateX(102%);
+      transition: transform .28s ease;
+      z-index: 2000;
+      overflow-y: auto;
+      background: #fff;
+      box-shadow: -20px 0 40px rgba(10, 40, 92, 0.18);
+      padding: 16px;
+    }
+    body.menu-open .mobile-panel {
+      transform: translateX(0);
+    }
+
+    .mobile-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 6px 4px 14px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-panel-title {
+      font-weight: 900;
+      color: #0f4e9b;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .mobile-close {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 12px;
+      background: #f2f8ff;
+      color: #0f4e9b;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
     .mobile-group {
       margin-top: 8px;
       border-radius: 16px;
@@ -593,7 +648,7 @@
     }
     .photo-frame img {
       width: 100%;
-      height: 110%;
+      height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
@@ -894,7 +949,6 @@
     @media (max-width: 1100px) {
       nav { display: none; }
       .mobile-toggle { display: inline-grid; place-items: center; }
-      .mobile-panel { display: block; }
       .hero-inner {
         grid-template-columns: 1fr;
       }
@@ -903,6 +957,27 @@
       .footer-top,
       .board-grid {
         grid-template-columns: 1fr;
+      }
+      body.header-compact .topbar {
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        border-bottom: 0;
+      }
+      body.header-compact header .header-row {
+        padding: 10px 0 8px;
+      }
+      body.header-compact .brand img {
+        width: 58px;
+        height: 58px;
+      }
+      body.header-compact .top-logo-box {
+        width: 104px;
+        height: 58px;
+      }
+      body.header-compact .brand-text strong {
+        font-size: clamp(1rem, 5vw, 1.35rem);
       }
     }
 
@@ -995,53 +1070,59 @@
         </div>
       </div>
 
-      <div class="mobile-panel" id="mobilePanel" aria-label="Mobile Navigation">
-        <div class="mobile-group">
-          <button type="button">News <span>▾</span></button>
-          <div class="mobile-links">
-            <a href="news_b.html">Aktuelle News</a>
-            <a href="news_b.html">Archiv</a>
-          </div>
-        </div>
-        <div class="mobile-group">
-          <button type="button">Veranstaltungen <span>▾</span></button>
-          <div class="mobile-links">
-            <a href="veranstaltungen_b.html">Herrensitzung</a>
-            <a href="veranstaltungen_b.html">Kindersitzung</a>
-            <a href="veranstaltungen_b.html">Karnevalsfete</a>
-          </div>
-        </div>
-        <div class="mobile-group">
-          <button type="button">Vermietung <span>▾</span></button>
-          <div class="mobile-links">
-            <a href="vermietung_b.html">Wagen 16 Personen</a>
-            <a href="vermietung_b.html">Wagen 22 Personen</a>
-          </div>
-        </div>
-        <div class="mobile-group">
-          <button type="button">Verein <span>▾</span></button>
-          <div class="mobile-links">
-            <a href="ueber_b.html">Über uns</a>
-            <a href="vorstand_b.html">Vorstand</a>
-            <a href="ueber_b.html">Senatoren</a>
-          </div>
-        </div>
-        <div class="mobile-group">
-          <button type="button">Galerie <span>▾</span></button>
-          <div class="mobile-links">
-            <a href="galerie_b.html">Session 2025/2026</a>
-            <a href="galerie_b.html">Session 2024/2025</a>
-          </div>
-        </div>
-        <div class="mobile-group">
-          <button type="button">Kontakt <span>▾</span></button>
-          <div class="mobile-links">
-            <a href="kontakt_b.html">Übersicht</a>
-            <a href="kontakt_b.html">Ansprechpartner</a>
-            <a href="kontakt_b.html">Geschäftsstelle</a>
-          </div>
+      <div class="mobile-backdrop" id="mobileBackdrop" hidden></div>
+    <aside class="mobile-panel" id="mobilePanel" aria-label="Mobile Navigation" aria-hidden="true">
+      <div class="mobile-panel-head">
+        <div class="mobile-panel-title">Menü</div>
+        <button class="mobile-close" id="mobileClose" type="button" aria-label="Menü schließen">✕</button>
+      </div>
+
+      <div class="mobile-group">
+        <button type="button">News <span>▾</span></button>
+        <div class="mobile-links">
+          <a href="news_b.html">Aktuelle News</a>
+          <a href="news_b.html">Archiv</a>
         </div>
       </div>
+      <div class="mobile-group">
+        <button type="button">Veranstaltungen <span>▾</span></button>
+        <div class="mobile-links">
+          <a href="veranstaltungen_b.html">Herrensitzung</a>
+          <a href="veranstaltungen_b.html">Kindersitzung</a>
+          <a href="veranstaltungen_b.html">Karnevalsfete</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button type="button">Vermietung <span>▾</span></button>
+        <div class="mobile-links">
+          <a href="vermietung_b.html">Wagen 16 Personen</a>
+          <a href="vermietung_b.html">Wagen 22 Personen</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button type="button">Verein <span>▾</span></button>
+        <div class="mobile-links">
+          <a href="ueber_b.html">Über uns</a>
+          <a href="vorstand_b.html">Vorstand</a>
+          <a href="ueber_b.html">Senatoren</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button type="button">Galerie <span>▾</span></button>
+        <div class="mobile-links">
+          <a href="galerie_b.html">Session 2025/2026</a>
+          <a href="galerie_b.html">Session 2024/2025</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button type="button">Kontakt <span>▾</span></button>
+        <div class="mobile-links">
+          <a href="kontakt_b.html">Übersicht</a>
+          <a href="kontakt_b.html">Ansprechpartner</a>
+          <a href="kontakt_b.html">Geschäftsstelle</a>
+        </div>
+      </div>
+    </aside>
     </div>
 
     <nav aria-label="Hauptnavigation">
@@ -1166,7 +1247,7 @@
         <div class="board-grid" id="vorstand">
           <article class="board-card reveal">
             <div class="photo-frame">
-              <img src="Frohn2.png" alt="Tobias Frohn" />
+              <img src="Frohn.png" alt="Tobias Frohn" />
               <div class="photo-label">Präsident &amp; Literat</div>
             </div>
             <div class="board-body">
@@ -1178,7 +1259,7 @@
 
           <article class="board-card reveal">
             <div class="photo-frame">
-              <img src="Ich.png" alt="Marcel Redmer" />
+              <img src="Ich4.png" alt="Marcel Redmer" />
               <div class="photo-label">1. Geschäftsführer</div>
             </div>
             <div class="board-body">
@@ -1190,7 +1271,7 @@
 
           <article class="board-card reveal">
             <div class="photo-frame">
-              <img src="Grun2.png" alt="Pascal Grun" />
+              <img src="Grun.png" alt="Pascal Grun" />
               <div class="photo-label">1. Schatzmeister</div>
             </div>
             <div class="board-body">
@@ -1418,11 +1499,27 @@
 
     const mobileToggle = document.getElementById("mobileToggle");
     const mobilePanel = document.getElementById("mobilePanel");
+    const mobileBackdrop = document.getElementById("mobileBackdrop");
+    const mobileClose = document.getElementById("mobileClose");
+
+    function closeMenu() {
+      document.body.classList.remove("menu-open");
+      mobileToggle.setAttribute("aria-expanded", "false");
+      mobileToggle.textContent = "☰";
+      mobilePanel.setAttribute("aria-hidden", "true");
+      mobileBackdrop.hidden = true;
+    }
+
     mobileToggle.addEventListener("click", () => {
-      const open = mobilePanel.classList.toggle("open");
+      const open = document.body.classList.toggle("menu-open");
       mobileToggle.setAttribute("aria-expanded", String(open));
       mobileToggle.textContent = open ? "✕" : "☰";
+      mobilePanel.setAttribute("aria-hidden", String(!open));
+      mobileBackdrop.hidden = !open;
     });
+
+    mobileClose.addEventListener("click", closeMenu);
+    mobileBackdrop.addEventListener("click", closeMenu);
 
     document.querySelectorAll(".mobile-group").forEach(group => {
       const btn = group.querySelector("button");
@@ -1433,11 +1530,28 @@
       });
     });
 
+    document.querySelectorAll(".mobile-links a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
     const backTop = document.getElementById("backTop");
+    const updateHeaderCompact = () => {
+      if (window.innerWidth <= 1100 && window.scrollY > 80) {
+        document.body.classList.add("header-compact");
+      } else {
+        document.body.classList.remove("header-compact");
+      }
+    };
+
     window.addEventListener("scroll", () => {
       if (window.scrollY > 500) backTop.classList.add("show");
       else backTop.classList.remove("show");
+      updateHeaderCompact();
     });
+
+    window.addEventListener("resize", updateHeaderCompact);
+    updateHeaderCompact();
+
     backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   </script>
 </body>
